@@ -2,7 +2,7 @@
 
 ## Course Overview
 In today's data-driven business environment, the ability to transform raw data into meaningful visual insights is a critical competitive advantage. Data Visualization Analysis empowers you to clean data, explore structures, detect outliers, identify trends and clusters, spot patterns, evaluate business models, and present compelling results to stakeholders.
-This course provides hands-on training in visual data analysis techniques essential for business intelligence, market research, customer analytics, and strategic decision-making. Using Python as the primary tool—with no prior programming experience required—you will learn to create powerful visualizations that reveal insights hidden within data.
+This course provides hands-on training in visual data analysis techniques essential for business intelligence, market research, customer analytics, and strategic decision-making. Using Python as the primary tool, with no prior programming experience required, you will learn to create powerful visualizations that reveal insights hidden within data.
 
 __What You'll Learn:__
 
@@ -15,7 +15,7 @@ Through real business datasets and step-by-step Python tutorials, you will maste
 - Data preparation and cleaning to ensure analysis accuracy
 Creating interactive dashboards and presentation-ready visualizations
 
-While Python is our primary focus, you'll also gain exposure to complementary tools including R, Excel, and modern statistical software (Jamovi, JASP) to build a versatile analytical toolkit.
+While Python is our primary focus, you'll also gain exposure to complementary tools including Python, R, Excel, and modern statistical software (Jamovi, JASP) to build a versatile analytical toolkit.
 
 __Course Outcomes:__
 
