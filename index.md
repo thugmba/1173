@@ -23,7 +23,7 @@ By the end of this course, you will confidently use Python to analyze business d
 
 ## Course Materials
 
-- [Lecture Notes](Lectures/Notes.html)
+- [Lecture Notes](Lectures/VIZ.html)
 
 ## Term Project
 

@@ -4,18 +4,18 @@ subtitle: "Course Schedule - Transforming Data into Business Insights"
 author: "Business Analytics Program"
 date: today
 format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    theme: cosmo
-    code-fold: false
-    css: styles.css
-    embed-resources: true
-  # pdf:
+  # html:
   #   toc: true
+  #   toc-depth: 3
   #   number-sections: true
-  #   colorlinks: true
+  #   theme: cosmo
+  #   code-fold: false
+  #   css: styles.css
+  #   embed-resources: true
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
 ---
 
 # Course Overview
