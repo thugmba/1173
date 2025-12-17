@@ -1,24 +1,62 @@
 ---
 title: "Data Visualization Analysis"
-subtitle: "Course Schedule - Transforming Data into Business Insights"
+subtitle: "Transforming Data into Business Insights"
 # author: "Business Analytics Program"
 date: today
+author: "Brian Kim (Editor)" # Keep the author field, but we won't use it directly here
+# to avoid conflicts, we will write it out manually.
+
+# 1. Disable the standard \maketitle command to stop Pandoc's automatic formatting
+header-includes:
+  - \usepackage{titling}
+  - \renewcommand{\maketitle}{}
+  - \usepackage[ a4paper, top=25mm, bottom=25mm, left=25mm, right=25mm, heightrounded, marginparwidth=20mm ]{geometry}
+
+# 2. Insert custom LaTeX commands into the document body using 'include-before'
+#    This goes *after* \begin{document} and creates the title page manually.
+include-before: |
+  \begin{titlepage}
+  \centering
+  {\Huge \textbf{Data Visualization Analysis} \par}
+  \vspace{1em}
+  {\Large Transforming Data into Business Insights \par}
+  \vspace{2cm}
+  {\large \textbf{Brian Kim (Editor)} \par}
+  \vspace{0.5em}
+  {\large \textit{Global Master of Business Management, Tunghai University} \par}
+  \vspace{3cm}
+  {\large \textit{Draft} \par}
+  \vspace{3cm}
+  {\large \today \par}
+  \end{titlepage}
+# author:
+#   - name: Brian Kim (Editor)
+#     affilications:
+#       - name: Global Master of Business Management, Tunghai University
 format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    theme: cosmo
-    code-fold: false
-    css: styles.css
-    embed-resources: true
-#   pdf:
+#   html:
 #     toc: true
+#     toc-depth: 3
+#     toc-expand: false
 #     number-sections: true
-#     colorlinks: true
+#     theme: cosmo
+#     code-fold: false
+#     embed-resources: true
+#     # css: styles.css
+  pdf:
+    include-in-header:
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+    toc: true
+    code-overflow: wrap
+    documentclass: report
+    number-sections: true
+    colorlinks: true
+    papersize: a4
 ---
 
-# Data Visualization Analysis Course - Section Titles
+<!-- # Contents {.unnumbered}
 
 ## Module 1: Foundations of Python and Data Handling
 1. Introduction to Python and VSCode Setup
@@ -42,7 +80,7 @@ format:
 1. Introduction to Plotly and Interactive Charts
 2. Advanced Interactive Visualizations
 3. Creating Dashboards and Business Reports
-4. Final Project - Comprehensive Business Data Analysis
+4. Final Project - Comprehensive Business Data Analysis -->
 
 ---
 
@@ -58,7 +96,7 @@ format:
 
 ### Main Contents with Examples
 
-**1.1 Why Python for Business Data Visualization?**
+**Why Python for Business Data Visualization?**
 
 Python has become the leading tool for business data visualization and analytics for several important reasons:
 
@@ -78,7 +116,7 @@ While Excel is excellent for quick analyses and familiar to most business users,
 - Complex visualizations that require many manual steps in Excel can be automated in Python
 - Python is free and open-source, while Excel requires licensing
 
-**1.2 Installing Python and VSCode**
+**Installing Python and VSCode**
 
 **Step 1: Installing Python**
 
@@ -112,7 +150,7 @@ VSCode (Visual Studio Code) is a free, powerful code editor developed by Microso
 - IntelliSense (auto-completion) helps you write code faster
 - Free and cross-platform
 
-**1.3 Understanding the VSCode Interface**
+**Understanding the VSCode Interface**
 
 When you first open VSCode, you'll see several key areas:
 
@@ -141,7 +179,7 @@ When you first open VSCode, you'll see several key areas:
 3. The folder structure will appear in the Explorer sidebar
 4. Create new files by right-clicking in Explorer → New File
 
-**1.4 Setting Up Python in VSCode**
+**Setting Up Python in VSCode**
 
 **Installing the Python Extension:**
 
@@ -165,7 +203,7 @@ After installing the extension:
 2. Type "Python: Select Interpreter"
 3. Choose the Python version you installed
 
-**1.5 Package Management with pip**
+**Package Management with pip**
 
 Pip is Python's package manager - think of it as an app store for Python libraries. It comes pre-installed with Python.
 
@@ -200,7 +238,7 @@ pip install plotly
 - If you get permission errors on Mac/Linux, don't use sudo - instead create a virtual environment
 - Installation may take a few minutes for all packages
 
-**1.6 Your First Python Program**
+**Your First Python Program**
 
 Create a new file named `01_First_Program_Hello.py`:
 
@@ -221,7 +259,7 @@ print("Python is ready to analyze business data")
 
 The `print()` function displays text or numbers in the terminal. Think of it as Python talking to you - showing results, messages, or data.
 
-**1.7 Verifying Package Installation**
+**Verifying Package Installation**
 
 Create `02_Package_Test_Verification.py`:
 
@@ -335,7 +373,7 @@ print("Your data visualization environment is ready!")
 
 ### Main Contents with Examples
 
-**2.1 Variables and Data Types - The Foundation of Data**
+**Variables and Data Types - The Foundation of Data**
 
 **Understanding Variables:**
 
@@ -396,7 +434,7 @@ Python treats different types differently:
 - You can combine strings: `"Hello" + " World" = "Hello World"`
 - But you can't mix them incorrectly: `"Sales: " + 1000` causes an error
 
-**2.2 Mathematical Operations for Business Calculations**
+**Mathematical Operations for Business Calculations**
 
 **Basic Arithmetic:**
 
@@ -446,7 +484,7 @@ discounted_price = original_price * (1 - discount_rate)  # 850
 final_price = discounted_price * (1 + tax_rate)  # 918
 ```
 
-**2.3 Working with Strings in Business Context**
+**Working with Strings in Business Context**
 
 **String Formatting for Professional Output:**
 
@@ -474,7 +512,7 @@ print(f"Growth rate: {growth:.1%}")
 - `:.2f` shows 2 decimal places: `3.14159` → `3.14`
 - `:.1%` shows as percentage: `0.15` → `15.0%`
 
-**2.4 Lists - Managing Multiple Data Points**
+**Lists - Managing Multiple Data Points**
 
 **Understanding Lists:**
 
@@ -520,7 +558,7 @@ lowest_sales = min(sales)      # 45000
 number_of_months = len(sales)  # 6
 ```
 
-**2.5 Conditional Statements - Making Decisions**
+**Conditional Statements - Making Decisions**
 
 **The Business Logic of Programming:**
 
@@ -567,7 +605,7 @@ else:
 - Executes the first True condition
 - Skips the rest
 
-**2.6 Loops - Processing Repetitive Data**
+**Loops - Processing Repetitive Data**
 
 **Why Loops Matter:**
 
@@ -611,7 +649,7 @@ average = total / len(sales)
 - Searching through data
 - Generating reports with many entries
 
-**2.7 Functions - Reusable Business Logic**
+**Functions - Reusable Business Logic**
 
 **The Problem Functions Solve:**
 
@@ -786,7 +824,7 @@ Write a program that:
 
 ### Main Contents with Examples
 
-**3.1 Dictionaries - Structured Data Storage**
+**Dictionaries - Structured Data Storage**
 
 **Moving Beyond Simple Lists:**
 
@@ -795,6 +833,7 @@ Lists are great for single types of data (just sales numbers, just names). But b
 **Understanding Dictionaries:**
 
 A dictionary stores data in key-value pairs, like a real dictionary stores word-definition pairs:
+
 - **Key**: The label or name (like "product_name")
 - **Value**: The actual data (like "Laptop")
 
@@ -839,7 +878,7 @@ first_name = employees[0]["name"]  # Sarah
 
 While dictionaries and lists work for small datasets, they become cumbersome with real business data. This is where Pandas comes in.
 
-**3.2 Introduction to Pandas DataFrames**
+**Introduction to Pandas DataFrames**
 
 **What is Pandas?**
 
@@ -890,7 +929,7 @@ print(df)
 4    Headset     80         280  Accessories
 ```
 
-**3.3 Exploring DataFrames - Essential Commands**
+**Exploring DataFrames - Essential Commands**
 
 **Getting to Know Your Data:**
 
@@ -940,7 +979,7 @@ df.columns    # List of column names
 df.dtypes     # Data type of each column
 ```
 
-**3.4 Adding Calculated Columns**
+**Adding Calculated Columns**
 
 **Business Calculations in DataFrames:**
 
@@ -967,7 +1006,7 @@ df["Revenue_Per_Unit"] = df["Revenue"] / df["Units_Sold"]
 df["Price_Category"] = df["Price"] > 100  # True/False column
 ```
 
-**3.5 Reading Data from Files**
+**Reading Data from Files**
 
 **Real Business Data Sources:**
 
@@ -1006,7 +1045,7 @@ financial_data = pd.read_excel("Annual_Report.xlsx",
 - **Encoding errors:** Try `encoding="latin-1"` or `encoding="ISO-8859-1"`
 - **Date not recognized:** Use `parse_dates=["Date_Column"]`
 
-**3.6 Accessing Data - Columns, Rows, and Cells**
+**Accessing Data - Columns, Rows, and Cells**
 
 **Selecting Columns:**
 
@@ -1054,7 +1093,7 @@ price = df.iloc[0, 1]              # Row 0, Column 1
 price = df.loc[0, "Price"]         # Row 0, "Price" column
 ```
 
-**3.7 Filtering Data - Answering Business Questions**
+**Filtering Data - Answering Business Questions**
 
 **The Power of Conditional Selection:**
 
@@ -1093,7 +1132,7 @@ premium = df[(df["Category"] == "Electronics") & (df["Price"] > 100)]
 important = df[(df["Price"] > 200) | (df["Units_Sold"] > 300)]
 ```
 
-**3.8 Sorting and Grouping - Organizing Insights**
+**Sorting and Grouping - Organizing Insights**
 
 **Sorting for Rankings:**
 
@@ -1291,7 +1330,7 @@ Your program should have clearly commented sections:
 
 ### Main Contents with Examples
 
-**4.1 The Reality of Business Data**
+**The Reality of Business Data**
 
 **Why Data is Never Perfect:**
 
@@ -1315,7 +1354,7 @@ Data professionals spend approximately 80% of their time cleaning data and only 
 5. **Outliers** - extreme values that may be errors or real anomalies
 6. **Invalid values** - negative quantities, future dates for past transactions
 
-**4.2 Understanding Missing Data**
+**Understanding Missing Data**
 
 **Types of Missing Data:**
 
@@ -1408,7 +1447,7 @@ df["Region"].fillna(method="bfill", inplace=True)
 
 **Business Decision:** The method you choose should be documented and justified. Different business contexts require different approaches.
 
-**4.3 Handling Duplicate Records**
+**Handling Duplicate Records**
 
 **Why Duplicates Occur:**
 
@@ -1449,7 +1488,7 @@ df_unique = df.drop_duplicates(subset=["Customer_ID"], keep="first")
 - Same product might be sold multiple times
 - Check all relevant columns, not just one
 
-**4.4 Data Type Conversion**
+**Data Type Conversion**
 
 **Why Data Types Matter:**
 
@@ -1491,7 +1530,7 @@ df["Sales"] = pd.to_numeric(df["Sales"], errors="coerce")
 - Enable date-based filtering and analysis
 - Reduce memory usage
 
-**4.5 String Cleaning and Standardization**
+**String Cleaning and Standardization**
 
 **Common String Issues in Business Data:**
 
@@ -1533,7 +1572,7 @@ region_mapping = {
 df["Region"] = df["Region"].map(region_mapping)
 ```
 
-**4.6 Identifying and Handling Outliers**
+**Identifying and Handling Outliers**
 
 **What Are Outliers?**
 
@@ -1600,7 +1639,7 @@ df["Sales_Clean"] = df["Sales"].apply(
 3. Document: Explain why outliers were kept or removed
 4. Sometimes: Keep outliers, use median instead of mean
 
-**4.7 Creating a Complete Cleaning Pipeline**
+**Creating a Complete Cleaning Pipeline**
 
 **The Professional Approach:**
 
@@ -1882,7 +1921,7 @@ Add advanced features to your cleaning function:
 
 ### Main Contents with Examples
 
-**1.1 Why Data Visualization Matters in Business**
+**Why Data Visualization Matters in Business**
 
 **The Power of Visual Communication:**
 
@@ -1909,7 +1948,7 @@ As a line chart, you immediately see: "Steady upward trajectory, accelerating sl
 - **Error detection**: Anomalies stand out visually but hide in tables
 - **Persuasion**: Visual evidence is more convincing in presentations
 
-**1.2 Understanding Matplotlib Architecture**
+**Understanding Matplotlib Architecture**
 
 **What is Matplotlib?**
 
@@ -1982,7 +2021,7 @@ plt.show()
 - Industry best practice
 - Easier to customize
 
-**1.3 Your First Matplotlib Visualization**
+**Your First Matplotlib Visualization**
 
 **The Basic Workflow:**
 
@@ -2025,7 +2064,7 @@ plt.show()
 - In Jupyter notebooks: Optional (plots display automatically)
 - Pauses program execution until you close the plot window
 
-**1.4 Line Plots - Showing Trends Over Time**
+**Line Plots - Showing Trends Over Time**
 
 **When to Use Line Plots:**
 
@@ -2099,7 +2138,7 @@ plt.show()
 - `markersize=8`: Controls size of markers
 - `grid(True, alpha=0.3)`: Adds grid lines with 30% opacity
 
-**1.5 Scatter Plots - Showing Relationships**
+**Scatter Plots - Showing Relationships**
 
 **When to Use Scatter Plots:**
 
@@ -2152,7 +2191,7 @@ What to look for:
 - **No correlation**: Points scattered randomly
 - **Outliers**: Points far from the general pattern
 
-**1.6 Choosing Between Line and Scatter Plots**
+**Choosing Between Line and Scatter Plots**
 
 **Decision Framework:**
 
@@ -2174,7 +2213,7 @@ Imagine plotting store locations by (Latitude, Longitude):
 - Scatter plot: Shows geographic distribution
 - Line plot: Would incorrectly suggest a path between stores
 
-**1.7 Saving Your Visualizations**
+**Saving Your Visualizations**
 
 **Why Save Plots:**
 
@@ -2428,7 +2467,7 @@ Create one additional visualization of your choice using the provided data or yo
 
 ### Main Contents with Examples
 
-**2.1 The Importance of Customization in Business Context**
+**The Importance of Customization in Business Context**
 
 **Why Default Settings Aren't Enough:**
 
@@ -2466,7 +2505,7 @@ Compare these descriptions:
 
 The second version communicates authority and attention to detail.
 
-**2.2 Working with Colors Effectively**
+**Working with Colors Effectively**
 
 **Understanding Color in Matplotlib:**
 
@@ -2557,7 +2596,7 @@ ax.plot(x, y, color='#648FFF')  # Blue
 ax.plot(x, y2, color='#FFB000')  # Orange
 ```
 
-**2.3 Comprehensive Labeling Strategies**
+**Comprehensive Labeling Strategies**
 
 **The Three Essential Labels:**
 
@@ -2641,7 +2680,7 @@ ax.text(0.5, 1.05, 'North American Region',
 plt.show()
 ```
 
-**2.4 Legends - Distinguishing Multiple Data Series**
+**Legends - Distinguishing Multiple Data Series**
 
 **When Legends are Essential:**
 
@@ -2729,7 +2768,7 @@ ax.legend(loc='upper center', ncol=3,  # 3 columns
           bbox_to_anchor=(0.5, -0.15))  # Below plot
 ```
 
-**2.5 Font Control and Text Styling**
+**Font Control and Text Styling**
 
 **Why Typography Matters:**
 
@@ -2809,7 +2848,7 @@ Create visual hierarchy through sizing:
 - **Annotations**: 9-10pt, normal weight
 - **Legend**: 10-11pt, normal weight
 
-**2.6 Axes Formatting and Number Display**
+**Axes Formatting and Number Display**
 
 **The Challenge of Readability:**
 
@@ -2878,7 +2917,7 @@ ax.set_xticklabels(labels, rotation=45, ha='right')
 ax.yaxis.set_major_locator(ticker.MaxNLocator(6))  # Approximately 6 ticks
 ```
 
-**2.7 Bringing It All Together: Complete Customization**
+**Bringing It All Together: Complete Customization**
 
 **A Professional, Fully-Customized Chart:**
 
@@ -3182,6 +3221,7 @@ Using any of the previous datasets or your own business scenario:
 **Professional Standards Checklist:**
 
 For each chart, verify:
+
 - [ ] Title clearly states what is shown
 - [ ] Both axes labeled with units
 - [ ] Numbers formatted appropriately (millions, thousands, percentages)
@@ -3216,7 +3256,7 @@ For each chart, verify:
 
 ### Main Contents with Examples
 
-**3.1 The Business Case for Multiple Plots**
+**The Business Case for Multiple Plots**
 
 **Why Single Plots Aren't Always Enough:**
 
@@ -3259,7 +3299,7 @@ Comparing this year vs. last year:
 - Plots need different scales that confuse comparison
 - Each plot tells a completely different story
 
-**3.2 Understanding Subplot Architecture**
+**Understanding Subplot Architecture**
 
 **The Conceptual Model:**
 
@@ -3312,7 +3352,7 @@ fig, axes = plt.subplots(3, 1, figsize=(10, 12))
 fig, axes = plt.subplots(2, 3, figsize=(15, 8))
 ```
 
-**3.3 Creating a Simple Multi-Plot Dashboard**
+**Creating a Simple Multi-Plot Dashboard**
 
 **Example: Quarterly Business Dashboard**
 
@@ -3372,7 +3412,7 @@ plt.show()
 3. `fig.suptitle()` adds overall title
 4. `tight_layout()` prevents overlapping elements
 
-**3.4 Controlling Subplot Spacing and Layout**
+**Controlling Subplot Spacing and Layout**
 
 **The Problem of Overlap:**
 
@@ -3426,7 +3466,7 @@ plt.subplots_adjust(
 - Creating very specific layouts
 - Preparing for publication with strict requirements
 
-**3.5 Sharing Axes Across Subplots**
+**Sharing Axes Across Subplots**
 
 **The Comparison Challenge:**
 
@@ -3505,7 +3545,7 @@ plt.show()
 - Professional appearance
 - Easier to spot performance differences
 
-**3.6 Mixing Different Plot Types**
+**Mixing Different Plot Types**
 
 **Telling Different Stories in One Figure:**
 
@@ -3576,7 +3616,7 @@ plt.show()
 4. **Reference Lines**: Target satisfaction marked
 5. **Consistent Formatting**: Similar styling across panels
 
-**3.7 Advanced Layouts with GridSpec**
+**Advanced Layouts with GridSpec**
 
 **Beyond Simple Grids:**
 
@@ -3882,7 +3922,7 @@ product_c_sales = [290, 310, 330, 360, 390, 420, 450, 480]
 
 ### Main Contents with Examples
 
-**4.1 Bar Charts - The Foundation of Categorical Comparison**
+**Bar Charts - The Foundation of Categorical Comparison**
 
 **Why Bar Charts Dominate Business:**
 
@@ -3937,7 +3977,7 @@ plt.show()
 - **Edge color**: Defines bar boundaries clearly
 - **Grid**: Horizontal grid lines help reading values
 
-**4.2 Horizontal Bar Charts - When to Switch Orientation**
+**Horizontal Bar Charts - When to Switch Orientation**
 
 **Use Horizontal Bars When:**
 
@@ -3984,7 +4024,7 @@ plt.show()
 - Natural top-to-bottom ranking
 - Better for data stories emphasizing order
 
-**4.3 Grouped Bar Charts - Comparing Multiple Series**
+**Grouped Bar Charts - Comparing Multiple Series**
 
 **The Business Need:**
 
@@ -4047,7 +4087,7 @@ plt.show()
 - Each category has multiple values
 - Differences within categories matter more than totals
 
-**4.4 Stacked Bar Charts - Showing Part-to-Whole**
+**Stacked Bar Charts - Showing Part-to-Whole**
 
 **The Composition Question:**
 
@@ -4109,7 +4149,7 @@ plt.show()
 
 **Warning:** Stacked bars make it hard to compare middle sections. Only the bottom section and total are easy to compare.
 
-**4.5 Line Charts - Temporal Trends and Continuous Data**
+**Line Charts - Temporal Trends and Continuous Data**
 
 **The Time Series Specialist:**
 
@@ -4178,7 +4218,7 @@ plt.show()
 - **Shading**: Highlight specific periods
 - **Multiple lines**: Compare trends
 
-**4.6 Pie Charts - Use Sparingly and Wisely**
+**Pie Charts - Use Sparingly and Wisely**
 
 **The Controversial Chart:**
 
@@ -4256,7 +4296,7 @@ For most situations, consider:
 - **Treemap**: For hierarchical data
 - **Stacked percentage bar**: Shows composition more clearly
 
-**4.7 Choosing the Right Chart Type**
+**Choosing the Right Chart Type**
 
 **Decision Framework:**
 
@@ -4574,7 +4614,7 @@ Before creating each chart, ask:
 
 ### Main Contents with Examples
 
-**1.1 What is Seaborn and Why Use It?**
+**What is Seaborn and Why Use It?**
 
 **The Evolution Beyond Matplotlib:**
 
@@ -4623,7 +4663,7 @@ Seaborn handles all statistical calculations and styling automatically.
 
 **Important Understanding:** Seaborn is built on top of Matplotlib, not a replacement. You'll often use both together - Seaborn for the plot structure, Matplotlib for fine-tuning.
 
-**1.2 Installing and Importing Seaborn**
+**Installing and Importing Seaborn**
 
 **Installation:**
 
@@ -4649,7 +4689,7 @@ import seaborn as sns
 print(sns.__version__)  # Should be 0.12 or higher
 ```
 
-**1.3 Seaborn's Theme and Style System**
+**Seaborn's Theme and Style System**
 
 **The Aesthetic Advantage:**
 
@@ -4725,7 +4765,7 @@ sns.set_theme(style="whitegrid",      # Clean, professional
 
 This single setup ensures all subsequent Seaborn plots have a professional, accessible appearance.
 
-**1.4 Understanding Seaborn's Two Interfaces**
+**Understanding Seaborn's Two Interfaces**
 
 **A Critical Concept:**
 
@@ -4767,7 +4807,7 @@ plt.show()
 - **Custom layouts**: Axes-level (more control)
 - **Multi-panel**: Figure-level (automatic faceting)
 
-**1.5 Histograms - Understanding Data Distribution**
+**Histograms - Understanding Data Distribution**
 
 **Why Histograms Matter in Business:**
 
@@ -4837,7 +4877,7 @@ A histogram of customer purchase amounts showing:
 - **Right-skewed**: Most customers spend $40-60, but a few big spenders reach $150+
 - **Business insight**: Can't rely on average alone; need strategies for both typical customers and high-value customers
 
-**1.6 KDE Plots - Smooth Distribution Curves**
+**KDE Plots - Smooth Distribution Curves**
 
 **Beyond Histogram Bars:**
 
@@ -4901,7 +4941,7 @@ Comparing customer lifetime value distributions across regions:
 - East Coast: Wide, low peak = highly variable customer value
 - **Insight**: West Coast needs retention strategy, East Coast needs segmentation
 
-**1.7 Box Plots - The Statistical Summary**
+**Box Plots - The Statistical Summary**
 
 **The Five-Number Summary:**
 
@@ -5014,7 +5054,7 @@ A CFO looking at departmental budget variance box plots:
 
 **Pre-Lab Setup:**
 
-1. Create file: `M3L01_YourName_StatPlots.py`
+1. Create file: `S1234567_YourName_StatPlots.py`
 2. Import libraries:
 ```python
 import seaborn as sns
@@ -5074,7 +5114,7 @@ df_ages = pd.DataFrame({'age': member_ages})
 
 3. **Save the visualization:**
 
-   - Filename: `M3L01_YourName_AgeDistribution.png`
+   - Filename: `S1234567_YourName_AgeDistribution.png`
    - High resolution (dpi=300)
 
 **Part B: Revenue Distribution Comparison (30 points)**
@@ -5124,7 +5164,7 @@ df_revenue = pd.DataFrame({
      * Which tier has the most consistent (least variable) revenue?
      * Is there any overlap between tiers?
      * What percentage of Basic members might be good candidates for Premium upgrade?
-     * Save as: `M3L01_YourName_RevenueTiers.png`
+     * Save as: `S1234567_YourName_RevenueTiers.png`
 
 **Part C: Facility Usage Box Plot Comparison (25 points)**
 
@@ -5176,7 +5216,7 @@ df_visits = pd.DataFrame({
 
 3. **Save and document:**
 
-   - Save as: `M3L01_YourName_UsageByTime.png`
+   - Save as: `S1234567_YourName_UsageByTime.png`
    - In comments, provide staffing recommendations based on the visualization
 
 **Part D: Multi-Facility Comparison (20 points)**
@@ -5231,7 +5271,7 @@ df_satisfaction = pd.DataFrame({
 
 3. **Save and analyze:**
 
-   - Save as: `M3L01_YourName_FacilitySatisfaction.png`
+   - Save as: `S1234567_YourName_FacilitySatisfaction.png`
    - In comments, identify which facilities need immediate attention
 
 **Bonus Challenge (+20 points):**
@@ -5251,17 +5291,17 @@ Combine all four analyses into a single 2×2 subplot figure:
 - Overall figure title: "HealthyLife Fitness - Q4 2024 Statistical Analysis Dashboard"
 - Proper spacing (no overlapping elements)
 - Each subplot should be readable and professional
-- Save as: `M3L01_YourName_Dashboard.png`
+- Save as: `S1234567_YourName_Dashboard.png`
 
 **Deliverables:**
 
-1. Python file: `M3L01_YourName_StatPlots.py`
+1. Python file: `S1234567_YourName_StatPlots.py`
 2. Four PNG files (five if bonus attempted):
-   - `M3L01_YourName_AgeDistribution.png`
-   - `M3L01_YourName_RevenueTiers.png`
-   - `M3L01_YourName_UsageByTime.png`
-   - `M3L01_YourName_FacilitySatisfaction.png`
-   - `M3L01_YourName_Dashboard.png` (bonus)
+   - `S1234567_YourName_AgeDistribution.png`
+   - `S1234567_YourName_RevenueTiers.png`
+   - `S1234567_YourName_UsageByTime.png`
+   - `S1234567_YourName_FacilitySatisfaction.png`
+   - `S1234567_YourName_Dashboard.png` (bonus)
 
 **Grading Rubric:**
 
@@ -5323,7 +5363,7 @@ When analyzing distributions, always assess:
 
 ### Main Contents with Examples
 
-**2.1 Beyond Single Variables - Exploring Relationships**
+**Beyond Single Variables - Exploring Relationships**
 
 **The Business Reality:**
 
@@ -5361,7 +5401,7 @@ Single-variable distributions (histograms, box plots) don't answer these questio
 - Example: Advertising spend → Revenue (diminishing returns)
 - Business implication: Complex relationship requires different models
 
-**2.2 Scatter Plots with Regression Lines**
+**Scatter Plots with Regression Lines**
 
 **The Foundation of Relationship Analysis:**
 
@@ -5427,7 +5467,7 @@ Looking at the marketing spend plot:
 - **Scatter around line**: Some variation, but overall strong pattern
 - **Decision support**: Provides evidence that marketing investment correlates with revenue growth
 
-**2.3 Joint Plots - Combining Multiple Perspectives**
+**Joint Plots - Combining Multiple Perspectives**
 
 **The Multi-View Approach:**
 
@@ -5521,7 +5561,7 @@ From employee compensation joint plot:
 - **Right**: Salary slightly right-skewed (few very high earners)
 - **Outlier**: One employee with 15 years making only $50K (investigate!)
 
-**2.4 Pair Plots - Multivariate Exploration**
+**Pair Plots - Multivariate Exploration**
 
 **The "Look at Everything" Tool:**
 
@@ -5627,7 +5667,7 @@ Now each scatter plot shows three colors (Budget, Standard, Premium), revealing:
 - Do purchase behaviors differ by segment?
 - Are segments well-separated or overlapping?
 
-**2.5 Residual Plots - Assessing Model Quality**
+**Residual Plots - Assessing Model Quality**
 
 **Beyond the Line - How Good is the Fit?**
 
@@ -5739,7 +5779,7 @@ plt.show()
 
 **Action**: Use polynomial or log model instead of linear
 
-**2.6 Practical Workflow for Relationship Analysis**
+**Practical Workflow for Relationship Analysis**
 
 **Step-by-Step Business Analysis Process:**
 
@@ -5812,7 +5852,7 @@ correlation = df_sales[['ad_spend', 'revenue']].corr().iloc[0, 1]
 print(f"Correlation between Ad Spend and Revenue: {correlation:.3f}")
 ```
 
-**2.7 Statistical Significance and Business Decisions**
+**Statistical Significance and Business Decisions**
 
 **Understanding Correlation Strength:**
 
@@ -6144,7 +6184,7 @@ For each relationship analyzed, document:
 
 ### Main Contents with Examples
 
-**3.1 The Nature of Categorical Data in Business**
+**The Nature of Categorical Data in Business**
 
 **Understanding Categorical Variables:**
 
@@ -6171,7 +6211,7 @@ Unlike continuous variables (revenue, age, temperature), categorical variables:
 3. **How do distributions differ?** - "Do salaries vary by department?"
 4. **Are there patterns?** - "Do customer satisfaction scores differ by product line?"
 
-**3.2 Count Plots - Visualizing Frequencies**
+**Count Plots - Visualizing Frequencies**
 
 **The Most Basic Categorical Question: "How Many?"**
 
@@ -6260,7 +6300,7 @@ From the count plot:
 - **Enterprise segment**: 25 customers (5%) - smallest but likely highest revenue
 - **Strategic insight**: Marketing budget should reflect distribution, but sales focus on high-value Enterprise
 
-**3.3 Bar Plots - Showing Aggregated Values**
+**Bar Plots - Showing Aggregated Values**
 
 **Beyond Counts - Showing Calculated Values:**
 
@@ -6346,7 +6386,7 @@ sns.barplot(data=df_sales, x='region', y='sales',
             estimator='sum')
 ```
 
-**3.4 Violin Plots - Distribution Shapes Within Categories**
+**Violin Plots - Distribution Shapes Within Categories**
 
 **The Problem with Bar Plots:**
 
@@ -6444,7 +6484,7 @@ HR uses violin plots to:
 - Compare not just averages but entire experience ranges
 - Target interventions to specific issues
 
-**3.5 Box Plots for Categorical Comparisons**
+**Box Plots for Categorical Comparisons**
 
 **The Statistical Workhorse:**
 
@@ -6516,7 +6556,7 @@ plt.show()
 - Audience can interpret density plots
 - Have fewer categories to compare
 
-**3.6 Point Plots - Showing Trends Across Categories**
+**Point Plots - Showing Trends Across Categories**
 
 **Emphasizing Changes and Comparisons:**
 
@@ -6585,7 +6625,7 @@ Looking at the satisfaction trends:
 - **Enterprise tier**: Already high but plateauing - may need special attention
 - **Gap widening**: Higher tiers pulling away - good for premium positioning
 
-**3.7 Strip and Swarm Plots - Showing Individual Data Points**
+**Strip and Swarm Plots - Showing Individual Data Points**
 
 **When You Need to See Every Observation:**
 
@@ -6693,7 +6733,7 @@ plt.show()
 - Need to identify specific data points
 - Transparency about data size important
 
-**3.8 Combining Multiple Categorical Plots**
+**Combining Multiple Categorical Plots**
 
 **Layering Plots for Rich Insights:**
 
@@ -7138,7 +7178,7 @@ Build a 2×3 grid (6 subplots) showing:
 
 ### Main Contents with Examples
 
-**4.1 The Challenge of Multivariate Data**
+**The Challenge of Multivariate Data**
 
 **Beyond Two Variables:**
 
@@ -7167,7 +7207,7 @@ Heatmaps show many values at once using color intensity:
 
 One glance reveals patterns across dozens of relationships.
 
-**4.2 Understanding Correlation**
+**Understanding Correlation**
 
 **What is Correlation?**
 
@@ -7217,7 +7257,7 @@ Correlation measures the **strength and direction** of a linear relationship bet
 - Employee height → Salary
 - **Interpretation**: No meaningful relationship (as expected!)
 
-**4.3 Creating Correlation Matrices**
+**Creating Correlation Matrices**
 
 **Calculating Correlations in Pandas:**
 
@@ -7271,7 +7311,7 @@ price               -0.102345         0.034567    -0.056789      0.123456   1.00
 - Revenue & Sales Calls: r=0.72 (strong positive - calls matter!)
 - Revenue & Price: r=-0.10 (weak negative - price doesn't hurt much)
 
-**4.4 Creating Basic Correlation Heatmaps**
+**Creating Basic Correlation Heatmaps**
 
 **Visualizing the Correlation Matrix:**
 
@@ -7381,7 +7421,7 @@ plt.show()
 - **Question**: Why isn't satisfaction driving revenue more?
 - **Possible answer**: Long-term effect not captured in current period data
 
-**4.5 Advanced Heatmap Techniques**
+**Advanced Heatmap Techniques**
 
 **Masking the Upper Triangle (Avoid Redundancy):**
 
@@ -7454,7 +7494,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-**4.6 Pivot Table Heatmaps - Two-Way Categorical Analysis**
+**Pivot Table Heatmaps - Two-Way Categorical Analysis**
 
 **Beyond Correlation - Categorical Relationships:**
 
@@ -7557,7 +7597,7 @@ plt.show()
 - Create Q1 promotions for South
 - Study East's practices to replicate elsewhere
 
-**4.7 Clustermaps - Discovering Hidden Groupings**
+**Clustermaps - Discovering Hidden Groupings**
 
 **The Pattern Recognition Problem:**
 
@@ -7662,7 +7702,7 @@ plt.show()
 - **Insight**: Operations independent of customer metrics
 - **Question**: Should they be? Investigate connection
 
-**4.8 Multicollinearity and Variable Selection**
+**Multicollinearity and Variable Selection**
 
 **The Redundancy Problem:**
 
@@ -7707,7 +7747,7 @@ If Revenue and Cash_Flow correlate at r=0.92:
 - **For sales forecasting**: Keep Revenue (direct measure)
 - **For profitability analysis**: Keep Profit (more relevant)
 
-**4.9 Color Scheme Selection for Different Contexts**
+**Color Scheme Selection for Different Contexts**
 
 **Choosing the Right Colors Matters:**
 
@@ -8167,7 +8207,7 @@ Build a figure with 4 subplots (2×2) showing:
 
 ### Main Contents with Examples
 
-**1.1 Why Interactive Visualizations Transform Business Communication**
+**Why Interactive Visualizations Transform Business Communication**
 
 **The Limitation of Static Charts:**
 
@@ -8220,7 +8260,7 @@ Interactive visualizations solve these problems:
 
 **Result**: Executives answer their own questions in real-time during presentations.
 
-**1.2 Understanding Plotly - The Interactive Visualization Library**
+**Understanding Plotly - The Interactive Visualization Library**
 
 **What is Plotly?**
 
@@ -8268,7 +8308,7 @@ If not installed:
 pip install plotly
 ```
 
-**1.3 Your First Interactive Chart - The Plotly Workflow**
+**Your First Interactive Chart - The Plotly Workflow**
 
 **Understanding the Fundamental Difference:**
 
@@ -8336,7 +8376,7 @@ Try these interactions:
 
 No additional code needed - interactivity is automatic!
 
-**1.4 Customizing Hover Information**
+**Customizing Hover Information**
 
 **The Default Hover is Good, But We Can Do Better:**
 
@@ -8412,7 +8452,7 @@ fig.show()
 - **<br>**: Line break
 - **<extra></extra>**: Remove default trace info
 
-**1.5 Creating Interactive Line Charts**
+**Creating Interactive Line Charts**
 
 **Time Series with Interactive Features:**
 
@@ -8504,7 +8544,7 @@ Executive asks: "Did the South region dip in Q3 2023?"
 - See all three regions' values
 - Answer immediately: "Yes, South dropped 15% while others remained stable"
 
-**1.6 Interactive Bar Charts with Drill-Down**
+**Interactive Bar Charts with Drill-Down**
 
 **Bar Charts with Rich Context:**
 
@@ -8585,7 +8625,7 @@ In `hover_data`:
 - Shows magnitude visually
 - Popular scales: 'Blues', 'Reds', 'Greens', 'Viridis', 'Plasma'
 
-**1.7 Saving and Sharing Interactive Visualizations**
+**Saving and Sharing Interactive Visualizations**
 
 **Export Options:**
 
@@ -8625,7 +8665,7 @@ Interactive HTML charts can be embedded in:
 - **Confluence/SharePoint**: Upload HTML, link in document
 - **Email**: Attach HTML file (recipients open in browser)
 
-**1.8 Plotly Express vs Graph Objects - When to Use Each**
+**Plotly Express vs Graph Objects - When to Use Each**
 
 **Quick Reference:**
 
@@ -9114,7 +9154,7 @@ For each visualization, verify:
 
 ### Main Contents with Examples
 
-**2.1 Multi-Trace Figures - Combining Different Visualizations**
+**Multi-Trace Figures - Combining Different Visualizations**
 
 **The Power of Layered Information:**
 
@@ -9220,7 +9260,7 @@ fig.show()
 - Shows context (average)
 - All in ONE interactive chart
 
-**2.2 Faceted Plots - Small Multiples for Comparison**
+**Faceted Plots - Small Multiples for Comparison**
 
 **The Small Multiples Principle:**
 
@@ -9320,7 +9360,7 @@ fig.show()
 - Want to avoid cluttered single plot
 - Groups should be compared on same scale
 
-**2.3 Dropdown Menus and Buttons - User-Controlled Interactivity**
+**Dropdown Menus and Buttons - User-Controlled Interactivity**
 
 **Beyond Hover and Zoom:**
 
@@ -9456,7 +9496,7 @@ Executive dashboard where users select:
 - Formatting changes based on metric
 - One clean interface, multiple views
 
-**2.4 Animation - Showing Change Over Time**
+**Animation - Showing Change Over Time**
 
 **When Animation Enhances Understanding:**
 
@@ -9565,7 +9605,7 @@ fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 500  # 
 - Demonstrating cause-effect with timing
 - Limited when: User needs to compare non-sequential frames
 
-**2.5 3D Visualizations - Adding Another Dimension**
+**3D Visualizations - Adding Another Dimension**
 
 **Three-Dimensional Data:**
 
@@ -9681,7 +9721,7 @@ Users can:
 
 **Alternative: Multiple 2D views often better than 3D**
 
-**2.6 Synchronized Subplots - Coordinated Multiple Views**
+**Synchronized Subplots - Coordinated Multiple Views**
 
 **The Coordinated View Concept:**
 
@@ -9787,7 +9827,7 @@ Hover over "Product C":
 - See its return rate (bottom plot)
 - All at once - immediate insight into product health
 
-**2.7 Custom Styling and Themes**
+**Custom Styling and Themes**
 
 **Beyond Default Aesthetics:**
 
@@ -10236,6 +10276,2115 @@ Build an advanced interactive dashboard combining multiple techniques:
 - Missing hover information
 - Slow-loading animations (too many data points)
 
+## Section 3: Creating Dashboards and Business Reports
+
+### Objective
+- Design comprehensive multi-chart dashboards using Plotly
+- Master subplot layouts for professional dashboard creation
+- Create KPI cards and metric displays
+- Build narrative-driven business reports with visualizations
+- Export dashboards for stakeholder distribution
+- Implement responsive design principles for different screen sizes
+- Integrate text, images, and branding into visual reports
+
+### Main Contents with Examples
+
+**The Anatomy of an Effective Business Dashboard**
+
+**What Makes a Dashboard Effective:**
+
+A dashboard is not just multiple charts on one page. An effective business dashboard has:
+
+**1. Clear Hierarchy:**
+
+- Most important metrics prominently displayed (top-left, largest)
+- Supporting details in secondary positions
+- Visual flow guides the eye through insights
+
+**2. Context and Comparison:**
+
+- Current values with historical comparison
+- Targets/benchmarks clearly shown
+- Trend indicators (↑↓) immediately visible
+
+**3. Actionability:**
+
+- Red/green indicators for performance
+- Drill-down capabilities where needed
+- Clear calls-to-action implied
+
+**4. Appropriate Density:**
+
+- Not too sparse (wasted space)
+- Not too cluttered (overwhelming)
+- ~4-8 key visualizations optimal
+
+**Dashboard Design Principles:**
+
+**The 5-Second Rule:**
+
+- Key message understandable in 5 seconds
+- Detailed exploration available for those who need it
+- Progressive disclosure of information
+
+**The "So What?" Test:**
+
+- Every chart answers a specific business question
+- Stakeholder should immediately know: "So what should I do?"
+- No chart exists just to fill space
+
+**Building a Multi-Panel Dashboard Layout**
+
+**Strategic Layout Patterns:**
+
+```python
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
+
+# Generate comprehensive business data
+np.random.seed(42)
+months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
+
+df_business = pd.DataFrame({
+    'month': months,
+    'revenue': np.random.uniform(800000, 1200000, 12) + np.arange(12) * 20000,
+    'costs': np.random.uniform(500000, 700000, 12) + np.arange(12) * 10000,
+    'new_customers': np.random.randint(150, 300, 12),
+    'churn_rate': np.random.uniform(0.02, 0.08, 12)
+})
+
+df_business['profit'] = df_business['revenue'] - df_business['costs']
+df_business['profit_margin'] = df_business['profit'] / df_business['revenue']
+
+# Regional breakdown
+regions = ['North', 'South', 'East', 'West']
+regional_sales = [3200000, 2800000, 3500000, 2900000]
+
+# Product categories
+categories = ['Product A', 'Product B', 'Product C', 'Product D']
+category_revenue = [4200000, 3500000, 2800000, 2100000]
+
+# Create dashboard layout: 2x2 grid
+fig = make_subplots(
+    rows=2, cols=2,
+    subplot_titles=('Monthly Revenue Trend', 
+                    'Regional Sales Distribution',
+                    'Profit Margin Evolution', 
+                    'Product Revenue Breakdown'),
+    specs=[[{'type': 'scatter'}, {'type': 'bar'}],
+           [{'type': 'scatter'}, {'type': 'pie'}]],
+    vertical_spacing=0.12,
+    horizontal_spacing=0.1
+)
+
+# Chart 1: Revenue trend line (top-left)
+fig.add_trace(
+    go.Scatter(
+        x=df_business['month'],
+        y=df_business['revenue'],
+        mode='lines+markers',
+        name='Revenue',
+        line=dict(color='#2E86AB', width=3),
+        marker=dict(size=8),
+        hovertemplate='<b>Revenue</b><br>%{x|%b %Y}<br>$%{y:,.0f}<extra></extra>'
+    ),
+    row=1, col=1
+)
+
+# Add target line
+fig.add_hline(y=1000000, line_dash='dash', line_color='red',
+              annotation_text='Target: $1M', 
+              annotation_position='right',
+              row=1, col=1)
+
+# Chart 2: Regional sales bars (top-right)
+fig.add_trace(
+    go.Bar(
+        x=regions,
+        y=regional_sales,
+        name='Regional Sales',
+        marker_color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],
+        text=[f'${v/1e6:.1f}M' for v in regional_sales],
+        textposition='outside',
+        hovertemplate='<b>%{x}</b><br>$%{y:,.0f}<extra></extra>'
+    ),
+    row=1, col=2
+)
+
+# Chart 3: Profit margin line (bottom-left)
+fig.add_trace(
+    go.Scatter(
+        x=df_business['month'],
+        y=df_business['profit_margin'],
+        mode='lines+markers',
+        name='Profit Margin',
+        line=dict(color='#06A77D', width=3),
+        fill='tozeroy',
+        fillcolor='rgba(6, 167, 125, 0.2)',
+        hovertemplate='<b>Profit Margin</b><br>%{x|%b %Y}<br>%{y:.1%}<extra></extra>'
+    ),
+    row=2, col=1
+)
+
+# Chart 4: Product revenue pie (bottom-right)
+fig.add_trace(
+    go.Pie(
+        labels=categories,
+        values=category_revenue,
+        name='Products',
+        hovertemplate='<b>%{label}</b><br>$%{value:,.0f}<br>%{percent}<extra></extra>',
+        marker=dict(colors=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'])
+    ),
+    row=2, col=2
+)
+
+# Update layout
+fig.update_layout(
+    title_text='<b>Business Performance Dashboard - 2024 Overview</b>',
+    title_font_size=20,
+    title_x=0.5,
+    showlegend=False,
+    height=800,
+    plot_bgcolor='#F8F9FA',
+    paper_bgcolor='white'
+)
+
+# Format axes
+fig.update_xaxes(showgrid=True, gridcolor='white', row=1, col=1)
+fig.update_yaxes(title_text='Revenue ($)', tickformat='$,.0f', row=1, col=1)
+fig.update_yaxes(title_text='Sales ($)', tickformat='$,.0f', row=1, col=2)
+fig.update_yaxes(title_text='Margin', tickformat='.0%', row=2, col=1)
+
+fig.show()
+```
+
+**Layout Strategy Explained:**
+
+**Top Row (Strategic Overview):**
+
+- **Top-left**: Primary metric (Revenue) - largest, most important
+- **Top-right**: Comparison metric (Regional breakdown)
+
+**Bottom Row (Supporting Details):**
+
+- **Bottom-left**: Efficiency metric (Profit margin)
+- **Bottom-right**: Composition (Product mix)
+
+**Visual Flow:** Top → Bottom, Left → Right (Western reading pattern)
+
+**Creating KPI Cards and Metric Displays**
+
+**KPI Cards: The Dashboard Headlines**
+
+Key Performance Indicators should be immediately visible, large, and comparative.
+
+```python
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Calculate KPIs
+current_month_revenue = 1180000
+previous_month_revenue = 1100000
+revenue_change = ((current_month_revenue - previous_month_revenue) / 
+                  previous_month_revenue)
+
+current_customers = 4850
+previous_customers = 4720
+customer_change = ((current_customers - previous_customers) / 
+                   previous_customers)
+
+current_margin = 0.28
+previous_margin = 0.26
+margin_change = current_margin - previous_margin
+
+# Create figure with annotation-based KPI cards
+fig = go.Figure()
+
+# Add invisible trace to set up the canvas
+fig.add_trace(go.Scatter(
+    x=[0, 1],
+    y=[0, 1],
+    mode='markers',
+    marker=dict(size=0.1, color='white'),
+    showlegend=False,
+    hoverinfo='none'
+))
+
+# KPI Card 1: Revenue
+fig.add_annotation(
+    x=0.15, y=0.85,
+    xref='paper', yref='paper',
+    text=f'<b>Monthly Revenue</b><br>' +
+         f'<span style="font-size:32px; color:#2E86AB">${current_month_revenue:,.0f}</span><br>' +
+         f'<span style="color:{"green" if revenue_change > 0 else "red"}">{"↑" if revenue_change > 0 else "↓"} {revenue_change:.1%} vs last month</span>',
+    showarrow=False,
+    bgcolor='#F8F9FA',
+    bordercolor='#2E86AB',
+    borderwidth=2,
+    borderpad=20,
+    font=dict(size=12),
+    align='center'
+)
+
+# KPI Card 2: Customers
+fig.add_annotation(
+    x=0.50, y=0.85,
+    xref='paper', yref='paper',
+    text=f'<b>Active Customers</b><br>' +
+         f'<span style="font-size:32px; color:#06A77D">{current_customers:,}</span><br>' +
+         f'<span style="color:{"green" if customer_change > 0 else "red"}">{"↑" if customer_change > 0 else "↓"} {customer_change:.1%} vs last month</span>',
+    showarrow=False,
+    bgcolor='#F8F9FA',
+    bordercolor='#06A77D',
+    borderwidth=2,
+    borderpad=20,
+    font=dict(size=12),
+    align='center'
+)
+
+# KPI Card 3: Profit Margin
+fig.add_annotation(
+    x=0.85, y=0.85,
+    xref='paper', yref='paper',
+    text=f'<b>Profit Margin</b><br>' +
+         f'<span style="font-size:32px; color:#FFA07A">{current_margin:.1%}</span><br>' +
+         f'<span style="color:{"green" if margin_change > 0 else "red"}">{"↑" if margin_change > 0 else "↓"} {abs(margin_change):.1%} vs last month</span>',
+    showarrow=False,
+    bgcolor='#F8F9FA',
+    bordercolor='#FFA07A',
+    borderwidth=2,
+    borderpad=20,
+    font=dict(size=12),
+    align='center'
+)
+
+# Update layout
+fig.update_layout(
+    title='<b>Key Performance Indicators - December 2024</b>',
+    title_x=0.5,
+    title_font_size=20,
+    xaxis=dict(visible=False),
+    yaxis=dict(visible=False),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=300,
+    margin=dict(l=20, r=20, t=80, b=20)
+)
+
+fig.show()
+```
+
+**KPI Card Best Practices:**
+
+**1. Structure:**
+
+- Label (what is it)
+- Big number (current value)
+- Comparison (vs target/previous period)
+- Trend indicator (↑↓)
+
+**2. Color Coding:**
+
+- Green: Good performance, improvement
+- Red: Poor performance, decline
+- Gray/Blue: Neutral, informational
+
+**3. Positioning:**
+
+- Top of dashboard
+- Most important KPI leftmost
+- 3-5 KPIs maximum (avoid overload)
+
+**Building a Complete Executive Dashboard**
+
+**Integrated Dashboard with All Elements:**
+
+```python
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
+
+# Generate data
+np.random.seed(42)
+months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
+
+df = pd.DataFrame({
+    'month': months,
+    'revenue': np.cumsum(np.random.uniform(80000, 120000, 12)),
+    'customers': np.cumsum(np.random.randint(50, 150, 12)),
+    'satisfaction': np.random.uniform(4.0, 4.8, 12)
+})
+
+# Create complex dashboard
+fig = make_subplots(
+    rows=4, cols=3,
+    row_heights=[0.15, 0.35, 0.35, 0.15],
+    column_widths=[0.33, 0.33, 0.34],
+    specs=[
+        [{'type': 'indicator'}, {'type': 'indicator'}, {'type': 'indicator'}],
+        [{'type': 'scatter', 'colspan': 2}, None, {'type': 'bar'}],
+        [{'type': 'scatter', 'colspan': 2}, None, {'type': 'pie'}],
+        [{'type': 'table', 'colspan': 3}, None, None]
+    ],
+    subplot_titles=['', '', '',
+                    'Revenue Growth Trend', '', 'Top Products',
+                    'Customer Acquisition', '', 'Channel Mix',
+                    ''],
+    vertical_spacing=0.08,
+    horizontal_spacing=0.05
+)
+
+# Row 1: KPI Indicators
+fig.add_trace(go.Indicator(
+    mode='number+delta',
+    value=df['revenue'].iloc[-1],
+    delta={'reference': df['revenue'].iloc[-2], 'relative': True, 'valueformat': '.1%'},
+    title={'text': 'Monthly Revenue'},
+    number={'prefix': '$', 'valueformat': ',.0f'},
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=1)
+
+fig.add_trace(go.Indicator(
+    mode='number+delta',
+    value=df['customers'].iloc[-1],
+    delta={'reference': df['customers'].iloc[-2], 'relative': True, 'valueformat': '.1%'},
+    title={'text': 'Total Customers'},
+    number={'valueformat': ','},
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=2)
+
+fig.add_trace(go.Indicator(
+    mode='gauge+number+delta',
+    value=df['satisfaction'].iloc[-1],
+    delta={'reference': 4.0},
+    gauge={'axis': {'range': [1, 5]},
+           'bar': {'color': '#06A77D'},
+           'threshold': {'line': {'color': 'red', 'width': 4},
+                        'thickness': 0.75, 'value': 4.0}},
+    title={'text': 'Satisfaction'},
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=3)
+
+# Row 2: Revenue trend and Top Products
+fig.add_trace(go.Scatter(
+    x=df['month'], y=df['revenue'],
+    mode='lines+markers',
+    line=dict(color='#2E86AB', width=3),
+    fill='tozeroy',
+    fillcolor='rgba(46, 134, 171, 0.2)',
+    name='Revenue'
+), row=2, col=1)
+
+products = ['Product A', 'Product B', 'Product C', 'Product D']
+product_sales = [450000, 380000, 320000, 280000]
+fig.add_trace(go.Bar(
+    x=product_sales, y=products,
+    orientation='h',
+    marker_color='#FF6B6B',
+    name='Sales'
+), row=2, col=3)
+
+# Row 3: Customer acquisition and Channel mix
+fig.add_trace(go.Scatter(
+    x=df['month'], y=df['customers'],
+    mode='lines+markers',
+    line=dict(color='#06A77D', width=3),
+    name='Customers'
+), row=3, col=1)
+
+channels = ['Direct', 'Partner', 'Online', 'Reseller']
+channel_revenue = [35, 28, 22, 15]
+fig.add_trace(go.Pie(
+    labels=channels, values=channel_revenue,
+    marker_colors=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],
+    name='Channels'
+), row=3, col=3)
+
+# Row 4: Summary table
+fig.add_trace(go.Table(
+    header=dict(values=['<b>Metric</b>', '<b>Current</b>', '<b>Target</b>', '<b>Status</b>'],
+                fill_color='#2E86AB',
+                font=dict(color='white', size=12),
+                align='left'),
+    cells=dict(values=[
+        ['Revenue', 'Customers', 'Profit Margin', 'Satisfaction'],
+        ['$1.18M', '4,850', '28%', '4.5/5'],
+        ['$1.10M', '4,500', '25%', '4.0/5'],
+        ['✓ Exceeds', '✓ Exceeds', '✓ Exceeds', '✓ Exceeds']
+    ],
+    fill_color=[['#F8F9FA', 'white']*4],
+    font=dict(size=11),
+    align='left')
+), row=4, col=1)
+
+# Update layout
+fig.update_layout(
+    title_text='<b>Executive Dashboard - December 2024</b><br>' +
+               '<sub>Key metrics and performance indicators</sub>',
+    title_x=0.5,
+    title_font_size=22,
+    showlegend=False,
+    height=1200,
+    plot_bgcolor='#F8F9FA',
+    paper_bgcolor='white'
+)
+
+# Format axes
+fig.update_xaxes(showgrid=True, gridcolor='white')
+fig.update_yaxes(showgrid=True, gridcolor='white')
+
+fig.show()
+```
+
+**Dashboard Features:**
+
+**1. Top Row - KPIs:**
+
+- Immediate performance snapshot
+- Comparison to previous period
+- Color-coded delta indicators
+
+**2. Middle Rows - Details:**
+
+- Trends over time
+- Breakdowns by category
+- Mix of chart types for variety
+
+**3. Bottom Row - Summary:**
+
+- Tabular data for precise values
+- Status indicators
+- Quick reference
+
+**Creating Narrative-Driven Reports**
+
+**Beyond Dashboards: Analytical Reports**
+
+Reports tell a story with data, guiding readers through analysis:
+
+```python
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Create narrative report structure
+fig = make_subplots(
+    rows=5, cols=1,
+    row_heights=[0.1, 0.25, 0.25, 0.25, 0.15],
+    specs=[
+        [{'type': 'table'}],
+        [{'type': 'scatter'}],
+        [{'type': 'bar'}],
+        [{'type': 'scatter'}],
+        [{'type': 'table'}]
+    ],
+    subplot_titles=['',
+                    '1. Revenue Shows Strong Growth Throughout 2024',
+                    '2. Regional Performance Varies Significantly',
+                    '3. Customer Satisfaction Remains High Despite Growth',
+                    ''],
+    vertical_spacing=0.08
+)
+
+# Executive Summary (top)
+fig.add_trace(go.Table(
+    header=dict(values=['<b>Executive Summary: 2024 Performance Review</b>'],
+                fill_color='#2E86AB',
+                font=dict(color='white', size=14),
+                height=40),
+    cells=dict(values=[
+        ['Our analysis reveals strong growth in 2024 with revenue increasing 45% YoY. ' +
+         'Regional performance shows East region leading growth at 52%, while South lags at 28%. ' +
+         'Customer satisfaction remained consistently above 4.5/5 despite rapid scaling. ' +
+         'Recommendations: Invest in South region training, maintain quality focus during growth.']
+    ],
+    fill_color='#F8F9FA',
+    font=dict(size=12),
+    height=30,
+    align='left')
+), row=1, col=1)
+
+# Chart 1: Revenue trend with annotations
+months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
+revenue = np.cumsum(np.random.uniform(80000, 120000, 12))
+
+fig.add_trace(go.Scatter(
+    x=months, y=revenue,
+    mode='lines+markers',
+    line=dict(color='#2E86AB', width=3),
+    name='Revenue'
+), row=2, col=1)
+
+# Add annotation for key insight
+fig.add_annotation(
+    x=months[8], y=revenue[8],
+    text='Q3 surge due to<br>new product launch',
+    showarrow=True,
+    arrowhead=2,
+    ax=-50, ay=-50,
+    row=2, col=1
+)
+
+# Chart 2: Regional comparison
+regions = ['North', 'South', 'East', 'West']
+growth = [42, 28, 52, 38]
+fig.add_trace(go.Bar(
+    x=regions, y=growth,
+    marker_color=['#06A77D' if g > 40 else '#FFA07A' for g in growth],
+    text=[f'{g}%' for g in growth],
+    textposition='outside'
+), row=3, col=1)
+
+# Chart 3: Satisfaction trend
+satisfaction = np.random.uniform(4.3, 4.7, 12)
+fig.add_trace(go.Scatter(
+    x=months, y=satisfaction,
+    mode='lines+markers',
+    line=dict(color='#06A77D', width=3)
+), row=4, col=1)
+
+# Add target line
+fig.add_hline(y=4.0, line_dash='dash', line_color='red',
+              annotation_text='Minimum Target',
+              row=4, col=1)
+
+# Recommendations (bottom)
+fig.add_trace(go.Table(
+    header=dict(values=['<b>Strategic Recommendations</b>'],
+                fill_color='#06A77D',
+                font=dict(color='white', size=14)),
+    cells=dict(values=[
+        ['1. South Region: Deploy best practices from East region, provide additional training<br>' +
+         '2. Scaling: Maintain quality controls as customer base grows, hire support staff<br>' +
+         '3. Products: Capitalize on Q3 success, plan Q2 2025 launch<br>' +
+         '4. Investment: Allocate additional budget to high-growth regions']
+    ],
+    fill_color='#F8F9FA',
+    font=dict(size=11),
+    align='left')
+), row=5, col=1)
+
+fig.update_layout(
+    title='<b>2024 Annual Performance Analysis</b><br>' +
+          '<sub>Prepared for Executive Leadership Team | January 2025</sub>',
+    title_x=0.5,
+    title_font_size=20,
+    showlegend=False,
+    height=1400,
+    plot_bgcolor='white',
+    paper_bgcolor='white'
+)
+
+fig.show()
+```
+
+**Narrative Report Structure:**
+
+**1. Executive Summary:**
+
+- Key findings upfront
+- For busy executives who may not read further
+
+**2. Body (Charts with Context):**
+
+- Each chart answers a specific question
+- Titles are statements, not questions
+- Annotations highlight key insights
+- Logical flow from overview to details
+
+**3. Recommendations:**
+
+- Actionable next steps
+- Specific, measurable
+- Based on data shown
+
+**Exporting and Sharing Professional Reports**
+
+**Export Options for Business Distribution:**
+
+**1. Interactive HTML (Best for Digital Distribution):**
+
+```python
+fig.write_html(
+    'Executive_Dashboard_Dec2024.html',
+    config={
+        'displayModeBar': True,  # Show toolbar
+        'displaylogo': False,    # Remove Plotly logo
+        'modeBarButtonsToRemove': ['lasso2d', 'select2d']  # Remove unnecessary buttons
+    }
+)
+```
+
+**2. Static Image (For PowerPoint/Documents):**
+
+```python
+fig.write_image(
+    'Dashboard_Report.png',
+    width=1920,
+    height=1080,
+    scale=2  # High resolution
+)
+```
+
+**3. PDF Report (For Print):**
+
+```python
+fig.write_image(
+    'Annual_Report_2024.pdf',
+    width=1200,
+    height=1600
+)
+```
+
+**Embedding in Business Tools:**
+
+**SharePoint/Confluence:**
+
+1. Save as HTML
+2. Upload to document library
+3. Embed using iframe or direct link
+
+**Email Distribution:**
+
+1. Save HTML file
+2. Attach to email
+3. Recipients open in browser (full interactivity)
+
+**PowerPoint Presentation:**
+
+1. Export as high-res PNG
+2. Insert as image in slides
+3. Note: Loses interactivity
+
+**Responsive Design for Different Devices**
+
+**Making Dashboards Mobile-Friendly:**
+
+```python
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
+# Add your charts...
+
+# Configure for responsive viewing
+fig.update_layout(
+    autosize=True,  # Adapt to container size
+    margin=dict(l=40, r=40, t=80, b=40),  # Reasonable margins
+    font=dict(size=12),  # Readable font size
+    
+    # Mobile-specific optimizations
+    xaxis=dict(
+        tickangle=-45  # Angle labels if needed
+    ),
+    
+    # Adjust legend for mobile
+    legend=dict(
+        orientation='v',
+        yanchor='top',
+        y=0.99,
+        xanchor='left',
+        x=0.01
+    )
+)
+
+# For HTML export with responsive container
+fig.write_html(
+    'responsive_dashboard.html',
+    config={'responsive': True}
+)
+```
+
+**Design Considerations:**
+
+**Desktop (>1200px width):**
+
+- Multi-column layouts
+- Side-by-side charts
+- Rich interactivity
+
+**Tablet (768-1200px):**
+
+- 2-column layouts
+- Stacked panels
+- Touch-friendly controls
+
+**Mobile (<768px):**
+
+- Single column
+- Simplified charts
+- Essential metrics only
+
+### Lab Session
+**Lab 3: Building Professional Business Dashboards**
+
+**Objective:** Design and create comprehensive, multi-chart interactive dashboards that communicate complex business insights clearly and professionally for executive audiences.
+
+**Scenario:** You've been promoted to Lead Business Intelligence Developer at "DataVision Corp." Your first major assignment: create three distinct dashboards for different stakeholder groups at your client, "MegaMart Retail" - a national retail chain preparing for their annual investor meeting, board presentation, and operational review. Each dashboard must tell a clear story, be visually impressive, and provide actionable insights through interactivity.
+
+**Pre-Lab Setup:**
+
+1. Create file: `M4L03_YourName_Dashboards.py`
+2. Import libraries:
+```python
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
+```
+3. Create output folder: "Lab3_Outputs"
+
+**Part A: Executive KPI Dashboard (30 points)**
+
+**Context:** The CEO needs a clean, high-level dashboard for the investor meeting showing key performance indicators, trends, and status against targets. Must fit on one screen, be immediately understandable, and look professional.
+
+**Data Generation:**
+
+```python
+np.random.seed(42)
+
+# Generate 2024 monthly data
+months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
+
+df_executive = pd.DataFrame({
+    'month': months,
+    'revenue': np.random.uniform(8000000, 12000000, 12) + np.arange(12) * 200000,
+    'operating_costs': np.random.uniform(5000000, 7000000, 12) + np.arange(12) * 100000,
+    'new_customers': np.random.randint(1500, 3000, 12),
+    'churned_customers': np.random.randint(200, 600, 12),
+    'nps_score': np.random.uniform(45, 75, 12),
+    'employee_satisfaction': np.random.uniform(3.8, 4.6, 12)
+})
+
+df_executive['profit'] = df_executive['revenue'] - df_executive['operating_costs']
+df_executive['profit_margin'] = df_executive['profit'] / df_executive['revenue']
+df_executive['net_customer_growth'] = df_executive['new_customers'] - df_executive['churned_customers']
+
+# Year-over-year data for comparison
+ytd_revenue = df_executive['revenue'].sum()
+previous_ytd_revenue = ytd_revenue * 0.85
+ytd_customers = df_executive['new_customers'].sum()
+previous_ytd_customers = int(ytd_customers * 0.92)
+```
+
+**Tasks:**
+
+1. **Create KPI indicator row (10 points):**
+
+   - Build using make_subplots with 4 columns, 1 row
+   - Use `go.Indicator` for each KPI
+   - KPI 1: Total Revenue YTD (with delta vs previous year)
+   - KPI 2: Total New Customers (with delta vs previous year)
+   - KPI 3: Average Profit Margin (gauge showing current vs target of 25%)
+   - KPI 4: Current NPS Score (with delta vs target of 60)
+   - All indicators should use appropriate colors (green for positive, red for negative)
+   - Format currency properly with $ and commas
+
+2. **Create main dashboard body (15 points):**
+
+   - Below KPIs, create 2×2 grid of charts:
+     * Top-left: Monthly revenue and profit trend (dual lines, different colors)
+     * Top-right: Net customer growth (bar chart, color-coded positive/negative)
+     * Bottom-left: Profit margin evolution (area chart with target line)
+     * Bottom-right: Key metrics table (Revenue, Profit, Customers, NPS for last 3 months)
+   - Use professional color scheme
+   - All charts should have clear titles
+   - Proper axis formatting (currency, percentages)
+   - Enable hover mode 'x unified' for time series
+
+3. **Professional finishing (5 points):**
+
+   - Overall title: "MegaMart Retail - Executive Performance Dashboard"
+   - Subtitle: "Year-to-Date 2024 | Prepared for Investor Meeting"
+   - Clean layout with appropriate spacing
+   - Background colors that look professional (not pure white/default)
+   - Total height: 1000 pixels
+   - Save as: `M4L03_YourName_ExecutiveDashboard.html`
+
+**Part B: Operational Performance Dashboard (35 points)**
+
+**Context:** The COO needs a detailed operational dashboard showing store performance, inventory metrics, employee productivity, and supply chain efficiency. More detailed than executive dashboard, with drill-down capabilities.
+
+**Data Generation:**
+
+```python
+np.random.seed(42)
+
+# Store performance data
+stores = [f'Store {str(i).zfill(3)}' for i in range(1, 26)]  # 25 stores
+regions = ['North', 'South', 'East', 'West', 'Central']
+
+store_data = []
+for store in stores:
+    region = np.random.choice(regions)
+    store_data.append({
+        'store_id': store,
+        'region': region,
+        'monthly_sales': np.random.uniform(200000, 600000),
+        'foot_traffic': np.random.randint(5000, 15000),
+        'conversion_rate': np.random.uniform(0.15, 0.45),
+        'avg_transaction': np.random.uniform(45, 120),
+        'inventory_turnover': np.random.uniform(4, 12),
+        'employee_count': np.random.randint(15, 45),
+        'customer_rating': np.random.uniform(3.5, 4.9)
+    })
+
+df_operations = pd.DataFrame(store_data)
+df_operations['sales_per_employee'] = df_operations['monthly_sales'] / df_operations['employee_count']
+df_operations['sales_efficiency'] = df_operations['monthly_sales'] / df_operations['foot_traffic']
+
+# Time series for inventory
+weeks = pd.date_range('2024-01-01', '2024-12-31', freq='W')
+inventory_levels = np.random.uniform(8000000, 12000000, len(weeks))
+df_inventory = pd.DataFrame({'week': weeks, 'inventory_value': inventory_levels})
+
+# Regional aggregations
+df_regional = df_operations.groupby('region').agg({
+    'monthly_sales': 'sum',
+    'foot_traffic': 'sum',
+    'conversion_rate': 'mean',
+    'customer_rating': 'mean'
+}).reset_index()
+```
+
+**Tasks:**
+
+1. **Create regional overview section (12 points):**
+
+   - Top section with regional performance comparison
+   - Use animated bar chart (animation_frame could be a metric selection)
+   - Show sales by region with color intensity by customer_rating
+   - Include regional average conversion rate as text on bars
+   - Add annotation highlighting best and worst performing regions
+   - Format all currency values properly
+
+2. **Create store performance scatter analysis (12 points):**
+
+   - Middle-left: Scatter plot of foot_traffic (x) vs monthly_sales (y)
+   - Size bubbles by employee_count
+   - Color by region
+   - Add trendline
+   - Show sales_per_employee and customer_rating in hover
+   - Title: "Store Efficiency Analysis: Traffic vs Sales"
+   - Identify outliers with annotations (exceptionally high/low performers)
+
+3. **Create inventory and efficiency panels (11 points):**
+
+   - Middle-right: Inventory levels over time (line chart)
+   - Add reference bands: Healthy range (green shade), Overstocked (red shade)
+   - Bottom: Table showing top 10 and bottom 10 stores by sales_per_employee
+   - Include store_id, region, sales_per_employee, customer_rating
+   - Color code the table (top 10 green tint, bottom 10 red tint)
+   - Sort appropriately
+
+4. **Add interactive filters and insights (10 points):**
+
+   - Create dropdown to filter by region (show all regions by default)
+   - Add buttons to toggle between different metrics (Sales, Efficiency, Rating)
+   - Include text box with automated insights:
+     * Calculate and display: Highest performing store
+     * Calculate and display: Average conversion rate by region
+     * Calculate and display: Total sales across all stores
+   - Save as: `M4L03_YourName_OperationalDashboard.html`
+
+**Part C: Marketing Analytics Report Dashboard (35 points)**
+
+**Context:** The CMO needs a narrative-driven dashboard that tells the story of 2024 marketing performance, channel effectiveness, customer acquisition, and ROI. Should be presentation-ready with clear flow from overview to recommendations.
+
+**Data Generation:**
+
+```python
+np.random.seed(42)
+
+# Campaign data
+channels = ['Email', 'Social Media', 'PPC', 'Display Ads', 'Influencer', 'TV', 'Radio']
+months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
+
+campaign_data = []
+for month in months:
+    for channel in channels:
+        spend = np.random.uniform(10000, 100000)
+        
+        # Different channels have different effectiveness
+        if channel == 'Email':
+            roi = np.random.uniform(3.5, 6.0)
+            leads = int(spend * np.random.uniform(0.8, 1.5))
+        elif channel == 'Social Media':
+            roi = np.random.uniform(2.5, 5.0)
+            leads = int(spend * np.random.uniform(0.6, 1.2))
+        elif channel == 'PPC':
+            roi = np.random.uniform(2.0, 4.5)
+            leads = int(spend * np.random.uniform(0.4, 1.0))
+        elif channel == 'Influencer':
+            roi = np.random.uniform(2.8, 5.5)
+            leads = int(spend * np.random.uniform(0.5, 1.3))
+        else:
+            roi = np.random.uniform(1.5, 3.5)
+            leads = int(spend * np.random.uniform(0.3, 0.8))
+        
+        revenue = spend * roi
+        conversions = int(leads * np.random.uniform(0.15, 0.35))
+        
+        campaign_data.append({
+            'month': month,
+            'channel': channel,
+            'spend': spend,
+            'revenue': revenue,
+            'roi': roi,
+            'leads': leads,
+            'conversions': conversions
+        })
+
+df_marketing = pd.DataFrame(campaign_data)
+df_marketing['cpa'] = df_marketing['spend'] / df_marketing['conversions']  # Cost per acquisition
+df_marketing['conversion_rate'] = df_marketing['conversions'] / df_marketing['leads']
+
+# Customer journey data
+touchpoints = ['Awareness', 'Consideration', 'Decision', 'Purchase', 'Loyalty']
+funnel_values = [50000, 25000, 12000, 8000, 5500]
+df_funnel = pd.DataFrame({'stage': touchpoints, 'customers': funnel_values})
+```
+
+**Tasks:**
+
+1. **Create executive summary section (10 points):**
+
+   - Top: Title with executive summary text
+   - Use table or annotation to display:
+     * "2024 Marketing Investment: $X.XX million"
+     * "Total Revenue Generated: $X.XX million"
+     * "Overall ROI: X.X:1"
+     * "Total Leads Generated: XXX,XXX"
+     * "Average Cost Per Acquisition: $XXX"
+   - Make this section visually distinct (background color, border)
+   - Calculate these metrics from df_marketing
+
+2. **Create channel performance comparison (12 points):**
+
+   - Section title: "Channel Effectiveness: Where Should We Invest?"
+   - Left side: Horizontal bar chart of total spend by channel
+   - Right side: Scatter plot of spend (x) vs ROI (y) by channel
+   - Color code by channel type (paid vs organic vs traditional)
+   - Annotate the "star" channels (high ROI, reasonable spend)
+   - Add text insights identifying best performing channel
+
+3. **Create temporal trends section (8 points):**
+
+   - Section title: "Marketing Performance Trends Throughout 2024"
+   - Stacked area chart showing spend by channel over months
+   - Line overlay showing total monthly ROI
+   - Enable legend interactions to show/hide channels
+   - Identify and annotate peak performance months
+
+4. **Create customer journey funnel (5 points):**
+
+   - Section title: "Customer Acquisition Funnel"
+   - Funnel chart or horizontal bar chart showing conversion stages
+   - Calculate and display drop-off percentages between stages
+   - Add annotations highlighting the biggest drop-off point
+   - Color code by stage health (good conversion = green, poor = red)
+
+5. **Create recommendations section (10 points):**
+
+   - Bottom: Strategic recommendations based on data
+   - Create an automated insights table showing:
+     * Top 3 channels by ROI (with values)
+     * Channels to increase budget (high ROI, lower current spend)
+     * Channels to decrease budget (low ROI despite high spend)
+     * Seasonal patterns identified
+   - Format as professional report table
+   - Use conditional formatting (colors) to highlight recommendations
+   - Save as: `M4L03_YourName_MarketingReport.html`
+
+**Bonus Challenge (+30 points):**
+
+**Create an Integrated Master Dashboard with Tab Navigation:**
+
+Build a single HTML file with tabbed interface allowing users to switch between:
+1. Executive Dashboard (Part A)
+2. Operations Dashboard (Part B)
+3. Marketing Report (Part C)
+
+**Requirements:**
+
+- Use `updatemenus` with buttons for tab switching
+- Each "tab" shows/hides relevant charts
+- Consistent branding across all tabs
+- Company logo (can be text-based)
+- Date stamp and report version
+- Print-friendly option (button to show all at once)
+- Navigation breadcrumbs showing current view
+- Save as: `M4L03_YourName_MasterDashboard.html`
+
+**Hint:** Use visibility toggling on subplot traces with button controls.
+
+**Deliverables:**
+
+1. Python file: `M4L03_YourName_Dashboards.py`
+2. HTML files (3-4):
+   - `M4L03_YourName_ExecutiveDashboard.html`
+   - `M4L03_YourName_OperationalDashboard.html`
+   - `M4L03_YourName_MarketingReport.html`
+   - `M4L03_YourName_MasterDashboard.html` (bonus)
+
+**Grading Rubric:**
+
+- Part A (Executive Dashboard): 30 points
+- Part B (Operational Dashboard): 35 points
+- Part C (Marketing Report): 35 points
+- Bonus (Master Dashboard): +30 points
+
+**Success Criteria:**
+
+- [ ] All dashboards tell clear stories
+- [ ] KPI indicators work correctly
+- [ ] Multiple chart types used appropriately
+- [ ] Professional color schemes and styling
+- [ ] All numbers formatted properly (currency, %)
+- [ ] Interactive elements function smoothly
+- [ ] Dashboards are visually balanced (not cluttered)
+- [ ] Business insights are evident
+- [ ] HTML files display perfectly in browser
+
+**Dashboard Design Checklist:**
+
+**Visual Hierarchy:**
+
+- [ ] Most important information in top-left
+- [ ] Clear visual flow from overview to detail
+- [ ] Appropriate use of size and color for emphasis
+
+**Interactivity:**
+
+- [ ] Hover information is comprehensive
+- [ ] Filters/dropdowns work correctly
+- [ ] Legend interactions enabled
+- [ ] Zoom and pan function where appropriate
+
+**Professionalism:**
+
+- [ ] Consistent color scheme
+- [ ] Readable fonts and sizes
+- [ ] Proper spacing and alignment
+- [ ] No overlapping elements
+- [ ] Clean, uncluttered appearance
+
+**Business Value:**
+
+- [ ] Answers specific business questions
+- [ ] Actionable insights visible
+- [ ] Comparisons clearly shown
+- [ ] Trends easy to identify
+- [ ] Anomalies highlighted
+
+**Common Mistakes to Avoid:**
+
+- Too many colors (stick to 3-5 main colors)
+- Inconsistent styling across dashboard
+- Missing titles or labels
+- Poor data-to-ink ratio (chart junk)
+- Overuse of 3D effects or animations
+- Not testing in actual browser
+- Forgetting to format numbers
+- No clear call-to-action or insights
+
 ---
 
-*Continue to Sections 3 and 4 in next response...*
+## Section 4: Final Project - Comprehensive Business Data Analysis
+
+### Objective
+- Integrate all skills from Modules 1-4 into a complete analysis project
+- Apply the full data analysis workflow: import, clean, analyze, visualize
+- Create a professional, multi-visualization analytical report
+- Present findings with both static and interactive visualizations
+- Demonstrate mastery of Python, Pandas, Matplotlib, Seaborn, and Plotly
+- Deliver publication-quality business intelligence deliverables
+
+### Main Contents with Examples
+
+**The Complete Data Analysis Workflow**
+
+**Professional Analysis Process:**
+
+Real-world business analysis follows a structured workflow:
+
+**1. Business Understanding:**
+
+- What questions need answering?
+- Who is the audience?
+- What decisions will be made?
+
+**2. Data Collection:**
+
+- Identify data sources
+- Load data into Python
+- Initial exploration
+
+**3. Data Cleaning:**
+
+- Handle missing values
+- Remove duplicates
+- Fix data types
+- Address outliers
+
+**4. Exploratory Analysis:**
+
+- Summary statistics
+- Distribution analysis
+- Correlation discovery
+- Pattern identification
+
+**5. Visualization:**
+
+- Static charts for reports (Matplotlib/Seaborn)
+- Interactive dashboards for exploration (Plotly)
+- Multiple chart types for different insights
+
+**6. Insights & Recommendations:**
+
+- Synthesize findings
+- Translate to business language
+- Provide actionable recommendations
+- Quantify impacts
+
+**7. Presentation:**
+
+- Create comprehensive report
+- Prepare stakeholder presentation
+- Document methodology
+- Enable reproducibility
+
+**Project Specification and Requirements**
+
+**Your Final Project Mission:**
+
+You will complete a comprehensive analysis of a business dataset, applying every technique learned in this course.
+
+**Deliverables Required:**
+
+**1. Python Analysis Script:**
+
+- Complete, well-commented code
+- Follows workflow from data loading to visualization
+- Modular and reproducible
+
+**2. Static Visualizations (Matplotlib/Seaborn):**
+
+- Minimum 6 high-quality charts
+- Different chart types
+- Publication-ready quality
+
+**3. Interactive Dashboard (Plotly):**
+
+- Multi-panel dashboard
+- Interactive elements
+- Professional styling
+
+**4. Written Report:**
+
+- Executive summary
+- Methodology description
+- Findings with visualizations
+- Recommendations
+
+**Sample Project Structure**
+
+**Example: Retail Sales Analysis Project**
+
+```python
+"""
+Final Project: Comprehensive Retail Sales Analysis
+Course: Data Visualization Analysis
+Author: [Your Name]
+Date: [Submission Date]
+
+Business Question:
+Analyze 2024 sales performance across products, regions, and time periods
+to identify growth opportunities and operational improvements for 2025 planning.
+
+Dataset: Retail sales data with 10,000+ transactions
+"""
+
+# ============================================================================
+# SECTION 1: SETUP AND DATA LOADING
+# ============================================================================
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Set visualization styles
+sns.set_theme(style='whitegrid', context='talk', palette='colorblind')
+plt.rcParams['figure.figsize'] = (12, 6)
+plt.rcParams['font.size'] = 11
+
+print("="*70)
+print("RETAIL SALES ANALYSIS PROJECT - 2024")
+print("="*70)
+
+# ============================================================================
+# SECTION 2: DATA IMPORT AND INITIAL EXPLORATION
+# ============================================================================
+
+# Load data (in actual project, this would be from file)
+# For demonstration, we'll generate realistic sample data
+np.random.seed(42)
+
+# Generate comprehensive retail dataset
+n_transactions = 10000
+dates = pd.date_range('2024-01-01', '2024-12-31', freq='H')
+products = ['Electronics', 'Clothing', 'Home Goods', 'Sports Equipment', 
+            'Books', 'Toys', 'Food & Beverage', 'Health & Beauty']
+regions = ['North', 'South', 'East', 'West', 'Central']
+channels = ['Online', 'In-Store', 'Mobile App']
+
+transactions = []
+for i in range(n_transactions):
+    product = np.random.choice(products, p=[0.15, 0.18, 0.12, 0.10, 0.08, 0.09, 0.15, 0.13])
+    region = np.random.choice(regions)
+    channel = np.random.choice(channels, p=[0.45, 0.40, 0.15])
+    
+    # Price varies by product category
+    price_ranges = {
+        'Electronics': (50, 500), 'Clothing': (20, 150),
+        'Home Goods': (30, 300), 'Sports Equipment': (40, 400),
+        'Books': (10, 50), 'Toys': (15, 100),
+        'Food & Beverage': (5, 50), 'Health & Beauty': (10, 100)
+    }
+    price = np.random.uniform(*price_ranges[product])
+    
+    # Quantity varies by channel
+    if channel == 'Online':
+        quantity = np.random.randint(1, 5)
+    else:
+        quantity = np.random.randint(1, 3)
+    
+    # Customer satisfaction varies
+    satisfaction = np.random.uniform(3.0, 5.0)
+    
+    # Shipping time (online only)
+    shipping_days = np.random.randint(2, 10) if channel == 'Online' else 0
+    
+    transactions.append({
+        'transaction_id': f'TXN{i:06d}',
+        'date': np.random.choice(dates),
+        'product_category': product,
+        'region': region,
+        'channel': channel,
+        'unit_price': price,
+        'quantity': quantity,
+        'customer_satisfaction': satisfaction,
+        'shipping_days': shipping_days
+    })
+
+df = pd.DataFrame(transactions)
+
+# Calculate derived fields
+df['total_amount'] = df['unit_price'] * df['quantity']
+df['year_month'] = df['date'].dt.to_period('M')
+df['day_of_week'] = df['date'].dt.day_name()
+df['hour'] = df['date'].dt.hour
+
+print("\n1. Dataset Overview:")
+print("-" * 70)
+print(f"Total Transactions: {len(df):,}")
+print(f"Date Range: {df['date'].min()} to {df['date'].max()}")
+print(f"Total Revenue: ${df['total_amount'].sum():,.2f}")
+print(f"Average Transaction Value: ${df['total_amount'].mean():.2f}")
+
+print("\n2. Data Structure:")
+print(df.info())
+
+print("\n3. Sample Records:")
+print(df.head())
+
+# ============================================================================
+# SECTION 3: DATA CLEANING AND PREPARATION
+# ============================================================================
+
+print("\n" + "="*70)
+print("DATA CLEANING AND PREPARATION")
+print("="*70)
+
+# Check for missing values
+print("\n1. Missing Values Check:")
+print(df.isnull().sum())
+
+# Check for duplicates
+duplicates = df.duplicated(subset=['transaction_id']).sum()
+print(f"\n2. Duplicate Transactions: {duplicates}")
+
+# Data quality checks
+print("\n3. Data Quality Checks:")
+print(f"   - Negative prices: {(df['unit_price'] < 0).sum()}")
+print(f"   - Zero quantities: {(df['quantity'] == 0).sum()}")
+print(f"   - Invalid satisfaction scores: {((df['customer_satisfaction'] < 1) | (df['customer_satisfaction'] > 5)).sum()}")
+
+# Outlier detection (IQR method)
+Q1 = df['total_amount'].quantile(0.25)
+Q3 = df['total_amount'].quantile(0.75)
+IQR = Q3 - Q1
+outliers = df[(df['total_amount'] < Q1 - 1.5*IQR) | (df['total_amount'] > Q3 + 1.5*IQR)]
+print(f"\n4. Statistical Outliers Detected: {len(outliers)} ({len(outliers)/len(df)*100:.2f}%)")
+
+# Clean dataset
+df_clean = df.copy()
+# Keep outliers but flag them
+df_clean['is_outlier'] = ((df_clean['total_amount'] < Q1 - 1.5*IQR) | 
+                           (df_clean['total_amount'] > Q3 + 1.5*IQR))
+
+print(f"\n5. Clean Dataset: {len(df_clean):,} transactions ready for analysis")
+
+# ============================================================================
+# SECTION 4: EXPLORATORY DATA ANALYSIS
+# ============================================================================
+
+print("\n" + "="*70)
+print("EXPLORATORY DATA ANALYSIS")
+print("="*70)
+
+# Summary statistics
+print("\n1. Summary Statistics:")
+print(df_clean[['unit_price', 'quantity', 'total_amount', 'customer_satisfaction']].describe())
+
+# Category analysis
+print("\n2. Performance by Product Category:")
+category_summary = df_clean.groupby('product_category').agg({
+    'total_amount': ['sum', 'mean', 'count'],
+    'customer_satisfaction': 'mean'
+}).round(2)
+category_summary.columns = ['Total_Revenue', 'Avg_Transaction', 'Count', 'Avg_Satisfaction']
+print(category_summary.sort_values('Total_Revenue', ascending=False))
+
+# Regional analysis
+print("\n3. Performance by Region:")
+regional_summary = df_clean.groupby('region').agg({
+    'total_amount': ['sum', 'mean'],
+    'transaction_id': 'count'
+}).round(2)
+regional_summary.columns = ['Total_Revenue', 'Avg_Transaction', 'Transaction_Count']
+print(regional_summary.sort_values('Total_Revenue', ascending=False))
+
+# Channel analysis
+print("\n4. Performance by Channel:")
+channel_summary = df_clean.groupby('channel').agg({
+    'total_amount': ['sum', 'mean'],
+    'customer_satisfaction': 'mean'
+}).round(2)
+channel_summary.columns = ['Total_Revenue', 'Avg_Transaction', 'Avg_Satisfaction']
+print(channel_summary.sort_values('Total_Revenue', ascending=False))
+
+# Correlation analysis
+print("\n5. Correlation Analysis:")
+correlation_vars = df_clean[['unit_price', 'quantity', 'total_amount', 
+                              'customer_satisfaction', 'shipping_days']].corr()
+print(correlation_vars.round(3))
+
+# ============================================================================
+# SECTION 5: STATIC VISUALIZATIONS (Matplotlib & Seaborn)
+# ============================================================================
+
+print("\n" + "="*70)
+print("CREATING STATIC VISUALIZATIONS")
+print("="*70)
+
+# Create output directory for charts
+import os
+os.makedirs('FinalProject_Outputs', exist_ok=True)
+
+# Visualization 1: Revenue trend over time
+print("\n1. Creating: Monthly revenue trend...")
+monthly_revenue = df_clean.groupby('year_month')['total_amount'].sum()
+
+fig, ax = plt.subplots(figsize=(14, 6))
+ax.plot(monthly_revenue.index.astype(str), monthly_revenue.values, 
+        marker='o', linewidth=3, markersize=8, color='#2E86AB')
+ax.fill_between(range(len(monthly_revenue)), monthly_revenue.values, alpha=0.3, color='#2E86AB')
+ax.set_title('Monthly Revenue Trend - 2024', fontsize=16, fontweight='bold', pad=20)
+ax.set_xlabel('Month', fontsize=12)
+ax.set_ylabel('Revenue ($)', fontsize=12)
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x/1e6:.2f}M'))
+ax.grid(True, alpha=0.3)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_01_Revenue_Trend.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+# Visualization 2: Category performance comparison
+print("2. Creating: Category performance bars...")
+category_rev = df_clean.groupby('product_category')['total_amount'].sum().sort_values(ascending=True)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+colors = plt.cm.viridis(np.linspace(0.3, 0.9, len(category_rev)))
+ax.barh(category_rev.index, category_rev.values, color=colors, edgecolor='black', linewidth=1.5)
+ax.set_title('Total Revenue by Product Category', fontsize=16, fontweight='bold', pad=20)
+ax.set_xlabel('Revenue ($)', fontsize=12)
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x/1e6:.1f}M'))
+
+# Add value labels
+for i, v in enumerate(category_rev.values):
+    ax.text(v + 50000, i, f'${v/1e6:.2f}M', va='center', fontsize=10, fontweight='bold')
+
+ax.grid(axis='x', alpha=0.3)
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_02_Category_Revenue.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+# Visualization 3: Customer satisfaction distribution
+print("3. Creating: Satisfaction distribution...")
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+# Overall distribution
+sns.histplot(data=df_clean, x='customer_satisfaction', bins=30, kde=True, 
+             color='#06A77D', ax=axes[0])
+axes[0].set_title('Overall Customer Satisfaction Distribution', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Satisfaction Score (1-5)', fontsize=11)
+axes[0].axvline(df_clean['customer_satisfaction'].mean(), color='red', 
+                linestyle='--', linewidth=2, label=f"Mean: {df_clean['customer_satisfaction'].mean():.2f}")
+axes[0].legend()
+
+# By channel
+sns.boxplot(data=df_clean, x='channel', y='customer_satisfaction', 
+            palette='Set2', ax=axes[1])
+axes[1].set_title('Satisfaction by Channel', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Channel', fontsize=11)
+axes[1].set_ylabel('Satisfaction Score', fontsize=11)
+axes[1].axhline(4.0, color='red', linestyle='--', linewidth=2, alpha=0.5, label='Target: 4.0')
+axes[1].legend()
+
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_03_Satisfaction_Analysis.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+# Visualization 4: Regional performance heatmap
+print("4. Creating: Regional performance heatmap...")
+regional_channel = df_clean.pivot_table(values='total_amount', 
+                                         index='region', 
+                                         columns='channel', 
+                                         aggfunc='sum')
+
+fig, ax = plt.subplots(figsize=(10, 6))
+sns.heatmap(regional_channel, annot=True, fmt=',.0f', cmap='YlGnBu', 
+            linewidths=1, cbar_kws={'label': 'Revenue ($)'}, ax=ax)
+ax.set_title('Revenue by Region and Channel', fontsize=16, fontweight='bold', pad=20)
+ax.set_xlabel('Channel', fontsize=12)
+ax.set_ylabel('Region', fontsize=12)
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_04_Regional_Heatmap.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+# Visualization 5: Price vs Quantity relationship
+print("5. Creating: Price-quantity scatter...")
+fig, ax = plt.subplots(figsize=(12, 7))
+for category in df_clean['product_category'].unique():
+    df_cat = df_clean[df_clean['product_category'] == category]
+    ax.scatter(df_cat['unit_price'], df_cat['quantity'], 
+               alpha=0.6, s=50, label=category)
+
+ax.set_title('Unit Price vs Quantity Sold by Category', fontsize=16, fontweight='bold', pad=20)
+ax.set_xlabel('Unit Price ($)', fontsize=12)
+ax.set_ylabel('Quantity', fontsize=12)
+ax.legend(title='Product Category', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_05_Price_Quantity_Scatter.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+# Visualization 6: Correlation heatmap
+print("6. Creating: Correlation matrix...")
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.heatmap(correlation_vars, annot=True, fmt='.3f', cmap='coolwarm', 
+            center=0, square=True, linewidths=1, cbar_kws={'label': 'Correlation'}, ax=ax)
+ax.set_title('Correlation Matrix: Key Metrics', fontsize=16, fontweight='bold', pad=20)
+plt.tight_layout()
+plt.savefig('FinalProject_Outputs/FP_06_Correlation_Matrix.png', dpi=300, bbox_inches='tight')
+plt.close()
+
+print("\n✓ All static visualizations saved to FinalProject_Outputs/")
+
+# ============================================================================
+# SECTION 6: INTERACTIVE DASHBOARD (Plotly)
+# ============================================================================
+
+print("\n" + "="*70)
+print("CREATING INTERACTIVE DASHBOARD")
+print("="*70)
+
+# Prepare aggregated data for dashboard
+monthly_data = df_clean.groupby('year_month').agg({
+    'total_amount': 'sum',
+    'transaction_id': 'count',
+    'customer_satisfaction': 'mean'
+}).reset_index()
+monthly_data['year_month'] = monthly_data['year_month'].astype(str)
+
+category_data = df_clean.groupby('product_category').agg({
+    'total_amount': 'sum',
+    'customer_satisfaction': 'mean',
+    'transaction_id': 'count'
+}).reset_index()
+
+# Create comprehensive dashboard
+fig = make_subplots(
+    rows=3, cols=3,
+    row_heights=[0.15, 0.40, 0.45],
+    column_widths=[0.33, 0.33, 0.34],
+    specs=[
+        [{'type': 'indicator'}, {'type': 'indicator'}, {'type': 'indicator'}],
+        [{'type': 'scatter', 'colspan': 2}, None, {'type': 'bar'}],
+        [{'type': 'bar', 'colspan': 2}, None, {'type': 'pie'}]
+    ],
+    subplot_titles=['', '', '',
+                    'Monthly Revenue Trend', '', 'Top Categories',
+                    'Regional Performance', '', 'Channel Distribution'],
+    vertical_spacing=0.10,
+    horizontal_spacing=0.08
+)
+
+# Row 1: KPI Indicators
+total_revenue = df_clean['total_amount'].sum()
+total_transactions = len(df_clean)
+avg_satisfaction = df_clean['customer_satisfaction'].mean()
+
+fig.add_trace(go.Indicator(
+    mode='number',
+    value=total_revenue,
+    title={'text': 'Total Revenue'},
+    number={'prefix': '$', 'valueformat': ',.0f'},
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=1)
+
+fig.add_trace(go.Indicator(
+    mode='number',
+    value=total_transactions,
+    title={'text': 'Total Transactions'},
+    number={'valueformat': ','},
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=2)
+
+fig.add_trace(go.Indicator(
+    mode='gauge+number',
+    value=avg_satisfaction,
+    title={'text': 'Avg Satisfaction'},
+    gauge={
+        'axis': {'range': [1, 5]},
+        'bar': {'color': '#06A77D'},
+        'threshold': {
+            'line': {'color': 'red', 'width': 4},
+            'thickness': 0.75,
+            'value': 4.0
+        }
+    },
+    domain={'x': [0, 1], 'y': [0, 1]}
+), row=1, col=3)
+
+# Row 2: Monthly trend and Top categories
+fig.add_trace(go.Scatter(
+    x=monthly_data['year_month'],
+    y=monthly_data['total_amount'],
+    mode='lines+markers',
+    line=dict(color='#2E86AB', width=3),
+    marker=dict(size=10),
+    name='Revenue',
+    hovertemplate='<b>%{x}</b><br>Revenue: $%{y:,.0f}<extra></extra>'
+), row=2, col=1)
+
+top_categories = category_data.nlargest(5, 'total_amount')
+fig.add_trace(go.Bar(
+    x=top_categories['total_amount'],
+    y=top_categories['product_category'],
+    orientation='h',
+    marker_color='#FF6B6B',
+    name='Categories',
+    hovertemplate='<b>%{y}</b><br>$%{x:,.0f}<extra></extra>'
+), row=2, col=3)
+
+# Row 3: Regional bars and Channel pie
+regional_totals = df_clean.groupby('region')['total_amount'].sum().sort_values(ascending=False)
+fig.add_trace(go.Bar(
+    x=regional_totals.index,
+    y=regional_totals.values,
+    marker_color='#4ECDC4',
+    name='Regions',
+    hovertemplate='<b>%{x}</b><br>$%{y:,.0f}<extra></extra>'
+), row=3, col=1)
+
+channel_totals = df_clean.groupby('channel')['total_amount'].sum()
+fig.add_trace(go.Pie(
+    labels=channel_totals.index,
+    values=channel_totals.values,
+    marker_colors=['#45B7D1', '#FFA07A', '#98D8C8'],
+    name='Channels',
+    hovertemplate='<b>%{label}</b><br>$%{value:,.0f}<br>%{percent}<extra></extra>'
+), row=3, col=3)
+
+# Update layout
+fig.update_layout(
+    title_text='<b>Retail Sales Analytics Dashboard - 2024</b><br>' +
+               '<sub>Interactive Performance Overview</sub>',
+    title_x=0.5,
+    title_font_size=20,
+    showlegend=False,
+    height=1100,
+    plot_bgcolor='#F8F9FA',
+    paper_bgcolor='white'
+)
+
+# Update axes
+fig.update_xaxes(showgrid=True, gridcolor='white')
+fig.update_yaxes(showgrid=True, gridcolor='white')
+fig.update_yaxes(tickformat='$,.0f', row=2, col=1)
+fig.update_xaxes(tickformat='$,.0f', row=2, col=3)
+fig.update_yaxes(tickformat='$,.0f', row=3, col=1)
+
+# Save dashboard
+fig.write_html('FinalProject_Outputs/FP_Interactive_Dashboard.html')
+print("\n✓ Interactive dashboard saved: FP_Interactive_Dashboard.html")
+
+# ============================================================================
+# SECTION 7: KEY FINDINGS AND RECOMMENDATIONS
+# ============================================================================
+
+print("\n" + "="*70)
+print("KEY FINDINGS AND RECOMMENDATIONS")
+print("="*70)
+
+print("\n📊 KEY FINDINGS:")
+print("-" * 70)
+
+# Finding 1: Revenue trends
+total_rev = df_clean['total_amount'].sum()
+print(f"\n1. REVENUE PERFORMANCE:")
+print(f"   • Total 2024 revenue: ${total_rev:,.2f}")
+print(f"   • Average monthly revenue: ${total_rev/12:,.2f}")
+best_month = df_clean.groupby('year_month')['total_amount'].sum().idxmax()
+print(f"   • Best performing month: {best_month}")
+
+# Finding 2: Category insights
+top_category = category_data.nlargest(1, 'total_amount').iloc[0]
+print(f"\n2. PRODUCT CATEGORIES:")
+print(f"   • Top category: {top_category['product_category']}")
+print(f"   • Category revenue: ${top_category['total_amount']:,.2f}")
+print(f"   • Category satisfaction: {top_category['customer_satisfaction']:.2f}/5.0")
+
+# Finding 3: Regional performance
+best_region = df_clean.groupby('region')['total_amount'].sum().idxmax()
+worst_region = df_clean.groupby('region')['total_amount'].sum().idxmin()
+print(f"\n3. REGIONAL ANALYSIS:")
+print(f"   • Best region: {best_region}")
+print(f"   • Underperforming region: {worst_region}")
+
+# Finding 4: Channel effectiveness
+channel_perf = df_clean.groupby('channel').agg({
+    'total_amount': 'sum',
+    'customer_satisfaction': 'mean'
+})
+best_channel = channel_perf['total_amount'].idxmax()
+print(f"\n4. CHANNEL PERFORMANCE:")
+print(f"   • Leading channel: {best_channel}")
+print(f"   • Overall satisfaction: {avg_satisfaction:.2f}/5.0")
+
+print("\n" + "="*70)
+print("💡 STRATEGIC RECOMMENDATIONS:")
+print("="*70)
+
+print(f"""
+1. INVESTMENT PRIORITIES:
+   • Expand {top_category['product_category']} inventory (top performer)
+   • Increase {best_channel} capacity (highest revenue channel)
+   • Deploy best practices from {best_region} to other regions
+
+2. IMPROVEMENT AREAS:
+   • Focus on {worst_region} region - investigate and address gap
+   • Improve satisfaction in lower-rated categories
+   • Optimize shipping times for online orders
+
+3. GROWTH OPPORTUNITIES:
+   • Launch targeted campaigns in underperforming regions
+   • Develop mobile app features (growing channel)
+   • Create bundle offers for complementary categories
+
+4. OPERATIONAL EXCELLENCE:
+   • Maintain satisfaction above 4.0 benchmark
+   • Standardize processes across high-performing regions
+   • Monitor and address outlier transactions
+
+5. 2025 STRATEGIC INITIATIVES:
+   • Set aggressive growth targets for {worst_region} (+30%)
+   • Expand {top_category['product_category']} product line
+   • Enhance {best_channel} customer experience
+   • Implement predictive analytics for inventory management
+""")
+
+print("\n" + "="*70)
+print("PROJECT COMPLETE - All deliverables generated!")
+print("="*70)
+print("\nDeliverables created:")
+print("  ✓ 6 static visualizations (Matplotlib/Seaborn)")
+print("  ✓ 1 interactive dashboard (Plotly)")
+print("  ✓ Comprehensive analysis script")
+print("  ✓ Business insights and recommendations")
+print("\nAll files saved to: FinalProject_Outputs/")
+```
+
+### Lab Session
+**Final Project: Comprehensive Business Data Analysis**
+
+**Objective:** Apply all skills learned throughout the course to complete a professional, end-to-end business intelligence project demonstrating mastery of Python, data analysis, and visualization.
+
+**Scenario:** You are the Senior Business Intelligence Analyst at a company of your choice. The executive team has commissioned a comprehensive annual analysis to guide strategic planning for the coming year. Your mission is to analyze the provided dataset (or one you choose), uncover actionable insights, and present findings through a combination of static reports and interactive dashboards.
+
+**Project Options (Choose One):**
+
+**Option A: E-commerce Performance Analysis**
+- Dataset: Online retail transactions
+- Focus: Sales trends, customer behavior, product performance
+- Stakeholders: CEO, CMO, Head of E-commerce
+
+**Option B: HR Analytics and Employee Retention**
+- Dataset: Employee data, satisfaction surveys, performance metrics
+- Focus: Retention factors, satisfaction drivers, compensation analysis
+- Stakeholders: CHRO, Department Heads, Executive Team
+
+**Option C: Marketing Campaign Effectiveness**
+- Dataset: Multi-channel marketing campaigns, leads, conversions
+- Focus: ROI by channel, customer acquisition cost, attribution
+- Stakeholders: CMO, Marketing Directors, Finance
+
+**Option D: Financial Performance and Profitability**
+- Dataset: Revenue, costs, profit by product/region/time
+- Focus: Margin analysis, cost drivers, growth opportunities
+- Stakeholders: CFO, CEO, Board of Directors
+
+**You may also choose your own business scenario with instructor approval.**
+
+**Project Requirements:**
+
+**Part 1: Data Preparation and Cleaning (20 points)**
+
+**Deliverable:** Python script section demonstrating:
+1. Data import from CSV/Excel (or generated data)
+2. Initial exploratory analysis:
+   - Dataset dimensions and structure
+   - Summary statistics
+   - Data type verification
+3. Data quality assessment:
+   - Missing value detection and handling
+   - Duplicate identification and removal
+   - Outlier detection using IQR method
+   - Data type corrections
+4. Derived field creation:
+   - Calculate relevant business metrics
+   - Create time-based features (month, quarter, etc.)
+   - Add categorical groupings as needed
+5. Documentation:
+   - Comment all cleaning decisions
+   - Document assumptions made
+   - Report data quality metrics
+
+**Success Criteria:**
+
+- [ ] Data successfully loaded and parsed
+- [ ] Missing values handled appropriately
+- [ ] Duplicates removed with justification
+- [ ] Outliers identified and managed
+- [ ] Clean dataset ready for analysis
+- [ ] All steps documented in comments
+
+**Part 2: Exploratory Analysis (20 points)**
+
+**Deliverable:** Python script section with:
+1. Descriptive statistics:
+   - Summary stats for all numeric variables
+   - Frequency tables for categorical variables
+   - Distributions by key segments
+2. Correlation analysis:
+   - Calculate correlation matrix
+   - Identify strong relationships
+   - Document business implications
+3. Segment analysis:
+   - Group by key dimensions (region, category, time)
+   - Calculate aggregated metrics
+   - Compare performance across segments
+4. Trend identification:
+   - Time series patterns
+   - Seasonal effects
+   - Growth rates
+5. Insights documentation:
+   - Summarize findings in comments
+   - Highlight surprising patterns
+   - Note questions for further analysis
+
+**Success Criteria:**
+
+- [ ] Comprehensive statistical summary
+- [ ] Correlation analysis completed
+- [ ] Segmentation reveals patterns
+- [ ] Trends clearly identified
+- [ ] Findings documented in text
+
+**Part 3: Static Visualizations (25 points)**
+
+**Deliverable:** Minimum 8 high-quality static charts using Matplotlib and Seaborn:
+
+**Required Chart Types (must include):**
+
+1. **Time series trend** (line chart showing change over time)
+2. **Category comparison** (bar chart comparing groups)
+3. **Distribution analysis** (histogram/KDE showing spread)
+4. **Relationship plot** (scatter plot with correlation)
+5. **Composition chart** (pie or stacked bar showing parts of whole)
+6. **Heatmap** (correlation matrix or pivot table)
+
+**Additional Charts (choose 2):**
+
+7. Box plot for group comparisons
+8. Pair plot for multivariate analysis
+9. Violin plot for distribution comparison
+10. Faceted plot showing multiple dimensions
+
+**Each chart must:**
+
+- Have descriptive title
+- Include axis labels with units
+- Use appropriate colors (accessible)
+- Format numbers properly (currency, percentages)
+- Include legends where needed
+- Be saved as high-resolution PNG (300 dpi)
+
+**Success Criteria:**
+
+- [ ] All 8 required charts created
+- [ ] Professional appearance and formatting
+- [ ] Appropriate chart types for data stories
+- [ ] All charts properly labeled
+- [ ] Files saved with descriptive names
+- [ ] Insights visible from each chart
+
+**Part 4: Interactive Dashboard (25 points)**
+
+**Deliverable:** Comprehensive Plotly dashboard (single HTML file) containing:
+
+**Dashboard Structure:**
+
+1. **KPI Section** (top):
+   - 3-4 key performance indicators
+   - Use indicator or gauge visualizations
+   - Show current value and comparison (delta or vs target)
+   - Clear, large numbers
+
+2. **Main Analysis Section** (middle):
+   - 4-6 interactive charts
+   - Mix of chart types (scatter, line, bar, etc.)
+   - Coordinated hover information
+   - Consistent color scheme
+
+3. **Detail Section** (bottom):
+   - Supporting tables or charts
+   - Additional breakdowns
+   - Summary statistics
+
+**Interactive Features (must include at least 3):**
+
+- Hover tooltips with detailed information
+- Dropdown menus or buttons for filtering
+- Zoom and pan capabilities
+- Click interactions (hide/show in legend)
+- Range sliders for time series
+- Animation (if appropriate for data story)
+
+**Success Criteria:**
+
+- [ ] Dashboard tells cohesive story
+- [ ] Multiple interactive features work smoothly
+- [ ] Professional styling and colors
+- [ ] Responsive layout (charts don't overlap)
+- [ ] All numbers formatted correctly
+- [ ] Opens perfectly in web browser
+- [ ] Saved as single HTML file
+
+**Part 5: Executive Report (10 points)**
+
+**Deliverable:** Written document (PDF or Markdown) containing:
+
+**Structure:**
+
+1. **Executive Summary (1 page):**
+
+   - Business context and objectives
+   - Key findings (3-5 bullet points)
+   - Primary recommendations
+
+2. **Methodology (½ page):**
+
+   - Data sources and scope
+   - Analysis approach
+   - Tools used
+
+3. **Findings (2-3 pages):**
+
+   - Major insights with supporting visualizations
+   - Statistical evidence
+   - Business implications
+
+4. **Recommendations (1 page):**
+
+   - 5-7 specific, actionable recommendations
+   - Prioritized by impact
+   - Implementation considerations
+
+5. **Appendix:**
+
+   - Technical details
+   - Additional charts
+   - Data dictionary
+
+**Success Criteria:**
+
+- [ ] Clear, professional writing
+- [ ] Executive summary is standalone
+- [ ] Findings supported by data
+- [ ] Recommendations are specific and actionable
+- [ ] Visualizations embedded appropriately
+- [ ] Professional formatting
+
+**Final Deliverables Checklist:**
+
+Submit all of the following:
+1. **Python Script:** `FinalProject_YourName_Analysis.py`
+   - Complete, well-commented code
+   - Follows project structure
+   - Runs without errors
+
+2. **Static Visualizations Folder:** `Static_Charts/`
+   - 8+ PNG files (300 dpi)
+   - Descriptive filenames
+   - Professional quality
+
+3. **Interactive Dashboard:** `FinalProject_YourName_Dashboard.html`
+   - Single HTML file
+   - Fully functional in browser
+   - Professional appearance
+
+4. **Executive Report:** `FinalProject_YourName_Report.pdf`
+   - Professional business document
+   - Includes key visualizations
+   - Clear recommendations
+
+5. **Readme File:** `README.md`
+   - Project overview
+   - How to run the code
+   - File descriptions
+   - Dependencies required
+
+**Grading Rubric:**
+
+| Component | Points | Criteria |
+|-----------|--------|----------|
+| Data Preparation | 20 | Cleaning thoroughness, documentation |
+| Exploratory Analysis | 20 | Statistical rigor, insight depth |
+| Static Visualizations | 25 | Quality, variety, appropriateness |
+| Interactive Dashboard | 25 | Functionality, design, interactivity |
+| Executive Report | 10 | Clarity, professionalism, actionability |
+| **Total** | **100** | |
+
+**Bonus Opportunities (+20 points):**
+
+- Advanced statistical analysis (regression, clustering)
+- Custom interactive features (beyond requirements)
+- Exceptional design and branding
+- Video presentation (5-min walkthrough)
+- Deployed dashboard (publicly accessible)
+
+**Evaluation Criteria:**
+
+**Technical Excellence (40%):**
+
+- Code quality and organization
+- Proper use of libraries
+- Reproducibility
+- Error handling
+
+**Analytical Depth (30%):**
+
+- Insight quality
+- Statistical rigor
+- Question formulation
+- Pattern identification
+
+**Visual Communication (20%):**
+
+- Chart appropriateness
+- Design quality
+- Accessibility
+- Information density
+
+**Business Value (10%):**
+
+- Actionable recommendations
+- Stakeholder alignment
+- Clear impact
+- Implementation feasibility
+
+**Common Mistakes to Avoid:**
+
+- Generic analysis (not specific to business context)
+- Chart overload (quantity over quality)
+- Missing business interpretation
+- Poor code documentation
+- Inconsistent styling across deliverables
+- Recommendations not tied to data
+- Non-reproducible analysis
+
+**Tips for Success:**
+
+1. **Start Early:** This is comprehensive project
+2. **Choose Appropriate Data:** Not too simple, not too complex
+3. **Tell a Story:** Connect all pieces with narrative
+4. **Iterate:** Review and refine visualizations
+5. **Test Everything:** Run code fresh, open HTML in browser
+6. **Get Feedback:** Show drafts to classmates
+7. **Document Well:** Future you will thank you
+8. **Focus on Impact:** What decisions will this drive?
+
+**Submission Instructions:**
+
+- Create a ZIP file with all deliverables
+- Name: `FinalProject_YourName.zip`
+- Submit via course platform by deadline
+- Ensure all files are included and functional
+
+**Academic Integrity:**
+
+- All work must be your own
+- Cite any external data sources
+- Do not share code with classmates
+- Collaboration on concepts OK, code must be individual
+
+---
+
+** CONGRATULATIONS!**
+
+Upon completing this project, you will have demonstrated:
+
+✓ Proficiency in Python for data analysis
+✓ Mastery of Pandas for data manipulation
+✓ Expertise in Matplotlib and Seaborn for static visualization
+✓ Advanced skills in Plotly for interactive dashboards
+✓ Ability to communicate data insights to business audiences
+✓ End-to-end project execution capability
+
+**You are now prepared for professional roles in:**
+
+- Business Intelligence Analysis
+- Data Visualization Specialist
+- Business Analytics
+- Data Science (with additional learning)
+- Management Consulting (analytical roles)
