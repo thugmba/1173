@@ -6,54 +6,47 @@ date: today
 author: "Brian Kim (Editor)" # Keep the author field, but we won't use it directly here
 # to avoid conflicts, we will write it out manually.
 
-# 1. Disable the standard \maketitle command to stop Pandoc's automatic formatting
-header-includes:
-  - \usepackage{titling}
-  - \renewcommand{\maketitle}{}
-  - \usepackage[ a4paper, top=25mm, bottom=25mm, left=25mm, right=25mm, heightrounded, marginparwidth=20mm ]{geometry}
 
-# 2. Insert custom LaTeX commands into the document body using 'include-before'
-#    This goes *after* \begin{document} and creates the title page manually.
-include-before: |
-  \begin{titlepage}
-  \centering
-  {\Huge \textbf{Data Visualization Analysis} \par}
-  \vspace{1em}
-  {\Large Transforming Data into Business Insights \par}
-  \vspace{2cm}
-  {\large \textbf{Brian Kim (Editor)} \par}
-  \vspace{0.5em}
-  {\large \textit{Global Master of Business Management, Tunghai University} \par}
-  \vspace{3cm}
-  {\large \textit{Draft} \par}
-  \vspace{3cm}
-  {\large \today \par}
-  \end{titlepage}
-# author:
-#   - name: Brian Kim (Editor)
-#     affilications:
-#       - name: Global Master of Business Management, Tunghai University
+# header-includes:
+#   - \usepackage{titling}
+#   - \renewcommand{\maketitle}{}
+#   - \usepackage[ a4paper, top=25mm, bottom=25mm, left=25mm, right=25mm, heightrounded, marginparwidth=20mm ]{geometry}
+# include-before: |
+#   \begin{titlepage}
+#   \centering
+#   {\Huge \textbf{Data Visualization Analysis} \par}
+#   \vspace{1em}
+#   {\Large Transforming Data into Business Insights \par}
+#   \vspace{2cm}
+#   {\large \textbf{Brian Kim (Editor)} \par}
+#   \vspace{0.5em}
+#   {\large \textit{Global Master of Business Management, Tunghai University} \par}
+#   \vspace{3cm}
+#   {\large \textit{Draft} \par}
+#   \vspace{3cm}
+#   {\large \today \par}
+#   \end{titlepage}
 format:
-#   html:
-#     toc: true
-#     toc-depth: 3
-#     toc-expand: false
-#     number-sections: true
-#     theme: cosmo
-#     code-fold: false
-#     embed-resources: true
-#     # css: styles.css
-  pdf:
-    include-in-header:
-      text: |
-        \usepackage{fvextra}
-        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+  html:
     toc: true
-    code-overflow: wrap
-    documentclass: report
+    toc-depth: 3
+    toc-expand: false
     number-sections: true
-    colorlinks: true
-    papersize: a4
+    theme: cosmo
+    code-fold: false
+    embed-resources: true
+    # css: styles.css
+#   pdf:
+#     include-in-header:
+#       text: |
+#         \usepackage{fvextra}
+#         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+#     toc: true
+#     code-overflow: wrap
+#     documentclass: report
+#     number-sections: true
+#     colorlinks: true
+#     papersize: a4
 ---
 
 <!-- # Contents {.unnumbered}
@@ -1778,24 +1771,28 @@ Before cleaning, assess the problems:
 Clean the data following these steps (print results after each step):
 
 **Step 1: Handle Duplicates (10 points)**
+
 - Identify and print duplicate rows
 - Remove duplicate rows (keep first occurrence)
 - Print how many duplicates were removed
 - Print the DataFrame shape after removal
 
 **Step 2: Handle Missing Values (10 points)**
+
 - For "Sales" column: Fill missing values with the median sales
 - For "Region" column: Fill missing values with "Unknown"
 - For "Date" column: Fill missing values with "2024-01-17"
 - Print the DataFrame to verify no missing values remain
 
 **Step 3: Standardize Text Fields (10 points)**
+
 - Product column: Remove whitespace, convert to title case
 - Region column: Remove whitespace, capitalize properly
 - Sales_Rep column: Ensure consistent capitalization
 - Print unique values in Product and Region to verify
 
 **Step 4: Convert Data Types (10 points)**
+
 - Convert "Date" to datetime format
 - Convert "Quantity" to integer type
 - Convert "Price" to float type
@@ -1803,6 +1800,7 @@ Clean the data following these steps (print results after each step):
 - Print data types to confirm changes
 
 **Step 5: Validate and Correct Business Logic (10 points)**
+
 - Recalculate Sales: Should equal Quantity × Price
 - Create a new column "Sales_Calculated" with correct values
 - Compare with existing "Sales" column
@@ -1955,6 +1953,7 @@ As a line chart, you immediately see: "Steady upward trajectory, accelerating sl
 Matplotlib is Python's foundational visualization library, created in 2003 to bring MATLAB-style plotting to Python. Think of it as the "engine" that powers most Python visualizations - even libraries like Seaborn are built on top of Matplotlib.
 
 **Why Start with Matplotlib?**
+
 - **Industry standard**: Most widely used in business and science
 - **Highly customizable**: Complete control over every visual element
 - **Publication-ready**: Creates professional graphics for reports and papers
@@ -2026,6 +2025,7 @@ plt.show()
 **The Basic Workflow:**
 
 Every Matplotlib visualization follows these steps:
+
 1. Import the library
 2. Prepare your data
 3. Create figure and axes
@@ -2069,6 +2069,7 @@ plt.show()
 **When to Use Line Plots:**
 
 Line plots are ideal for:
+
 - **Time series data**: Sales over months, stock prices over days
 - **Trends**: Showing direction of change
 - **Continuous data**: Temperature, revenue, website traffic
@@ -2143,6 +2144,7 @@ plt.show()
 **When to Use Scatter Plots:**
 
 Scatter plots reveal relationships between two variables:
+
 - **Correlation**: Does advertising spend correlate with sales?
 - **Outliers**: Which customers have unusual behavior?
 - **Clustering**: Do data points group together?
@@ -2186,6 +2188,7 @@ plt.show()
 **Reading Scatter Plots:**
 
 What to look for:
+
 - **Positive correlation**: Points trend upward (as X increases, Y increases)
 - **Negative correlation**: Points trend downward (as X increases, Y decreases)
 - **No correlation**: Points scattered randomly
@@ -2196,12 +2199,14 @@ What to look for:
 **Decision Framework:**
 
 Use **Line Plots** when:
+
 - X-axis represents time or sequential order
 - You want to emphasize trends
 - Connecting points makes sense
 - Example: Monthly sales, daily temperature, yearly growth
 
 Use **Scatter Plots** when:
+
 - Investigating relationships between two variables
 - Each point is an independent observation
 - Connecting points doesn't make sense
@@ -2210,6 +2215,7 @@ Use **Scatter Plots** when:
 **The Same Data, Different Stories:**
 
 Imagine plotting store locations by (Latitude, Longitude):
+
 - Scatter plot: Shows geographic distribution
 - Line plot: Would incorrectly suggest a path between stores
 
@@ -2218,6 +2224,7 @@ Imagine plotting store locations by (Latitude, Longitude):
 **Why Save Plots:**
 
 In business, you'll need to:
+
 - Include charts in reports (Word, PowerPoint)
 - Share visualizations via email
 - Post on internal dashboards
@@ -2500,6 +2507,7 @@ Matplotlib's default visualizations are functional but generic. In business cont
 **The Professional Standard:**
 
 Compare these descriptions:
+
 - **Default**: Blue line, "x" label, "y" label
 - **Professional**: Corporate blue (#1f77b4), "Fiscal Year 2024", "Revenue (Millions USD)", clear legend, formatted axis ticks, appropriate title
 
@@ -2601,6 +2609,7 @@ ax.plot(x, y2, color='#FFB000')  # Orange
 **The Three Essential Labels:**
 
 Every business visualization must have:
+
 1. **Title**: What is this chart showing?
 2. **X-axis label**: What does the horizontal axis represent?
 3. **Y-axis label**: What does the vertical axis represent?
@@ -2610,6 +2619,7 @@ Every business visualization must have:
 **Creating Effective Titles:**
 
 Titles should be:
+
 - **Specific**: Not "Sales Chart" but "Regional Sales Performance Q4 2024"
 - **Informative**: Tell what, when, where if relevant
 - **Concise**: One line preferred, two maximum
@@ -2773,6 +2783,7 @@ ax.legend(loc='upper center', ncol=3,  # 3 columns
 **Why Typography Matters:**
 
 The right fonts make visualizations:
+
 - More readable (especially in presentations)
 - More professional
 - Aligned with brand guidelines
@@ -2842,6 +2853,7 @@ plt.show()
 **Text Hierarchy in Business Charts:**
 
 Create visual hierarchy through sizing:
+
 - **Title**: 14-16pt, bold
 - **Axis labels**: 11-12pt, medium weight
 - **Tick labels**: 10-11pt, normal weight
@@ -3264,6 +3276,7 @@ Business analysis often requires viewing multiple perspectives simultaneously:
 
 **Scenario 1: Regional Comparison**
 Instead of four separate charts for four regions, one figure with four subplots lets executives:
+
 - Compare patterns across regions instantly
 - Identify which regions are outperforming
 - Spot regional trends vs. company-wide trends
@@ -3271,6 +3284,7 @@ Instead of four separate charts for four regions, one figure with four subplots 
 
 **Scenario 2: Multi-Metric Dashboard**
 A product manager needs to see:
+
 - Sales volume (line chart)
 - Profit margins (bar chart)
 - Customer satisfaction (line chart)
@@ -3280,6 +3294,7 @@ Four separate images become confusing. One dashboard figure tells the complete s
 
 **Scenario 3: Time Period Comparison**
 Comparing this year vs. last year:
+
 - Option A: Overlay on same plot (can be cluttered)
 - Option B: Side-by-side subplots (clearer comparison)
 - Option C: Vertical stack (emphasizes temporal progression)
@@ -3304,6 +3319,7 @@ Comparing this year vs. last year:
 **The Conceptual Model:**
 
 Think of subplots as a grid:
+
 - **Rows**: Vertical divisions
 - **Columns**: Horizontal divisions
 - **Position**: Each subplot occupies a cell (or multiple cells)
@@ -3417,6 +3433,7 @@ plt.show()
 **The Problem of Overlap:**
 
 Default spacing often causes:
+
 - Titles overlapping adjacent plots
 - Axis labels getting cut off
 - Cramped appearance
@@ -3434,6 +3451,7 @@ plt.tight_layout()
 ```
 
 What `tight_layout()` does:
+
 - Calculates optimal spacing
 - Prevents overlapping elements
 - Adjusts subplot sizes
@@ -4029,6 +4047,7 @@ plt.show()
 **The Business Need:**
 
 Compare the same categories across different groups:
+
 - This year vs. last year by quarter
 - Actual vs. budget by department
 - Male vs. female customers by age group
@@ -4092,6 +4111,7 @@ plt.show()
 **The Composition Question:**
 
 Stacked bars answer: "What makes up this total?"
+
 - Revenue by product line per quarter (total quarterly revenue)
 - Budget allocation by department per year (total yearly budget)
 - Employee distribution by level per division (total employees)
@@ -4154,6 +4174,7 @@ plt.show()
 **The Time Series Specialist:**
 
 Line charts are the default for showing change over time because:
+
 - Lines imply continuity between points
 - Slopes show rate of change
 - Trends are immediately visible
@@ -4223,6 +4244,7 @@ plt.show()
 **The Controversial Chart:**
 
 Pie charts are controversial in data visualization:
+
 - **Proponents**: Intuitive, shows parts of whole clearly
 - **Critics**: Humans are bad at comparing angles/areas
 
@@ -4291,6 +4313,7 @@ plt.show()
 **Better Alternatives to Pie Charts:**
 
 For most situations, consider:
+
 - **Horizontal bar chart**: Easier comparison of categories
 - **Donut chart**: Same as pie, but central hole can hold title/total
 - **Treemap**: For hierarchical data
@@ -4521,6 +4544,7 @@ revenue_by_group = [14900000, 8750000, 1850000]
 **Create a Comprehensive Dashboard Combining Multiple Chart Types:**
 
 Using all the data provided above, create ONE figure that combines:
+
 1. A main trend line (monthly revenue) - largest subplot
 2. A supporting bar chart (top 5 categories) - medium subplot
 3. A pie chart (category groups) - small subplot
@@ -4631,6 +4655,7 @@ While Matplotlib gives you complete control, it requires significant code for co
 Consider creating a visualization showing the relationship between two variables with a regression line:
 
 **Matplotlib approach**: 30+ lines of code
+
 - Calculate regression manually
 - Plot scatter points
 - Calculate and plot regression line
@@ -4802,6 +4827,7 @@ plt.show()
 ```
 
 **Which to Use?**
+
 - **Learning**: Start with axes-level (more familiar if you know Matplotlib)
 - **Quick exploration**: Figure-level (less code)
 - **Custom layouts**: Axes-level (more control)
@@ -4812,11 +4838,13 @@ plt.show()
 **Why Histograms Matter in Business:**
 
 Before making decisions based on averages, you must understand the distribution:
+
 - Are most customers spending around the average, or are there two distinct groups?
 - Is revenue normally distributed, or heavily skewed by a few big deals?
 - Are there outliers affecting our analysis?
 
 Histograms answer these questions visually by showing:
+
 - **Shape**: Normal, skewed, bimodal?
 - **Center**: Where is the typical value?
 - **Spread**: How variable is the data?
@@ -4874,6 +4902,7 @@ Looking at a histogram, ask:
 **Business Interpretation Example:**
 
 A histogram of customer purchase amounts showing:
+
 - **Right-skewed**: Most customers spend $40-60, but a few big spenders reach $150+
 - **Business insight**: Can't rely on average alone; need strategies for both typical customers and high-value customers
 
@@ -4930,6 +4959,7 @@ plt.show()
 **Interpreting KDE Plots:**
 
 The Y-axis shows "density" - not counts, but relative concentration:
+
 - **Higher peaks**: More observations in this range
 - **Wider spread**: More variability
 - **Multiple peaks**: Distinct subgroups
@@ -4937,6 +4967,7 @@ The Y-axis shows "density" - not counts, but relative concentration:
 **Business Use Case:**
 
 Comparing customer lifetime value distributions across regions:
+
 - West Coast: Narrow, high peak around $500 = consistent customers
 - East Coast: Wide, low peak = highly variable customer value
 - **Insight**: West Coast needs retention strategy, East Coast needs segmentation
@@ -4957,6 +4988,7 @@ Box plots (also called box-and-whisker plots) compress a distribution into five 
 **Why Box Plots Matter:**
 
 In business, you often need to compare distributions across categories:
+
 - Sales performance across regions
 - Salaries across departments
 - Product ratings across age groups
@@ -5041,6 +5073,7 @@ plt.show()
 **Business Application:**
 
 A CFO looking at departmental budget variance box plots:
+
 - **Finance department**: Small box, no outliers = predictable, well-controlled
 - **Marketing department**: Large box, several outliers = needs budget management attention
 - **Action**: Implement stricter controls in Marketing, use Finance as best practice model
@@ -5279,6 +5312,7 @@ df_satisfaction = pd.DataFrame({
 **Create a Comprehensive Statistical Dashboard:**
 
 Combine all four analyses into a single 2×2 subplot figure:
+
 - Top-left: Age distribution histogram
 - Top-right: Revenue KDE comparisons
 - Bottom-left: Usage box plots
@@ -5354,6 +5388,7 @@ When analyzing distributions, always assess:
 ## Section 2: Distribution and Relationship Visualizations
 
 ### Objective
+
 - Create and interpret joint plots showing relationships between two variables
 - Master pair plots for multivariate exploratory analysis
 - Use regression plots to visualize linear relationships
@@ -5368,6 +5403,7 @@ When analyzing distributions, always assess:
 **The Business Reality:**
 
 Most business questions involve relationships between variables:
+
 - Does advertising spend correlate with revenue?
 - Do experienced employees have higher satisfaction scores?
 - Is there a relationship between product price and sales volume?
@@ -5455,6 +5491,7 @@ plt.show()
 **Understanding the Confidence Interval:**
 
 The shaded area represents uncertainty in our estimate:
+
 - **Narrow band**: High confidence, strong relationship, lots of data
 - **Wide band**: Less confidence, weaker relationship, or less data
 - **Interpretation**: "We're 95% confident the true relationship falls within this band"
@@ -5462,6 +5499,7 @@ The shaded area represents uncertainty in our estimate:
 **Business Application:**
 
 Looking at the marketing spend plot:
+
 - **Positive slope**: More marketing spend → More revenue (good!)
 - **Confidence interval**: Gets wider at extremes (less data at very high/low spend)
 - **Scatter around line**: Some variation, but overall strong pattern
@@ -5472,11 +5510,13 @@ Looking at the marketing spend plot:
 **The Multi-View Approach:**
 
 Joint plots are one of Seaborn's most powerful features, combining three visualizations in one figure:
+
 - **Center**: Scatter plot showing relationship
 - **Top**: Histogram of X variable
 - **Right**: Histogram of Y variable
 
 This provides comprehensive understanding:
+
 - See the relationship (center)
 - See X distribution (top)
 - See Y distribution (right)
@@ -5519,19 +5559,23 @@ plt.show()
 Seaborn offers several relationship types:
 
 **1. kind='scatter'** (default)
+
 - Basic scatter plot
 - Best for initial exploration
 
 **2. kind='reg'**
+
 - Adds regression line
 - Best when you suspect linear relationship
 
 **3. kind='kde'**
+
 - Contour plot showing density
 - Best for large datasets where points overlap
 - Shows concentration of data
 
 **4. kind='hex'**
+
 - Hexagonal binning
 - Best for very large datasets (1000+ points)
 - Shows density through color
@@ -5556,6 +5600,7 @@ Seaborn offers several relationship types:
 **Business Insights Example:**
 
 From employee compensation joint plot:
+
 - **Center**: Clear positive trend (experience → higher salary)
 - **Top**: Most employees have 5-15 years (middle career)
 - **Right**: Salary slightly right-skewed (few very high earners)
@@ -5570,6 +5615,7 @@ In business, you often have many variables and don't know which relationships ma
 **Example Scenario:**
 
 You have data on:
+
 - Customer age
 - Income
 - Years as customer
@@ -5638,6 +5684,7 @@ plt.show()
 **Business Application - Customer Segmentation:**
 
 From the pair plot, you might discover:
+
 - **Age vs Income**: Positive correlation (older → higher income)
 - **Income vs Avg Purchase**: Strong positive (wealth → spending)
 - **Years Customer vs Age**: No clear pattern (customers of all ages)
@@ -5663,6 +5710,7 @@ plt.show()
 ```
 
 Now each scatter plot shows three colors (Budget, Standard, Premium), revealing:
+
 - Do segments have different age distributions?
 - Do purchase behaviors differ by segment?
 - Are segments well-separated or overlapping?
@@ -5676,6 +5724,7 @@ A regression line looks nice, but how well does it actually fit the data? Residu
 **What are Residuals?**
 
 Residuals are the differences between actual values and predicted values:
+
 - **Residual = Actual Y - Predicted Y**
 - Positive residual: Point is above the line
 - Negative residual: Point is below the line
@@ -5786,21 +5835,25 @@ plt.show()
 When exploring relationships in business data:
 
 **Step 1: Pair Plot Overview**
+
 - Load your data
 - Create pair plot of all numeric variables
 - Identify interesting relationships
 
 **Step 2: Deep Dive with Joint Plots**
+
 - For each interesting relationship, create joint plot
 - Add regression line (`kind='reg'`)
 - Examine strength and direction
 
 **Step 3: Verify with Residual Plot**
+
 - For relationships you want to model
 - Create residual plot
 - Check if linear model is appropriate
 
 **Step 4: Business Interpretation**
+
 - Translate statistical findings to business language
 - Quantify relationships (correlation coefficients)
 - Make recommendations
@@ -5857,6 +5910,7 @@ print(f"Correlation between Ad Spend and Revenue: {correlation:.3f}")
 **Understanding Correlation Strength:**
 
 Correlation coefficients range from -1 to +1:
+
 - **0.9 to 1.0**: Very strong positive (rare in business)
 - **0.7 to 0.9**: Strong positive
 - **0.4 to 0.7**: Moderate positive
@@ -5882,6 +5936,7 @@ Correlation coefficients range from -1 to +1:
 **Remember: Correlation ≠ Causation**
 
 Just because two variables correlate doesn't mean one causes the other:
+
 - Ice cream sales and drowning deaths correlate (both peak in summer)
 - Company revenue and CEO's golf score might correlate (both improve with company growth)
 
@@ -6144,6 +6199,7 @@ Build a comprehensive analysis demonstrating whether you can predict satisfactio
 **Statistical Analysis Checklist:**
 
 For each relationship analyzed, document:
+
 - [ ] Direction (positive/negative)
 - [ ] Strength (correlation coefficient)
 - [ ] Statistical significance
@@ -6175,6 +6231,7 @@ For each relationship analyzed, document:
 ## Section 3: Categorical Data Visualization
 
 ### Objective
+
 - Master specialized plots for categorical data analysis
 - Create effective count plots, bar plots, and point plots
 - Use violin plots and swarm plots for distribution comparisons
@@ -6189,6 +6246,7 @@ For each relationship analyzed, document:
 **Understanding Categorical Variables:**
 
 In business, many critical variables are categorical (also called qualitative or nominal):
+
 - **Regions**: North, South, East, West
 - **Product Categories**: Electronics, Clothing, Home Goods
 - **Customer Segments**: Budget, Standard, Premium
@@ -6199,6 +6257,7 @@ In business, many critical variables are categorical (also called qualitative or
 **Why Categorical Data Requires Different Visualizations:**
 
 Unlike continuous variables (revenue, age, temperature), categorical variables:
+
 - Have **discrete groups** with no inherent order (usually)
 - Can't be averaged meaningfully (what's the average of "Sales" and "Marketing"?)
 - Need **comparison-focused** visualizations
@@ -6296,6 +6355,7 @@ plt.show()
 **Business Interpretation:**
 
 From the count plot:
+
 - **Budget segment**: 200 customers (40%) - largest group
 - **Enterprise segment**: 25 customers (5%) - smallest but likely highest revenue
 - **Strategic insight**: Marketing budget should reflect distribution, but sales focus on high-value Enterprise
@@ -6305,6 +6365,7 @@ From the count plot:
 **Beyond Counts - Showing Calculated Values:**
 
 While count plots show frequencies, bar plots show **aggregated metrics** for each category:
+
 - Average revenue by region
 - Total sales by product category
 - Median salary by department
@@ -6391,6 +6452,7 @@ sns.barplot(data=df_sales, x='region', y='sales',
 **The Problem with Bar Plots:**
 
 Bar plots only show one summary statistic (mean, median). They hide:
+
 - Distribution shape (normal? skewed? bimodal?)
 - Outliers
 - Full range of data
@@ -6400,6 +6462,7 @@ Violin plots solve this by showing the **entire distribution** for each category
 **What Violin Plots Show:**
 
 A violin plot is essentially a **rotated, mirrored KDE plot** for each category:
+
 - **Width**: Indicates density (more data at that value)
 - **Shape**: Shows distribution characteristics
 - Often includes a box plot inside for key statistics
@@ -6479,6 +6542,7 @@ plt.show()
 **Business Application:**
 
 HR uses violin plots to:
+
 - Identify departments with satisfaction problems
 - Spot bimodal distributions (two distinct employee groups)
 - Compare not just averages but entire experience ranges
@@ -6561,6 +6625,7 @@ plt.show()
 **Emphasizing Changes and Comparisons:**
 
 Point plots are like line charts for categorical data, excellent for showing:
+
 - Changes across ordered categories (quarters, years)
 - Comparing multiple groups across categories
 - Emphasizing trends in categorical data
@@ -6620,6 +6685,7 @@ plt.show()
 **Business Insights from Point Plots:**
 
 Looking at the satisfaction trends:
+
 - **All tiers improving**: Good sign of company-wide initiatives working
 - **Premium tier**: Steepest growth (Δ0.4 points) - successful retention efforts
 - **Enterprise tier**: Already high but plateauing - may need special attention
@@ -6786,6 +6852,7 @@ plt.show()
 - **Points**: Individual observations and outliers
 
 This comprehensive view helps:
+
 - Identify distribution shapes
 - See statistical summaries
 - Verify claims with raw data
@@ -7168,6 +7235,7 @@ Build a 2×3 grid (6 subplots) showing:
 ## Section 4: Heatmaps and Correlation Analysis
 
 ### Objective
+
 - Create and interpret correlation heatmaps for multivariate analysis
 - Understand correlation coefficients and their business implications
 - Use annotated heatmaps to communicate numerical relationships
@@ -7183,11 +7251,13 @@ Build a 2×3 grid (6 subplots) showing:
 **Beyond Two Variables:**
 
 So far, we've explored:
+
 - Single variables (histograms, KDE)
 - Two variables (scatter plots, joint plots)
 - Categories with one metric (box plots, bar plots)
 
 But business data is **multivariate** - many variables interacting:
+
 - Customer data: Age, income, tenure, purchase frequency, satisfaction, lifetime value
 - Product metrics: Price, cost, sales volume, returns, ratings, reviews
 - Financial data: Revenue, expenses, profit, assets, liabilities, ratios
@@ -7195,12 +7265,14 @@ But business data is **multivariate** - many variables interacting:
 **The Visualization Problem:**
 
 How do you visualize 10+ variables simultaneously?
+
 - Pair plot works but becomes overwhelming (10 variables = 45 plots!)
 - Need a compact way to see all relationships at once
 
 **Solution: Heatmaps**
 
 Heatmaps show many values at once using color intensity:
+
 - **Rows**: Variables
 - **Columns**: Variables (or categories)
 - **Color**: Strength of relationship or value
@@ -7375,26 +7447,31 @@ plt.show()
 **Heatmap Parameters Explained:**
 
 **annot=True**: Shows actual correlation values
+
 - Critical for business presentations
 - Enables precise interpretation
 - Numbers complement colors
 
 **fmt='.2f'**: Format for annotations
+
 - '.2f': Two decimals (0.85)
 - '.3f': Three decimals (0.853)
 - '.1f': One decimal (0.9)
 
 **cmap='coolwarm'**: Color scheme
+
 - **coolwarm**: Blue (negative) to Red (positive), white (zero)
 - **RdYlGn**: Red (low) to Green (high) - good for all positive
 - **viridis**: Perceptually uniform, colorblind-safe
 - **vlag**: Similar to coolwarm, more saturated
 
 **center=0**: Where to center the colormap
+
 - **0**: Natural for correlations (-1 to +1)
 - Makes positive/negative clear
 
 **square=True**: Makes cells square
+
 - Easier to read
 - More professional appearance
 
@@ -7499,6 +7576,7 @@ plt.show()
 **Beyond Correlation - Categorical Relationships:**
 
 Heatmaps aren't just for correlations. They excel at showing **values across two categorical dimensions**:
+
 - Average sales by Region × Quarter
 - Customer count by Segment × Industry
 - Satisfaction scores by Department × Tenure
@@ -7688,16 +7766,19 @@ plt.show()
 **Business Insights from Clusters:**
 
 **Cluster 1: Financial Metrics**
+
 - Revenue, Profit, Cash_Flow group together
 - **Insight**: These move together (as expected)
 - **Action**: Can use Revenue as proxy for financial health
 
 **Cluster 2: Customer Metrics**
+
 - Customer_Satisfaction, NPS strongly linked
 - **Insight**: Satisfied customers promote us
 - **Action**: Focus on satisfaction, NPS will follow
 
 **Cluster 3: Operational Metrics**
+
 - Employee_Count, Productivity separate from others
 - **Insight**: Operations independent of customer metrics
 - **Question**: Should they be? Investigate connection
@@ -7707,6 +7788,7 @@ plt.show()
 **The Redundancy Problem:**
 
 In predictive modeling or analysis, highly correlated independent variables cause problems:
+
 - **Multicollinearity**: When predictors correlate with each other
 - **Result**: Unstable models, unclear which variable matters
 - **Solution**: Remove redundant variables
@@ -8198,6 +8280,7 @@ Build a figure with 4 subplots (2×2) showing:
 ## Section 1: Introduction to Plotly and Interactive Charts
 
 ### Objective
+
 - Understand the advantages of interactive visualizations for business
 - Master Plotly's architecture and syntax differences from Matplotlib
 - Create basic interactive plots: scatter, line, and bar charts
@@ -8265,6 +8348,7 @@ Interactive visualizations solve these problems:
 **What is Plotly?**
 
 Plotly is a graphing library that creates interactive, web-based visualizations:
+
 - Built on **D3.js** and **JavaScript** (web standard)
 - Python API (plotly.py) for easy creation
 - Outputs **HTML** files viewable in any browser
@@ -8369,6 +8453,7 @@ When you run `fig.show()`:
 **The Magic of Interactivity:**
 
 Try these interactions:
+
 - **Hover over any point**: See exact marketing_spend and revenue values
 - **Click-drag across interesting region**: Zoom in
 - **Double-click**: Zoom back out
@@ -8381,10 +8466,12 @@ No additional code needed - interactivity is automatic!
 **The Default Hover is Good, But We Can Do Better:**
 
 Default hover shows:
+
 - Variable names (marketing_spend, revenue)
 - Values
 
 Professional hover should show:
+
 - Formatted numbers ($50,000 not 50000)
 - Additional context (Region, Quarter)
 - Readable labels ("Marketing Spend" not "marketing_spend")
@@ -8613,6 +8700,7 @@ fig.show()
 **Advanced Hover Formatting:**
 
 In `hover_data`:
+
 - **Dictionary format**: `{column: format_string}`
 - **':$,.0f'**: Dollar sign, comma separator, no decimals
 - **':,.0f'**: Comma separator, no decimals
@@ -8660,6 +8748,7 @@ fig.write_image('M4L01_Presentation.png', width=1920, height=1080, scale=2)
 **Embedding in Reports:**
 
 Interactive HTML charts can be embedded in:
+
 - **Jupyter notebooks**: Displays inline automatically
 - **Web applications**: Iframe or direct embed
 - **Confluence/SharePoint**: Upload HTML, link in document
@@ -9110,6 +9199,7 @@ Build a single interactive figure that allows users to:
 **Interactivity Checklist:**
 
 For each visualization, verify:
+
 - [ ] Hover reveals all relevant information
 - [ ] Zoom (click-drag) works properly
 - [ ] Pan (shift-click-drag) functions
@@ -9144,6 +9234,7 @@ For each visualization, verify:
 ## Section 2: Advanced Interactive Visualizations
 
 ### Objective
+
 - Create complex multi-trace visualizations combining different chart types
 - Master faceted plots for multi-dimensional comparisons
 - Implement custom buttons and dropdown menus for user control
@@ -9159,6 +9250,7 @@ For each visualization, verify:
 **The Power of Layered Information:**
 
 Real business analysis often requires showing different data types on the same chart:
+
 - Actual values + targets + forecasts
 - Multiple metrics on same timeline
 - Data + statistical summaries
@@ -9344,12 +9436,15 @@ fig.show()
 **Faceting Parameters:**
 
 **facet_col**: Creates columns of subplots
+
 - `facet_col='product'`: One column per product
 
 **facet_row**: Creates rows of subplots
+
 - `facet_row='region'`: One row per region
 
 **facet_col_wrap**: Wraps columns to multiple rows
+
 - `facet_col_wrap=2`: Maximum 2 columns, then wrap to next row
 - Useful when you have many categories
 
@@ -9491,6 +9586,7 @@ dict(
 **Business Application:**
 
 Executive dashboard where users select:
+
 - What to view (Revenue, Profit, Costs)
 - Appropriate Y-axis automatically updates
 - Formatting changes based on metric
@@ -9501,6 +9597,7 @@ Executive dashboard where users select:
 **When Animation Enhances Understanding:**
 
 Animation is powerful when:
+
 - Showing temporal evolution (year-over-year growth)
 - Demonstrating process flows
 - Revealing how relationships change
@@ -9576,10 +9673,12 @@ fig.show()
 **Animation Parameters:**
 
 **animation_frame**: Variable that defines time steps
+
 - Each unique value becomes a frame
 - Example: `'year'` creates 5 frames (2020-2024)
 
 **animation_group**: Variable that tracks objects across frames
+
 - Keeps same company as same point through animation
 - Enables smooth transitions
 
@@ -9610,6 +9709,7 @@ fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 500  # 
 **Three-Dimensional Data:**
 
 Some business problems naturally have three continuous dimensions:
+
 - Geographic data (latitude, longitude, elevation/value)
 - Product data (price, quality, market share)
 - Customer segments (age, income, spending)
@@ -9699,6 +9799,7 @@ fig.show()
 **3D Interactivity:**
 
 Users can:
+
 - **Rotate**: Click and drag to rotate the 3D space
 - **Zoom**: Scroll to zoom in/out
 - **Pan**: Shift + drag to pan
@@ -9726,6 +9827,7 @@ Users can:
 **The Coordinated View Concept:**
 
 Show multiple related views that interact together:
+
 - Hover on one plot highlights related data in others
 - Zoom on one plot adjusts others
 - Selection in one filters others
@@ -9822,6 +9924,7 @@ fig.show()
 **Business Value:**
 
 Hover over "Product C":
+
 - See its revenue (top plot)
 - See its satisfaction (middle plot)
 - See its return rate (bottom plot)
@@ -9832,6 +9935,7 @@ Hover over "Product C":
 **Beyond Default Aesthetics:**
 
 Professional applications require brand consistency:
+
 - Company colors
 - Corporate fonts
 - Style guidelines
@@ -10279,6 +10383,7 @@ Build an advanced interactive dashboard combining multiple techniques:
 ## Section 3: Creating Dashboards and Business Reports
 
 ### Objective
+
 - Design comprehensive multi-chart dashboards using Plotly
 - Master subplot layouts for professional dashboard creation
 - Create KPI cards and metric displays
@@ -11396,6 +11501,7 @@ Build a single HTML file with tabbed interface allowing users to switch between:
 ## Section 4: Final Project - Comprehensive Business Data Analysis
 
 ### Objective
+
 - Integrate all skills from Modules 1-4 into a complete analysis project
 - Apply the full data analysis workflow: import, clean, analyze, visualize
 - Create a professional, multi-visualization analytical report
@@ -12044,21 +12150,25 @@ print("\nAll files saved to: FinalProject_Outputs/")
 **Project Options (Choose One):**
 
 **Option A: E-commerce Performance Analysis**
+
 - Dataset: Online retail transactions
 - Focus: Sales trends, customer behavior, product performance
 - Stakeholders: CEO, CMO, Head of E-commerce
 
 **Option B: HR Analytics and Employee Retention**
+
 - Dataset: Employee data, satisfaction surveys, performance metrics
 - Focus: Retention factors, satisfaction drivers, compensation analysis
 - Stakeholders: CHRO, Department Heads, Executive Team
 
 **Option C: Marketing Campaign Effectiveness**
+
 - Dataset: Multi-channel marketing campaigns, leads, conversions
 - Focus: ROI by channel, customer acquisition cost, attribution
 - Stakeholders: CMO, Marketing Directors, Finance
 
 **Option D: Financial Performance and Profitability**
+
 - Dataset: Revenue, costs, profit by product/region/time
 - Focus: Margin analysis, cost drivers, growth opportunities
 - Stakeholders: CFO, CEO, Board of Directors
