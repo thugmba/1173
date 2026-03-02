@@ -2,10 +2,8 @@
 title: "Data Visualization Analysis"
 subtitle: "Transforming Data into Business Insights"
 # author: "Business Analytics Program"
-date: today
-author: "Brian Kim (Editor)" # Keep the author field, but we won't use it directly here
-# to avoid conflicts, we will write it out manually.
-
+date: 2026-03-02
+# author: "Brian Kim (Editor)" # Keep the author field, but we won't use it directly here
 
 # header-includes:
 #   - \usepackage{titling}
@@ -26,16 +24,8 @@ author: "Brian Kim (Editor)" # Keep the author field, but we won't use it direct
 #   \vspace{3cm}
 #   {\large \today \par}
 #   \end{titlepage}
+
 format:
-  html:
-    toc: true
-    toc-depth: 3
-    toc-expand: false
-    number-sections: true
-    theme: cosmo
-    code-fold: false
-    embed-resources: true
-    # css: styles.css
 #   pdf:
 #     include-in-header:
 #       text: |
@@ -47,6 +37,21 @@ format:
 #     number-sections: true
 #     colorlinks: true
 #     papersize: a4
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+    toc-title: "Contents"
+    theme: cosmo
+    code-fold: show
+    # code-tools: true
+    highlight-style: github
+    number-sections: true
+    smooth-scroll: true
+execute:
+  warning: false
+  message: false
+  echo: true
 ---
 
 <!-- # Contents {.unnumbered}
@@ -211,7 +216,7 @@ Pip is Python's package manager - think of it as an app store for Python librari
 
 Open the terminal in VSCode (View → Terminal or Ctrl+` ) and install each package:
 
-```python
+```
 pip install pandas
 pip install matplotlib
 pip install seaborn
@@ -233,14 +238,20 @@ pip install plotly
 
 **Your First Python Program**
 
-Create a new file named `01_First_Program_Hello.py`:
+Create a new file named `YourName_Hello.py`:
 
-```python
+```{python}
 # This is a comment - Python ignores this line
 # Comments help explain what your code does
 
 print("Welcome to Data Visualization!")
 print("Python is ready to analyze business data")
+```
+
+**Output:**
+```
+Welcome to Data Visualization!
+Python is ready to analyze business data
 ```
 
 **How to Run:**
@@ -254,17 +265,24 @@ The `print()` function displays text or numbers in the terminal. Think of it as 
 
 **Verifying Package Installation**
 
-Create `02_Package_Test_Verification.py`:
+Create `YourName_Verification.py`:
 
-```python
+```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
-print("✓ All packages imported successfully!")
+print(" All packages imported successfully!")
 print("Pandas version:", pd.__version__)
 print("Your data visualization environment is ready!")
+```
+
+**Output:**
+```
+ All packages imported successfully!
+Pandas version: 2.3.2
+Your data visualization environment is ready!
 ```
 
 **Understanding imports:**
@@ -313,6 +331,7 @@ print("Your data visualization environment is ready!")
 3. Navigate to the Module1 folder in VSCode Explorer
 
 **Task 3: Install Required Packages (20 minutes)**
+
 1. Open the terminal in VSCode
 2. Install each package one at a time:
    - pandas
@@ -323,6 +342,7 @@ print("Your data visualization environment is ready!")
 4. If errors occur, write them down to discuss with instructor
 
 **Task 4: Create Your First Python Program (15 minutes)**
+
 1. In the Module1 folder, create a file: `Lab01_YourName_Setup.py`
 2. Write a program that:
    - Prints a welcome message with your name
@@ -332,6 +352,7 @@ print("Your data visualization environment is ready!")
 3. Run the program successfully
 
 **Task 5: Verify Installation (10 minutes)**
+
 1. Create a new file: `Lab01_YourName_Verification.py`
 2. Import all four visualization libraries
 3. Print a success message
@@ -382,7 +403,7 @@ Think of a variable as a labeled box where you store data:
 **1. Strings (Text Data)**
 Used for: names, descriptions, categories, addresses
 
-```python
+```{python}
 company_name = "TechCorp Industries"
 product_category = "Electronics"
 customer_feedback = "Excellent service!"
@@ -396,7 +417,7 @@ Rules for strings:
 **2. Integers (Whole Numbers)**
 Used for: counts, quantities, years, IDs
 
-```python
+```{python}
 units_sold = 1500
 employee_count = 247
 fiscal_year = 2024
@@ -405,7 +426,7 @@ fiscal_year = 2024
 **3. Floats (Decimal Numbers)**
 Used for: money, percentages, measurements, rates
 
-```python
+```{python}
 price = 299.99
 profit_margin = 0.23
 interest_rate = 5.75
@@ -414,7 +435,7 @@ interest_rate = 5.75
 **4. Booleans (True/False)**
 Used for: status flags, conditions, yes/no decisions
 
-```python
+```{python}
 is_profitable = True
 target_achieved = False
 premium_customer = True
@@ -423,6 +444,7 @@ premium_customer = True
 **Why Data Types Matter:**
 
 Python treats different types differently:
+
 - You can do math with numbers: `100 + 50 = 150`
 - You can combine strings: `"Hello" + " World" = "Hello World"`
 - But you can't mix them incorrectly: `"Sales: " + 1000` causes an error
@@ -433,7 +455,7 @@ Python treats different types differently:
 
 Python uses standard mathematical operators, just like a calculator:
 
-```python
+```{python}
 # Quarterly Revenue Analysis
 q1_revenue = 250000
 q2_revenue = 280000
@@ -457,6 +479,7 @@ future_value = 100000 * (1.05)**3  # $115,762.50
 **Order of Operations:**
 
 Python follows standard mathematical rules (PEMDAS):
+
 1. Parentheses: `(2 + 3)`
 2. Exponentiation: `2**3`
 3. Multiplication/Division: `*` and `/`
@@ -467,7 +490,7 @@ To get 20: `(2 + 3) * 4`
 
 **Practical Business Example:**
 
-```python
+```{python}
 # Calculate total cost with discount and tax
 original_price = 1000
 discount_rate = 0.15
@@ -483,7 +506,7 @@ final_price = discounted_price * (1 + tax_rate)  # 918
 
 The `f-string` (formatted string) is your tool for creating professional, readable output:
 
-```python
+```{python}
 company = "TechCorp"
 revenue = 1500000
 growth = 0.15
@@ -497,6 +520,13 @@ print(f"{company} generated ${revenue:,} in revenue")
 
 print(f"Growth rate: {growth:.1%}")
 # Output: Growth rate: 15.0%
+```
+
+**Output:**
+```
+Company: TechCorp Revenue: 1500000
+TechCorp generated $1,500,000 in revenue
+Growth rate: 15.0%
 ```
 
 **Formatting Options:**
@@ -513,7 +543,7 @@ In business, we rarely deal with single data points. We have monthly sales, mult
 
 A list is an ordered collection of items, like a spreadsheet column:
 
-```python
+```{python}
 monthly_sales = [45000, 52000, 48000, 61000, 58000, 63000]
 ```
 
@@ -528,7 +558,7 @@ monthly_sales = [45000, 52000, 48000, 61000, 58000, 63000]
 
 Python uses "zero-based" indexing - counting starts at 0:
 
-```python
+```{python}
 months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
 
 # Accessing items:
@@ -541,7 +571,7 @@ last_month = months[-1]      # "Jun" (negative counts from end)
 
 Python provides functions to analyze lists quickly:
 
-```python
+```{python}
 sales = [45000, 52000, 48000, 61000, 58000, 63000]
 
 total_sales = sum(sales)       # 327000
@@ -559,14 +589,14 @@ Businesses make decisions based on conditions: "If sales exceed target, pay bonu
 
 **Basic Structure:**
 
-```python
+```
 if condition:
     # do something when condition is True
 ```
 
 **Real Business Example:**
 
-```python
+```{python}
 actual_sales = 85000
 target = 80000
 
@@ -578,9 +608,14 @@ else:
     bonus = 0
 ```
 
+**Output:**
+```
+Congratulations! Target achieved!
+```
+
 **Multiple Conditions:**
 
-```python
+```{python}
 score = 78
 
 if score >= 90:
@@ -606,7 +641,7 @@ Imagine you have 50 products, and need to calculate profit for each. You could w
 
 **For Loops - Processing Each Item:**
 
-```python
+```{python}
 products = ["Laptop", "Mouse", "Keyboard", "Monitor"]
 prices = [1200, 25, 75, 350]
 
@@ -617,6 +652,16 @@ for i in range(len(products)):
     print(f"{products[i]}: ${prices[i]}")
 ```
 
+**Output:**
+```
+Product Price List:
+------------------------------
+Laptop: $1200
+Mouse: $25
+Keyboard: $75
+Monitor: $350
+```
+
 **Understanding range():**
 
 - `range(4)` produces: 0, 1, 2, 3
@@ -625,7 +670,7 @@ for i in range(len(products)):
 
 **Simpler Loop Pattern:**
 
-```python
+```{python}
 sales = [45000, 52000, 48000, 61000]
 
 total = 0
@@ -650,7 +695,7 @@ Suppose you calculate profit margins often. Instead of rewriting the formula rep
 
 **Creating a Function:**
 
-```python
+```{python}
 def calculate_profit_margin(revenue, cost):
     profit = revenue - cost
     margin = (profit / revenue) * 100
@@ -692,6 +737,7 @@ margin3 = calculate_profit_margin(75000, 52000)   # 30.67%
 Create a file: `Lab02_YourName_SalesAnalysis.py`
 
 You have six months of sales data for your store:
+
 - January: $45,000
 - February: $52,000
 - March: $48,000
@@ -700,6 +746,7 @@ You have six months of sales data for your store:
 - June: $63,000
 
 Write a program that:
+
 1. Stores the six sales figures in variables (jan_sales, feb_sales, etc.)
 2. Calculates and prints:
    - Total sales for the 6-month period
@@ -727,10 +774,12 @@ Sales Range: $18,000.00
 Create a file: `Lab02_YourName_ProductReport.py`
 
 You need to analyze five products:
+
 - Products: Laptop, Tablet, Smartphone, Headphones, Charger
 - Sales: $125,000, $87,000, $156,000, $23,000, $12,000
 
 Write a program that:
+
 1. Creates two lists (one for products, one for sales)
 2. Uses a loop to print each product with its sales
 3. Calculates total sales across all products
@@ -745,6 +794,7 @@ Write a program that:
 Create a file: `Lab02_YourName_Commission.py`
 
 Write a function called `calculate_commission()` that:
+
 - Takes sales amount as input
 - Calculates commission based on these rules:
   - Sales less than $50,000: 3% commission
@@ -753,6 +803,7 @@ Write a function called `calculate_commission()` that:
 - Returns the commission amount
 
 Then test your function with these salespeople:
+
 - Alice: $45,000
 - Bob: $78,000
 - Charlie: $125,000
@@ -765,12 +816,14 @@ For each person, print: name, sales amount, commission rate, and commission earn
 Create a file: `Lab02_YourName_GrowthAnalysis.py`
 
 You have quarterly revenue data:
+
 - Q1: $450,000
 - Q2: $485,000
 - Q3: $510,000
 - Q4: $545,000
 
 Write a program that:
+
 1. Stores the data in a list
 2. Uses a loop to calculate quarter-over-quarter growth
    - Formula: `((current_quarter - previous_quarter) / previous_quarter) * 100`
@@ -808,6 +861,7 @@ Write a program that:
 ## Section 3: Data Structures and Pandas Fundamentals
 
 ### Objective
+
 - Understand dictionaries for storing structured business data
 - Master Pandas DataFrames as the core tool for data analysis
 - Read business data from CSV and Excel files
@@ -832,7 +886,7 @@ A dictionary stores data in key-value pairs, like a real dictionary stores word-
 
 Think of it as a digital form where keys are the field labels and values are what you fill in:
 
-```python
+```{python}
 employee = {
     "name": "Sarah Johnson",
     "department": "Marketing",
@@ -846,6 +900,12 @@ print(employee["name"])        # Sarah Johnson
 print(employee["salary"])      # 72000
 ```
 
+**Output:**
+```
+Sarah Johnson
+72000
+```
+
 **Why Dictionaries Matter:**
 
 - Keep related information together logically
@@ -855,7 +915,7 @@ print(employee["salary"])      # 72000
 
 **Working with Multiple Records:**
 
-```python
+```{python}
 employees = [
     {"name": "Sarah", "dept": "Marketing", "salary": 72000},
     {"name": "Mike", "dept": "Sales", "salary": 68000},
@@ -876,11 +936,13 @@ While dictionaries and lists work for small datasets, they become cumbersome wit
 **What is Pandas?**
 
 Pandas is Python's data analysis library, and the DataFrame is its core tool. Think of a DataFrame as Excel inside Python:
+
 - Rows represent records (customers, sales transactions, products)
 - Columns represent attributes (name, price, quantity, date)
 - But with much more power than Excel
 
 **Why Pandas for Business Analysis?**
+
 - Handles millions of rows efficiently
 - Built-in functions for common business calculations
 - Integrates seamlessly with visualization libraries
@@ -888,7 +950,7 @@ Pandas is Python's data analysis library, and the DataFrame is its core tool. Th
 
 **Creating Your First DataFrame:**
 
-```python
+```{python}
 import pandas as pd
 
 # Business data: product sales
@@ -902,6 +964,16 @@ data = {
 
 df = pd.DataFrame(data)
 print(df)
+```
+
+**Output:**
+```
+    Product  Price  Units_Sold     Category
+0    Laptop   1200         150  Electronics
+1     Mouse     25         500  Accessories
+2  Keyboard     75         320  Accessories
+3   Monitor    350         200  Electronics
+4   Headset     80         280  Accessories
 ```
 
 **Understanding the Structure:**
@@ -929,20 +1001,46 @@ print(df)
 Before analyzing, you must understand what you're working with. Pandas provides powerful exploration tools:
 
 **1. head() and tail() - Preview Data**
-```python
+```{python}
 df.head()     # Shows first 5 rows (default)
 df.head(3)    # Shows first 3 rows
 df.tail()     # Shows last 5 rows
 ```
 
+**Output:**
+```
+    Product  Price  Units_Sold     Category
+0    Laptop   1200         150  Electronics
+1     Mouse     25         500  Accessories
+2  Keyboard     75         320  Accessories
+3   Monitor    350         200  Electronics
+4   Headset     80         280  Accessories
+```
+
 **Why this matters:** Large datasets can't be printed entirely. Head/tail gives you a quick look without overwhelming output.
 
 **2. info() - Data Structure Report**
-```python
+```{python}
 df.info()
 ```
 
+**Output:**
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 4 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   Product     5 non-null      object
+ 1   Price       5 non-null      int64 
+ 2   Units_Sold  5 non-null      int64 
+ 3   Category    5 non-null      object
+dtypes: int64(2), object(2)
+memory usage: 292.0+ bytes
+```
+
 Shows:
+
 - Number of rows and columns
 - Column names
 - Data types of each column (int, float, object/string)
@@ -952,11 +1050,25 @@ Shows:
 **Business use:** Verify data loaded correctly, check for missing values, confirm data types.
 
 **3. describe() - Statistical Summary**
-```python
+```{python}
 df.describe()
 ```
 
+**Output:**
+```
+             Price  Units_Sold
+count     5.000000    5.000000
+mean    346.000000  290.000000
+std     494.107782  134.907376
+min      25.000000  150.000000
+25%      75.000000  200.000000
+50%      80.000000  280.000000
+75%     350.000000  320.000000
+max    1200.000000  500.000000
+```
+
 For numeric columns, shows:
+
 - Count (number of values)
 - Mean (average)
 - Standard deviation (spread)
@@ -966,10 +1078,19 @@ For numeric columns, shows:
 **Business use:** Quick overview of sales ranges, average prices, revenue distribution.
 
 **4. shape, columns, and dtypes**
-```python
+```{python}
 df.shape      # (5, 4) means 5 rows, 4 columns
 df.columns    # List of column names
 df.dtypes     # Data type of each column
+```
+
+**Output:**
+```
+Product       object
+Price          int64
+Units_Sold     int64
+Category      object
+dtype: object
 ```
 
 **Adding Calculated Columns**
@@ -978,7 +1099,7 @@ df.dtypes     # Data type of each column
 
 One of Pandas' most powerful features is creating new columns from existing ones:
 
-```python
+```{python}
 # Calculate total revenue per product
 df["Revenue"] = df["Price"] * df["Units_Sold"]
 ```
@@ -993,7 +1114,7 @@ df["Revenue"] = df["Price"] * df["Units_Sold"]
 
 **Multiple Calculations:**
 
-```python
+```{python}
 df["Revenue"] = df["Price"] * df["Units_Sold"]
 df["Revenue_Per_Unit"] = df["Revenue"] / df["Units_Sold"]
 df["Price_Category"] = df["Price"] > 100  # True/False column
@@ -1004,6 +1125,7 @@ df["Price_Category"] = df["Price"] > 100  # True/False column
 **Real Business Data Sources:**
 
 In practice, you'll rarely type data manually. Business data comes from:
+
 - CSV files (Comma-Separated Values) - universal format
 - Excel files (.xlsx) - common in business
 - Databases (SQL) - for large organizations
@@ -1011,7 +1133,7 @@ In practice, you'll rarely type data manually. Business data comes from:
 
 **Reading CSV Files:**
 
-```python
+```{python}
 # Basic CSV reading
 sales_data = pd.read_csv("sales_report.csv")
 
@@ -1024,7 +1146,7 @@ sales_data = pd.read_csv("sales_report.csv",
 
 **Reading Excel Files:**
 
-```python
+```{python}
 financial_data = pd.read_excel("Q4_Report.xlsx")
 
 # Specific sheet
@@ -1044,7 +1166,7 @@ financial_data = pd.read_excel("Annual_Report.xlsx",
 
 There are two ways to select columns:
 
-```python
+```{python}
 # Method 1: Single column (returns Series)
 products = df["Product"]
 
@@ -1063,7 +1185,7 @@ Pandas offers two main methods:
 
 **iloc - Select by position (integer location):**
 
-```python
+```{python}
 first_row = df.iloc[0]          # First row
 first_three = df.iloc[0:3]      # Rows 0, 1, 2
 last_row = df.iloc[-1]          # Last row
@@ -1071,7 +1193,7 @@ last_row = df.iloc[-1]          # Last row
 
 **loc - Select by label:**
 
-```python
+```{python}
 row_zero = df.loc[0]            # Row with index label 0
 rows_range = df.loc[0:2]        # Rows 0, 1, 2 (inclusive!)
 ```
@@ -1080,7 +1202,7 @@ rows_range = df.loc[0:2]        # Rows 0, 1, 2 (inclusive!)
 
 **Selecting Specific Cells:**
 
-```python
+```{python}
 # Get price of first product
 price = df.iloc[0, 1]              # Row 0, Column 1
 price = df.loc[0, "Price"]         # Row 0, "Price" column
@@ -1091,13 +1213,14 @@ price = df.loc[0, "Price"]         # Row 0, "Price" column
 **The Power of Conditional Selection:**
 
 Filtering lets you answer questions like:
+
 - "Which products cost more than $100?"
 - "Show me all electronics sales"
 - "Which months had revenue above target?"
 
 **Basic Filtering:**
 
-```python
+```{python}
 # Products priced over $100
 expensive = df[df["Price"] > 100]
 
@@ -1117,7 +1240,7 @@ high_volume = df[df["Units_Sold"] > 250]
 
 Use `&` (AND) and `|` (OR), with parentheses around each condition:
 
-```python
+```{python}
 # Electronics AND expensive
 premium = df[(df["Category"] == "Electronics") & (df["Price"] > 100)]
 
@@ -1129,7 +1252,7 @@ important = df[(df["Price"] > 200) | (df["Units_Sold"] > 300)]
 
 **Sorting for Rankings:**
 
-```python
+```{python}
 # Sort by revenue (lowest to highest)
 df_sorted = df.sort_values("Revenue")
 
@@ -1145,7 +1268,7 @@ df_sorted = df.sort_values(["Category", "Price"],
 
 Grouping is like pivot tables in Excel - summarize data by categories:
 
-```python
+```{python}
 # Total revenue by category
 category_revenue = df.groupby("Category")["Revenue"].sum()
 
@@ -1280,7 +1403,7 @@ Use `groupby()` to create a regional summary:
 **Expected Output Structure:**
 
 Your program should have clearly commented sections:
-```python
+```{python}
 # ===== TASK 1: CREATE DATAFRAME =====
 # (your code here)
 
@@ -1314,6 +1437,7 @@ Your program should have clearly commented sections:
 ## Section 4: Data Cleaning and Preparation
 
 ### Objective
+
 - Understand why data cleaning is critical for accurate business analysis
 - Identify and handle missing values appropriately
 - Detect and remove duplicate records
@@ -1328,6 +1452,7 @@ Your program should have clearly commented sections:
 **Why Data is Never Perfect:**
 
 In textbooks and tutorials, data is clean and ready to analyze. Real business data is messy:
+
 - Sales rep leaves "Region" blank on forms
 - Customer enters phone number as "555-1234" one time and "(555) 1234" another
 - Database crashes mid-entry leaving incomplete records
@@ -1354,23 +1479,26 @@ Data professionals spend approximately 80% of their time cleaning data and only 
 Not all missing data is the same. Understanding WHY data is missing affects how you handle it:
 
 **1. Missing Completely at Random (MCAR)**
+
 - Pure chance - random data entry errors
 - Example: Scanner malfunction skips random records
 - Safe to delete these records
 
 **2. Missing at Random (MAR)**
+
 - Missing relates to other variables
 - Example: Older customers more likely to skip "email" field
 - Consider filling with appropriate values
 
 **3. Missing Not at Random (MNAR)**
+
 - Missingness is meaningful
 - Example: High earners don't report income
 - Deleting these records creates bias
 
 **Detecting Missing Values in Pandas:**
 
-```python
+```{python}
 import pandas as pd
 import numpy as np
 
@@ -1390,10 +1518,36 @@ print(df.isnull().sum())     # Count per column
 print(df.info())             # Shows non-null counts
 ```
 
+**Output:**
+```
+    Date  Product  Sales  Region
+0  False    False  False   False
+1  False    False  False   False
+2   True    False  False   False
+3  False    False   True   False
+Date       1
+Product    0
+Sales      1
+Region     0
+dtype: int64
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4 entries, 0 to 3
+Data columns (total 4 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   Date     3 non-null      object 
+ 1   Product  4 non-null      object 
+ 2   Sales    3 non-null      float64
+ 3   Region   4 non-null      object 
+dtypes: float64(1), object(3)
+memory usage: 260.0+ bytes
+None
+```
+
 **Strategies for Handling Missing Values:**
 
 **Strategy 1: Deletion (when data is MCAR and abundant)**
-```python
+```{python}
 # Remove rows with ANY missing values
 df_clean = df.dropna()
 
@@ -1404,7 +1558,7 @@ df_clean = df.dropna(subset=["Sales"])
 **When to use:** Dataset is large, few missing values, missingness is random.
 
 **Strategy 2: Fill with Statistical Measure**
-```python
+```{python}
 # Fill missing sales with average
 mean_sales = df["Sales"].mean()
 df["Sales"].fillna(mean_sales, inplace=True)
@@ -1417,7 +1571,7 @@ df["Sales"].fillna(median_sales, inplace=True)
 **When to use:** Numeric data, missingness is random, want to preserve dataset size.
 
 **Strategy 3: Fill with Placeholder**
-```python
+```{python}
 # Fill missing region with "Unknown"
 df["Region"].fillna("Unknown", inplace=True)
 
@@ -1428,7 +1582,7 @@ df["Date"].fillna("2024-01-17", inplace=True)
 **When to use:** Categorical data, want to flag missing as separate category.
 
 **Strategy 4: Forward/Backward Fill**
-```python
+```{python}
 # Copy previous value down
 df["Region"].fillna(method="ffill", inplace=True)
 
@@ -1451,24 +1605,37 @@ df["Region"].fillna(method="bfill", inplace=True)
 
 **Detecting Duplicates:**
 
-```python
+```{python}
 # Check for completely duplicate rows
 print(df.duplicated())              # True/False for each row
 print(df.duplicated().sum())        # Count of duplicates
 print(df[df.duplicated()])          # View duplicate rows
 
 # Check for duplicates in specific column
-print(df.duplicated(subset=["Customer_ID"]))
+print(df.duplicated(subset=["Product"]))
+```
+
+**Output:**
+```
+0    False
+1    False
+2    False
+3    False
+dtype: bool
+0
+Empty DataFrame
+Columns: [Date, Product, Sales, Region]
+Index: []
 ```
 
 **Removing Duplicates:**
 
-```python
+```{python}
 # Remove duplicate rows (keeps first occurrence)
 df_unique = df.drop_duplicates()
 
 # Remove duplicates based on specific column
-df_unique = df.drop_duplicates(subset=["Customer_ID"], keep="first")
+df_unique = df.drop_duplicates(subset=["Product"], keep="first")
 
 # Options for 'keep':
 # - "first": Keep first occurrence (default)
@@ -1477,6 +1644,7 @@ df_unique = df.drop_duplicates(subset=["Customer_ID"], keep="first")
 ```
 
 **Business Consideration:** Before removing duplicates, verify they ARE duplicates:
+
 - Same customer might legitimately make multiple purchases
 - Same product might be sold multiple times
 - Check all relevant columns, not just one
@@ -1486,6 +1654,7 @@ df_unique = df.drop_duplicates(subset=["Customer_ID"], keep="first")
 **Why Data Types Matter:**
 
 Pandas must know data types to perform operations:
+
 - Mathematical operations require numeric types
 - Date operations require datetime type
 - String operations require object/string type
@@ -1498,15 +1667,15 @@ Pandas must know data types to perform operations:
 
 **Checking and Converting Types:**
 
-```python
+```{python}
 # Check current data types
 print(df.dtypes)
 
 # Convert string to numeric
 df["Sales"] = pd.to_numeric(df["Sales"])
 
-# Convert to integer
-df["Quantity"] = df["Quantity"].astype(int)
+# Convert to integer (after filling NaN first)
+df["Sales"] = df["Sales"].fillna(0).astype(int)
 
 # Convert to datetime
 df["Date"] = pd.to_datetime(df["Date"])
@@ -1514,6 +1683,15 @@ df["Date"] = pd.to_datetime(df["Date"])
 # Convert with error handling
 df["Sales"] = pd.to_numeric(df["Sales"], errors="coerce")
 # 'coerce' turns non-numeric values to NaN instead of error
+```
+
+**Output:**
+```
+Date        object
+Product     object
+Sales      float64
+Region      object
+dtype: object
 ```
 
 **Benefits of Correct Types:**
@@ -1534,7 +1712,7 @@ df["Sales"] = pd.to_numeric(df["Sales"], errors="coerce")
 
 **Pandas String Methods:**
 
-```python
+```{python}
 # Remove leading/trailing whitespace
 df["Product"] = df["Product"].str.strip()
 
@@ -1545,16 +1723,16 @@ df["Region"] = df["Region"].str.title()      # Title Case
 df["Region"] = df["Region"].str.capitalize() # Capitalize first
 
 # Replace text
-df["Category"] = df["Category"].str.replace("Accessories", "Access")
+df["Product"] = df["Product"].str.replace("Laptop", "Laptop Pro")
 
-# Remove characters
-df["Phone"] = df["Phone"].str.replace("-", "")  # Remove dashes
-df["Phone"] = df["Phone"].str.replace(r"[^0-9]", "", regex=True)  # Keep only numbers
+# Remove/clean characters (example: standardise region codes)
+df["Region"] = df["Region"].str.replace(" ", "_")           # Replace spaces with underscore
+df["Region"] = df["Region"].str.replace(r"[^A-Za-z_]", "", regex=True)  # Keep only letters
 ```
 
 **Creating Standardized Categories:**
 
-```python
+```{python}
 # Map variations to standard values
 region_mapping = {
     "north": "North",
@@ -1585,7 +1763,7 @@ Outliers are data points significantly different from others:
 
 The IQR method is a robust way to identify outliers:
 
-```python
+```{python}
 # Calculate quartiles
 Q1 = df["Sales"].quantile(0.25)    # 25th percentile
 Q3 = df["Sales"].quantile(0.75)    # 75th percentile
@@ -1598,6 +1776,11 @@ upper_bound = Q3 + 1.5 * IQR
 print(f"Normal range: ${lower_bound:,.0f} to ${upper_bound:,.0f}")
 ```
 
+**Output:**
+```
+Normal range: $-269 to $2,081
+```
+
 **What these numbers mean:**
 
 - **Q1**: 25% of data is below this value
@@ -1607,7 +1790,7 @@ print(f"Normal range: ${lower_bound:,.0f} to ${upper_bound:,.0f}")
 
 **Handling Outliers:**
 
-```python
+```{python}
 # Identify outliers
 outliers = df[(df["Sales"] < lower_bound) | (df["Sales"] > upper_bound)]
 print("Outliers found:")
@@ -1626,7 +1809,16 @@ df["Sales_Clean"] = df["Sales"].apply(
 )
 ```
 
+**Output:**
+```
+Outliers found:
+Empty DataFrame
+Columns: [Date, Product, Sales, Region]
+Index: []
+```
+
 **Business Decision:** Don't automatically remove outliers:
+
 1. Investigate: Is this a data error or legitimate?
 2. Consider context: Holiday sales spike might be real
 3. Document: Explain why outliers were kept or removed
@@ -1638,7 +1830,7 @@ df["Sales_Clean"] = df["Sales"].apply(
 
 Rather than cleaning ad-hoc, create a reusable function that applies all cleaning steps consistently:
 
-```python
+```{python}
 def clean_sales_data(df):
     """
     Comprehensive data cleaning pipeline for sales data
@@ -1661,8 +1853,8 @@ def clean_sales_data(df):
     print(f"Removed {original_length - len(df)} duplicates")
     
     # Step 2: Handle missing values
-    df["Sales"].fillna(df["Sales"].median(), inplace=True)
-    df["Region"].fillna("Unknown", inplace=True)
+    df["Sales"] = df["Sales"].fillna(df["Sales"].median())
+    df["Region"] = df["Region"].fillna("Unknown")
     df = df.dropna(subset=["Date"])  # Date is critical
     
     # Step 3: Standardize strings
@@ -1684,7 +1876,13 @@ def clean_sales_data(df):
     
     return df
 
-# Usage
+# Usage — re-create the original sample df to pass to the function
+raw_df = pd.DataFrame({
+    "Date": ["2024-01-15", "2024-01-16", None, "2024-01-18"],
+    "Product": ["Laptop", "Mouse", "Laptop", "Keyboard"],
+    "Sales": [1200, 25, 1200, None],
+    "Region": ["North", "South", "North", "South"]
+})
 cleaned_df = clean_sales_data(raw_df)
 ```
 
@@ -1708,7 +1906,7 @@ Create file: `Lab04_YourName_DataCleaning.py`
 
 Create this intentionally problematic dataset:
 
-```python
+```{python}
 import pandas as pd
 import numpy as np
 
@@ -1843,6 +2041,7 @@ Test it by re-creating the messy dataset and running it through your function.
 
 1. Save the cleaned DataFrame to: `Lab04_YourName_CleanData.csv`
 2. Create a text file: `Lab04_YourName_CleaningReport.txt` containing:
+
    - Original number of records
    - Number of duplicates removed
    - Number and location of missing values filled
@@ -1869,6 +2068,7 @@ Test it by re-creating the messy dataset and running it through your function.
 **Bonus Challenge (+10 points):**
 
 Add advanced features to your cleaning function:
+
 - Add parameter to control whether to remove outliers
 - Add logging of each cleaning step to a file
 - Create before/after comparison visualizations
@@ -1967,12 +2167,16 @@ Matplotlib has two main components you need to understand:
 
 Think of this as your blank poster board or PowerPoint slide. It's the overall container for your visualization.
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Create a figure (canvas)
-fig = plt.figure(figsize=(10, 6))  # Width: 10 inches, Height: 6 inches
+fig = plt.figure(figsize=(8, 5))  # Width: 10 inches, Height: 6 inches
 ```
+
+**Output:**
+
+*[Chart]*
 
 The `figsize` parameter controls dimensions:
 - Standard report: (10, 6)
@@ -1984,10 +2188,14 @@ The `figsize` parameter controls dimensions:
 
 This is where your actual chart lives - the area with data, axes, and grid. One figure can contain multiple axes (multiple charts).
 
-```python
+```{python}
 # Create figure and axes together
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ```
+
+**Output:**
+
+*[Chart]*
 
 **Understanding the Relationship:**
 
@@ -1998,21 +2206,29 @@ fig, ax = plt.subplots(figsize=(10, 6))
 **Two Approaches to Matplotlib:**
 
 **Approach 1: pyplot interface (simpler, good for quick plots)**
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 plt.plot([1, 2, 3, 4], [10, 20, 25, 30])
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart]*
+
 **Approach 2: Object-oriented interface (professional, more control)**
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart]*
 
 **We'll use the object-oriented approach** because:
 - More explicit and readable
@@ -2034,7 +2250,7 @@ Every Matplotlib visualization follows these steps:
 
 **Creating a Simple Line Plot:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Step 1: Prepare data (monthly sales)
@@ -2042,7 +2258,7 @@ months = [1, 2, 3, 4, 5, 6]
 sales = [45000, 52000, 48000, 61000, 58000, 63000]
 
 # Step 2: Create figure and axes
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Step 3: Create the plot
 ax.plot(months, sales)
@@ -2050,6 +2266,10 @@ ax.plot(months, sales)
 # Step 4: Display
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart]*
 
 **What's Happening:**
 
@@ -2083,7 +2303,7 @@ Line plots are ideal for:
 
 **Anatomy of a Line Plot:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Quarterly revenue data
@@ -2091,7 +2311,7 @@ quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 revenue = [450000, 485000, 510000, 545000]
 
 # Create plot
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(quarters, revenue)
 
 # Add labels (critical for business context)
@@ -2102,6 +2322,10 @@ ax.set_title('Quarterly Revenue - 2024')
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart: "Quarterly Revenue - 2024", x: Quarter, y: Revenue ($)]*
+
 **Essential Plot Elements:**
 
 - **Title**: What is this chart showing? (Always include!)
@@ -2111,13 +2335,13 @@ plt.show()
 
 **Improving Readability:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 revenue = [450000, 485000, 510000, 545000]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Plot with markers to emphasize data points
 ax.plot(quarters, revenue, marker='o', linewidth=2, markersize=8)
@@ -2131,6 +2355,10 @@ ax.grid(True, alpha=0.3)
 
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Quarterly Revenue Growth - 2024", x: Quarter, y: Revenue ($)]*
 
 **Parameter Explanations:**
 
@@ -2159,14 +2387,14 @@ Scatter plots reveal relationships between two variables:
 
 **Creating a Scatter Plot:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Employee data: years of experience vs. salary
 experience = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 salary = [45000, 48000, 52000, 55000, 58000, 62000, 65000, 68000, 72000, 75000]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Use scatter instead of plot
 ax.scatter(experience, salary, s=100, alpha=0.6)
@@ -2178,6 +2406,10 @@ ax.set_title('Salary vs. Experience Analysis', fontsize=14, fontweight='bold')
 ax.grid(True, alpha=0.3)
 plt.show()
 ```
+
+**Output:**
+
+*[Scatter plot: "Salary vs. Experience Analysis", x: Years of Experience, y: Annual Salary ($)]*
 
 **Scatter Plot Parameters:**
 
@@ -2232,11 +2464,11 @@ In business, you'll need to:
 
 **Saving to File:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Create your plot
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
 ax.set_title('Sample Chart')
 
@@ -2244,6 +2476,10 @@ ax.set_title('Sample Chart')
 plt.savefig('monthly_sales.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Sample Chart"]*
 
 **Important Parameters:**
 
@@ -2518,6 +2754,7 @@ The second version communicates authority and attention to detail.
 **Understanding Color in Matplotlib:**
 
 Colors in Matplotlib can be specified multiple ways:
+
 1. **Named colors**: 'red', 'blue', 'green' (140 named colors available)
 2. **Hex codes**: '#1f77b4' (web standard)
 3. **RGB tuples**: (0.5, 0.2, 0.8) (values 0-1)
@@ -2525,13 +2762,13 @@ Colors in Matplotlib can be specified multiple ways:
 
 **Basic Color Application:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 sales = [45000, 52000, 48000, 61000, 58000, 63000]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Specify color
 ax.plot(months, sales, color='darkblue', linewidth=2.5, marker='o')
@@ -2539,6 +2776,10 @@ ax.plot(months, sales, color='darkblue', linewidth=2.5, marker='o')
 ax.set_title('Monthly Sales Trend')
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Monthly Sales Trend"]*
 
 **Common Business Color Choices:**
 
@@ -2561,12 +2802,12 @@ Different colors convey different meanings in business:
 
 **Color Psychology in Business Charts:**
 
-```python
+```{python}
 # Profit/Loss visualization
 months = ['Q1', 'Q2', 'Q3', 'Q4']
 profit = [120000, -45000, 85000, 150000]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Color bars based on profit/loss
 colors = ['green' if p > 0 else 'red' for p in profit]
@@ -2576,6 +2817,10 @@ ax.set_title('Quarterly Profit/Loss Analysis')
 ax.set_ylabel('Amount ($)')
 plt.show()
 ```
+
+**Output:**
+
+*[Bar chart: "Quarterly Profit/Loss Analysis", y: Amount ($)]*
 
 **Accessibility: Colorblind-Friendly Palettes:**
 
@@ -2595,14 +2840,26 @@ Approximately 8% of men and 0.5% of women have color vision deficiency. Use colo
 
 **Using Colorblind-Friendly Palettes:**
 
-```python
+```{python}
 # IBM's colorblind-safe palette
 colors = ['#648FFF', '#FFB000', '#DC267F', '#FE6100', '#785EF0']
+
+# Sample data for demonstration
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 15, 25, 18]
+y2 = [8, 17, 12, 22, 14]
+
+fig, ax = plt.subplots()
 
 # Or use built-in safe colormaps
 ax.plot(x, y, color='#648FFF')  # Blue
 ax.plot(x, y2, color='#FFB000')  # Orange
+plt.show()
 ```
+
+**Output:**
+
+*[Line chart]*
 
 **Comprehensive Labeling Strategies**
 
@@ -2625,13 +2882,13 @@ Titles should be:
 - **Concise**: One line preferred, two maximum
 - **Professional**: Avoid casual language
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 data = [120, 145, 135, 160]
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(quarters, data)
 
 # Poor title:
@@ -2649,6 +2906,10 @@ ax.set_ylabel('Sales ($1000s)', fontsize=12)
 
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Sales", x: Quarter, y: Sales ($1000s)]*
 
 **Title Parameters Explained:**
 
@@ -2673,9 +2934,9 @@ plt.show()
 - If numbers are in thousands: "Sales ($1000s)" or "Sales (Thousands)"
 - If numbers are percentages: "Market Share (%)"
 
-```python
+```{python}
 # Complete labeling example
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(months, revenue)
 
 ax.set_title('Monthly Revenue Analysis - Fiscal Year 2024',
@@ -2689,6 +2950,10 @@ ax.text(0.5, 1.05, 'North American Region',
 
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Monthly Revenue Analysis - Fiscal Year 2024", x: Month, y: Revenue ($ Millions)]*
 
 **Legends - Distinguishing Multiple Data Series**
 
@@ -2704,14 +2969,14 @@ Without a legend, viewers can't distinguish what each line/color represents.
 
 **Creating Basic Legends:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 sales_2023 = [110, 125, 120, 135, 130, 145]
 sales_2024 = [125, 142, 138, 156, 151, 168]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Plot both years
 ax.plot(months, sales_2023, marker='o', linewidth=2, label='2023')
@@ -2727,13 +2992,17 @@ ax.set_ylabel('Sales ($1000s)')
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart: "Year-over-Year Sales Comparison", x: Month, y: Sales ($1000s)]*
+
 **Key Point:** Use the `label` parameter in your plot commands, then call `ax.legend()` to display the legend.
 
 **Positioning Legends Strategically:**
 
 Legend placement matters - it shouldn't obscure data:
 
-```python
+```{python}
 # Position options:
 ax.legend(loc='upper left')     # Top left
 ax.legend(loc='upper right')    # Top right (default)
@@ -2749,8 +3018,8 @@ ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 
 **Customizing Legend Appearance:**
 
-```python
-fig, ax = plt.subplots(figsize=(10, 6))
+```{python}
+fig, ax = plt.subplots(figsize=(8, 5))
 
 ax.plot(months, sales_2023, label='2023', linewidth=2.5)
 ax.plot(months, sales_2024, label='2024', linewidth=2.5)
@@ -2769,11 +3038,15 @@ ax.legend(
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart: "Fiscal Year"]*
+
 **Multiple-Column Legends:**
 
 For many items, use columns to save space:
 
-```python
+```{python}
 ax.legend(loc='upper center', ncol=3,  # 3 columns
           bbox_to_anchor=(0.5, -0.15))  # Below plot
 ```
@@ -2793,7 +3066,7 @@ The right fonts make visualizations:
 
 Set fonts for all text in a plot:
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Set font for all elements
@@ -2801,11 +3074,15 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 plt.rcParams['font.size'] = 11
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot([1, 2, 3], [10, 20, 15])
 ax.set_title('Professional Typography')
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Professional Typography"]*
 
 **Common Business Fonts:**
 
@@ -2817,8 +3094,8 @@ plt.show()
 
 **Individual Text Customization:**
 
-```python
-fig, ax = plt.subplots(figsize=(10, 6))
+```{python}
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(months, sales)
 
 # Title with custom font
@@ -2841,6 +3118,10 @@ ax.set_ylabel('Revenue ($M)',
 
 plt.show()
 ```
+
+**Output:**
+
+*[Line chart: "Quarterly Performance Report", x: Quarter, y: Revenue ($M)]*
 
 **Font Property Options:**
 
@@ -2865,6 +3146,7 @@ Create visual hierarchy through sizing:
 **The Challenge of Readability:**
 
 Compare these Y-axis displays:
+
 - `1500000` - Hard to read quickly
 - `1,500,000` - Better, but takes space
 - `1.5M` - Clear and compact
@@ -2872,14 +3154,14 @@ Compare these Y-axis displays:
 
 **Formatting Axis Numbers:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 revenue = [1500000, 2300000, 1800000, 2750000]
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 ax.bar(quarters, revenue)
 
 # Format Y-axis as millions with dollar sign
@@ -2894,9 +3176,13 @@ ax.set_ylabel('Revenue')
 plt.show()
 ```
 
+**Output:**
+
+*[Bar chart: "Quarterly Revenue", y: Revenue]*
+
 **Common Number Formatters:**
 
-```python
+```{python}
 import matplotlib.ticker as ticker
 
 # Add thousand separators
@@ -2917,7 +3203,12 @@ ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: f'{x/1000:.0f}K')
 
 **Controlling Tick Marks:**
 
-```python
+```{python}
+import matplotlib.ticker as ticker
+
+fig, ax = plt.subplots()
+labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+
 # Set specific tick locations
 ax.set_xticks([0, 1, 2, 3, 4, 5])
 ax.set_xticklabels(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
@@ -2927,13 +3218,14 @@ ax.set_xticklabels(labels, rotation=45, ha='right')
 
 # Set number of ticks
 ax.yaxis.set_major_locator(ticker.MaxNLocator(6))  # Approximately 6 ticks
+plt.show()
 ```
 
 **Bringing It All Together: Complete Customization**
 
 **A Professional, Fully-Customized Chart:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
@@ -3003,6 +3295,10 @@ plt.savefig('M2L02_Revenue_Comparison.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart: "TechGadget Inc. - Year-over-Year Revenue Comparison", x: Month, y: Revenue]*
+
 **Design Principles Applied:**
 
 1. **Color**: Professional, accessible palette
@@ -3030,7 +3326,7 @@ plt.show()
 
 **Data:**
 
-```python
+```{python}
 quarters = ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024']
 revenue = [2400000, 2750000, 2650000, 3100000]
 target = [2500000, 2600000, 2700000, 2800000]
@@ -3075,7 +3371,7 @@ target = [2500000, 2600000, 2700000, 2800000]
 
 **Data:**
 
-```python
+```{python}
 regions = ['North America', 'Europe', 'Asia Pacific', 'Latin America', 'Middle East']
 sales = [5800000, 4200000, 6500000, 2100000, 1800000]
 ```
@@ -3115,7 +3411,7 @@ sales = [5800000, 4200000, 6500000, 2100000, 1800000]
 
 **Data:**
 
-```python
+```{python}
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 product_a = [85000, 92000, 88000, 95000, 102000, 98000]
 product_b = [62000, 68000, 71000, 74000, 78000, 81000]
@@ -3157,7 +3453,7 @@ product_c = [45000, 43000, 48000, 52000, 55000, 58000]
 
 **Data:**
 
-```python
+```{python}
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 profit_margins = [0.15, 0.18, 0.12, 0.21]  # 15%, 18%, 12%, 21%
 ```
@@ -3336,7 +3632,7 @@ Think of subplots as a grid:
 
 **Basic Subplot Creation:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Create a figure with 2x2 grid of subplots
@@ -3349,6 +3645,10 @@ axes[1, 0]  # Bottom-left
 axes[1, 1]  # Bottom-right
 ```
 
+**Output:**
+
+*[Chart: 2Ã—2 subplot grid]*
+
 **Important Notes:**
 
 - `axes` is a 2D array if you have rows and columns
@@ -3357,7 +3657,7 @@ axes[1, 1]  # Bottom-right
 
 **Creating Different Layout Configurations:**
 
-```python
+```{python}
 # One row, three columns (horizontal dashboard)
 fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
@@ -3368,11 +3668,15 @@ fig, axes = plt.subplots(3, 1, figsize=(10, 12))
 fig, axes = plt.subplots(2, 3, figsize=(15, 8))
 ```
 
+**Output:**
+
+*[Chart: 1Ã—3 subplot grid]*
+
 **Creating a Simple Multi-Plot Dashboard**
 
 **Example: Quarterly Business Dashboard**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -3421,6 +3725,10 @@ plt.savefig('M2L03_Business_Dashboard.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
+**Output:**
+
+*[Chart: "Quarterly Revenue", 2Ã—2 subplot grid, y: Revenue ($)]*
+
 **Key Techniques Applied:**
 
 1. Each subplot accessed by index: `axes[row, col]`
@@ -3441,7 +3749,7 @@ Default spacing often causes:
 
 **Solution 1: tight_layout() - Automatic Adjustment**
 
-```python
+```{python}
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 
 # ... create your plots ...
@@ -3449,6 +3757,10 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 # Automatically adjust spacing
 plt.tight_layout()
 ```
+
+**Output:**
+
+*[Chart: 2Ã—2 subplot grid]*
 
 What `tight_layout()` does:
 
@@ -3461,7 +3773,7 @@ What `tight_layout()` does:
 
 For finer control:
 
-```python
+```{python}
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 
 # ... create your plots ...
@@ -3476,6 +3788,10 @@ plt.subplots_adjust(
     hspace=0.4     # Height space between subplots
 )
 ```
+
+**Output:**
+
+*[Chart: 2Ã—2 subplot grid]*
 
 **When to use manual adjustment:**
 
@@ -3498,7 +3814,7 @@ When comparing across subplots, inconsistent axis scales mislead viewers:
 
 **Solution: Share X and/or Y Axes**
 
-```python
+```{python}
 # Share Y-axis across all subplots (common scale)
 fig, axes = plt.subplots(2, 2, figsize=(12, 10), sharey=True)
 
@@ -3509,9 +3825,13 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10), sharex=True)
 fig, axes = plt.subplots(2, 2, figsize=(12, 10), sharex=True, sharey=True)
 ```
 
+**Output:**
+
+*[Chart: 2Ã—2 subplot grid]*
+
 **Practical Example: Regional Sales Comparison**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Data for four regions
@@ -3556,6 +3876,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Chart: "North Region", 2Ã—2 subplot grid, x: Month, y: Sales ($)]*
+
 **Benefits of Sharing Axes:**
 
 - Honest visual comparison (same scale)
@@ -3571,7 +3895,7 @@ Complex business analyses require different visualization types for different me
 
 **Example: Comprehensive Product Analysis**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -3626,6 +3950,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Chart: "Units Sold", 3Ã—1 subplot grid, x: Month, y: Units]*
+
 **Design Principles Demonstrated:**
 
 1. **Visual Hierarchy**: Most important metric on top
@@ -3649,7 +3977,7 @@ Sometimes you need asymmetric layouts where subplots have different sizes.
 
 **Example: Executive Summary Layout**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
@@ -3697,6 +4025,10 @@ plt.savefig('M2L03_Executive_Dashboard.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
+**Output:**
+
+*[Chart: "Annual Revenue Trend", y: Revenue ($M)]*
+
 **When to Use GridSpec:**
 
 - Dashboard with featured metric + supporting metrics
@@ -3723,7 +4055,7 @@ plt.show()
 
 **Data:**
 
-```python
+```{python}
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 northeast = [145000, 158000, 152000, 171000, 168000, 182000]
 southeast = [132000, 138000, 145000, 151000, 158000, 165000]
@@ -3764,7 +4096,7 @@ west = [141000, 145000, 148000, 162000, 171000, 178000]
 
 **Data:**
 
-```python
+```{python}
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 units_sold = [8500, 9200, 11000, 12500]
 avg_price = [349, 339, 329, 319]
@@ -3806,7 +4138,7 @@ return_rate = [0.08, 0.07, 0.06, 0.05]  # 8%, 7%, 6%, 5%
 
 **Data:**
 
-```python
+```{python}
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 monthly_revenue = [2100000, 2250000, 2400000, 2350000, 2500000, 2650000, 
                    2600000, 2750000, 2850000, 2800000, 3100000, 3200000]
@@ -3859,7 +4191,7 @@ employee_count = [450, 455, 460, 465, 470, 475,
 **Create an Interactive Comparison Dashboard:**
 
 Use the following data for 3 products:
-```python
+```{python}
 quarters = ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 
             'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024']
 product_a_sales = [450, 480, 510, 540, 580, 620, 650, 680]
@@ -3963,14 +4295,14 @@ Bar charts are the most common visualization in business because they excel at a
 
 **Basic Vertical Bar Chart:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Sales by product category
 categories = ['Electronics', 'Clothing', 'Home Goods', 'Sports', 'Books']
 sales = [2850000, 1920000, 1650000, 1280000, 980000]
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 ax.bar(categories, sales, color='#2E86AB', edgecolor='black', linewidth=1.5)
 
@@ -3986,6 +4318,10 @@ ax.grid(True, alpha=0.3, axis='y')
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Bar chart: "Sales by Product Category - Q4 2024", x: Product Category, y: Sales Revenue ($)]*
 
 **Key Bar Chart Elements:**
 
@@ -4006,7 +4342,7 @@ plt.show()
 
 **Creating Horizontal Bars:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Top 10 salespeople (long names)
@@ -4036,6 +4372,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Horizontal bar chart: "Top 10 Salespeople - Annual Performance 2024", x: Annual Sales ($), y: Salesperson]*
+
 **Horizontal Bar Advantages:**
 
 - Category labels are always readable (no rotation needed)
@@ -4055,7 +4395,7 @@ Compare the same categories across different groups:
 
 **Creating Grouped Bars:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -4094,6 +4434,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Bar chart: "Year-over-Year Revenue Comparison", x: Quarter, y: Revenue]*
+
 **Grouped Bar Formula:**
 
 - Calculate positions: `x = np.arange(len(categories))`
@@ -4118,7 +4462,7 @@ Stacked bars answer: "What makes up this total?"
 
 **Creating Stacked Bars:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -4153,6 +4497,10 @@ ax.grid(True, alpha=0.3, axis='y')
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Bar chart: "Quarterly Revenue by Product Line - 2024", x: Quarter, y: Revenue]*
 
 **Stacked Bar Logic:**
 
@@ -4190,7 +4538,7 @@ Line charts are the default for showing change over time because:
 
 **Professional Line Chart:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Monthly website traffic
@@ -4231,6 +4579,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Line chart: "Website Traffic - 2024 Monthly Performance", x: Month, y: Monthly Visitors]*
+
 **Advanced Line Chart Features:**
 
 - **Markers**: Emphasize data points
@@ -4264,7 +4616,7 @@ Pie charts are controversial in data visualization:
 
 **Creating an Effective Pie Chart:**
 
-```python
+```{python}
 import matplotlib.pyplot as plt
 
 # Market share (simple, clear story)
@@ -4301,6 +4653,10 @@ ax.set_title('Smartphone Market Share - Q4 2024',
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Pie chart: "Smartphone Market Share - Q4 2024"]*
 
 **Pie Chart Best Practices:**
 
@@ -4368,7 +4724,7 @@ For most situations, consider:
 
 **Data:**
 
-```python
+```{python}
 categories = ['Fresh Produce', 'Dairy & Eggs', 'Meat & Seafood', 
               'Bakery', 'Frozen Foods', 'Beverages', 'Snacks', 'Health & Beauty']
 annual_revenue = [4850000, 3920000, 3650000, 2180000, 2950000, 
@@ -4400,7 +4756,7 @@ annual_revenue = [4850000, 3920000, 3650000, 2180000, 2950000,
 
 **Data:**
 
-```python
+```{python}
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 monthly_revenue = [2180000, 2050000, 2320000, 2280000, 2450000, 2390000,
@@ -4437,7 +4793,7 @@ monthly_revenue = [2180000, 2050000, 2320000, 2280000, 2450000, 2390000,
 
 **Data:**
 
-```python
+```{python}
 regions = ['Downtown Metro', 'Suburban North', 'Suburban South', 
            'Suburban East', 'Suburban West', 'Urban Center']
 q1_sales = [2850000, 3120000, 2980000, 2750000, 3050000, 2890000]
@@ -4478,7 +4834,7 @@ q4_sales = [3350000, 3580000, 3420000, 3180000, 3450000, 3280000]
 
 **Data:**
 
-```python
+```{python}
 quarters = ['Q1', 'Q2', 'Q3', 'Q4']
 produce = [1150000, 1220000, 1180000, 1300000]
 dairy = [980000, 1020000, 950000, 970000]
@@ -4516,7 +4872,7 @@ frozen = [720000, 750000, 730000, 750000]
 
 **Data:**
 
-```python
+```{python}
 category_groups = ['Perishables', 'Packaged Goods', 'Non-Food']
 revenue_by_group = [14900000, 8750000, 1850000]
 ```
@@ -4663,9 +5019,18 @@ Consider creating a visualization showing the relationship between two variables
 - Customize colors, labels, styles
 
 **Seaborn approach**: 1 line of code
-```python
+```{python}
+df = pd.DataFrame({
+    'advertising_spend': np.random.uniform(1000, 50000, 50),
+    'revenue': np.random.uniform(10000, 500000, 50)
+})
 sns.regplot(data=df, x='advertising_spend', y='revenue')
+plt.show()
 ```
+
+**Output:**
+
+*[Regression scatter plot: x: advertising_spend, y: revenue]*
 
 Seaborn handles all statistical calculations and styling automatically.
 
@@ -4693,13 +5058,13 @@ Seaborn handles all statistical calculations and styling automatically.
 **Installation:**
 
 Seaborn should already be installed from Module 1, but if needed:
-```python
+```
 pip install seaborn
 ```
 
 **Standard Import Convention:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -4709,10 +5074,14 @@ The alias `sns` is universally used (named after Samuel Norman Seaborn, a charac
 
 **Version Check:**
 
-```python
+```{python}
 import seaborn as sns
 print(sns.__version__)  # Should be 0.12 or higher
 ```
+
+**Output:**
+
+*[Chart]*
 
 **Seaborn's Theme and Style System**
 
@@ -4724,7 +5093,7 @@ One of Seaborn's most appreciated features is its built-in aesthetic system. Wit
 
 Seaborn provides five preset themes:
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -4735,6 +5104,10 @@ sns.set_style("dark")       # Dark background, no grid
 sns.set_style("white")      # White background, no grid
 sns.set_style("ticks")      # White background with tick marks
 ```
+
+**Output:**
+
+*[Chart]*
 
 **Style Characteristics:**
 
@@ -4748,13 +5121,17 @@ sns.set_style("ticks")      # White background with tick marks
 
 Seaborn also provides context settings that scale all elements appropriately for different uses:
 
-```python
+```{python}
 # Contexts scale font sizes and element sizes
 sns.set_context("paper")     # Smallest, for journal papers
 sns.set_context("notebook")  # Default, good for screen viewing
 sns.set_context("talk")      # Larger, for presentations
 sns.set_context("poster")    # Largest, for posters/large displays
 ```
+
+**Output:**
+
+*[Chart]*
 
 **Business Context Usage:**
 
@@ -4766,7 +5143,7 @@ sns.set_context("poster")    # Largest, for posters/large displays
 
 Seaborn provides sophisticated color palettes designed by professionals:
 
-```python
+```{python}
 # Set color palette
 sns.set_palette("deep")      # Deep, saturated colors (default)
 sns.set_palette("muted")     # Softer, muted colors (professional)
@@ -4776,9 +5153,13 @@ sns.set_palette("dark")      # Dark colors
 sns.set_palette("colorblind") # Colorblind-safe palette (recommended!)
 ```
 
+**Output:**
+
+*[Chart]*
+
 **Professional Setup for Business:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -4787,6 +5168,10 @@ sns.set_theme(style="whitegrid",      # Clean, professional
               context="talk",          # Large enough for presentations
               palette="colorblind")    # Accessible to all
 ```
+
+**Output:**
+
+*[Chart]*
 
 This single setup ensures all subsequent Seaborn plots have a professional, accessible appearance.
 
@@ -4814,9 +5199,11 @@ Seaborn has two types of functions, and understanding the difference is essentia
 
 **Practical Example:**
 
-```python
+```{python}
+df = pd.DataFrame({'sales': np.random.normal(50000, 15000, 200)})
+
 # Axes-level: You control the figure
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 sns.histplot(data=df, x='sales', ax=ax)
 ax.set_title('Sales Distribution')
 plt.show()
@@ -4825,6 +5212,10 @@ plt.show()
 sns.displot(data=df, x='sales', height=6, aspect=1.67)
 plt.show()
 ```
+
+**Output:**
+
+*[Distribution plot: "Sales Distribution", x: sales]*
 
 **Which to Use?**
 
@@ -4852,7 +5243,7 @@ Histograms answer these questions visually by showing:
 
 **Creating a Histogram with Seaborn:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -4866,7 +5257,7 @@ data = {
 df = pd.DataFrame(data)
 
 # Create histogram
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 sns.histplot(data=df, x='purchase_amount', bins=10, 
              kde=False, color='#2E86AB', ax=ax)
 
@@ -4878,6 +5269,10 @@ ax.set_ylabel('Number of Customers', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Distribution plot: "Distribution of Customer Purchase Amounts", x: Purchase Amount ($), y: Number of Customers]*
 
 **Understanding Histogram Parameters:**
 
@@ -4894,6 +5289,7 @@ plt.show()
 **Reading the Story:**
 
 Looking at a histogram, ask:
+
 1. **Shape**: Is it symmetric (normal) or skewed (one tail longer)?
 2. **Peaks**: One peak (unimodal) or multiple peaks (bimodal)?
 3. **Outliers**: Any bars far from the main cluster?
@@ -4921,7 +5317,7 @@ Kernel Density Estimation (KDE) creates a smooth curve representing the data dis
 
 **Creating a KDE Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -4934,7 +5330,7 @@ df = pd.DataFrame({
     'product': ['A']*len(product_a_revenue) + ['B']*len(product_b_revenue)
 })
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # KDE plots for both products
 sns.kdeplot(data=df, x='revenue', hue='product', 
@@ -4948,6 +5344,10 @@ ax.set_ylabel('Density', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Distribution plot: "Revenue Distribution Comparison: Product A vs B", x: Revenue ($1000s), y: Density]*
 
 **KDE Parameters Explained:**
 
@@ -5015,7 +5415,7 @@ Box plots excel at this by showing multiple distributions side-by-side compactly
 
 **Creating Box Plots:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5036,7 +5436,7 @@ data = {
 }
 df = pd.DataFrame(data)
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 sns.boxplot(data=df, x='region', y='sales', 
             palette='Set2', ax=ax)
@@ -5049,6 +5449,10 @@ ax.set_ylabel('Sales ($1000s)', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Box plot: "Sales Performance by Region - Q4 2024", x: Region, y: Sales ($1000s)]*
 
 **Reading Box Plots for Business Insights:**
 
@@ -5089,14 +5493,14 @@ A CFO looking at departmental budget variance box plots:
 
 1. Create file: `S1234567_YourName_StatPlots.py`
 2. Import libraries:
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 ```
 3. Set Seaborn theme at the top of your file:
-```python
+```{python}
 sns.set_theme(style="whitegrid", context="talk", palette="colorblind")
 ```
 4. Create output folder: "Lab1_Outputs"
@@ -5107,7 +5511,7 @@ sns.set_theme(style="whitegrid", context="talk", palette="colorblind")
 
 **Data:**
 
-```python
+```{python}
 # Generate realistic age distribution (you'll learn to load real data later)
 np.random.seed(42)
 member_ages = np.concatenate([
@@ -5156,7 +5560,7 @@ df_ages = pd.DataFrame({'age': member_ages})
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 basic_revenue = np.random.normal(450, 75, 180)      # Basic: $450 avg
 premium_revenue = np.random.normal(850, 120, 150)   # Premium: $850 avg
@@ -5205,7 +5609,7 @@ df_revenue = pd.DataFrame({
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Weekly visits by time of day
@@ -5258,7 +5662,7 @@ df_visits = pd.DataFrame({
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 facilities = ['Downtown', 'Suburban North', 'Suburban South', 'University District', 'Business Park']
@@ -5445,7 +5849,7 @@ We introduced scatter plots in Module 2, but Seaborn enhances them significantly
 
 **Seaborn's regplot() - Scatter + Regression:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5461,7 +5865,7 @@ df = pd.DataFrame({
     'revenue': revenue
 })
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Create scatter plot with regression line
 sns.regplot(data=df, x='marketing_spend', y='revenue',
@@ -5481,6 +5885,10 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x/1000:.0f}K'))
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Regression scatter plot: "Marketing Spend vs Revenue Analysis", x: Marketing Spend ($), y: Revenue ($)]*
 
 **What regplot() Provides Automatically:**
 
@@ -5523,7 +5931,7 @@ This provides comprehensive understanding:
 
 **Creating a Joint Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5553,6 +5961,10 @@ g.set_axis_labels('Years of Experience', 'Annual Salary ($)', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Joint plot: "Employee Compensation Analysis: Experience vs Salary", x: years_experience, y: salary]*
 
 **Joint Plot "kind" Options:**
 
@@ -5626,7 +6038,7 @@ Which variables correlate? Pair plots show all relationships at once.
 
 **Creating a Pair Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5661,6 +6073,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Pair plot: "Customer Metrics - Pairwise Relationship Analysis"]*
+
 **Understanding the Pair Plot Grid:**
 
 **Diagonal (top-left to bottom-right):**
@@ -5692,7 +6108,7 @@ From the pair plot, you might discover:
 
 **Adding Categories with Hue:**
 
-```python
+```{python}
 # Add customer segment
 df_customers['segment'] = pd.cut(df_customers['income'],
                                   bins=[0, 50000, 100000, 300000],
@@ -5708,6 +6124,10 @@ g = sns.pairplot(df_customers,
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Pair plot]*
 
 Now each scatter plot shows three colors (Budget, Standard, Premium), revealing:
 
@@ -5740,7 +6160,7 @@ If residuals show patterns, the linear model may be inappropriate.
 
 **Creating a Residual Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
@@ -5786,6 +6206,10 @@ axes[1].axhline(0, color='black', linestyle='--', linewidth=1)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Chart: "Good Linear Fit\n(Random Scatter)", 1Ã—2 subplot grid, x: X Variable, y: Residuals]*
 
 **Interpreting Residual Plots:**
 
@@ -5860,7 +6284,7 @@ When exploring relationships in business data:
 
 **Complete Example Workflow:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5893,7 +6317,7 @@ g.fig.suptitle('Deep Dive: Advertising Impact on Revenue', y=1.02)
 plt.show()
 
 # Step 3: Check residuals
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 sns.residplot(data=df_sales, x='ad_spend', y='revenue',
               lowess=True, ax=ax)
 ax.set_title('Residual Analysis: Ad Spend Model')
@@ -5904,6 +6328,10 @@ plt.show()
 correlation = df_sales[['ad_spend', 'revenue']].corr().iloc[0, 1]
 print(f"Correlation between Ad Spend and Revenue: {correlation:.3f}")
 ```
+
+**Output:**
+
+*[Pair plot: "Residual Analysis: Ad Spend Model", x: ad_spend, y: revenue]*
 
 **Statistical Significance and Business Decisions**
 
@@ -5953,7 +6381,7 @@ Just because two variables correlate doesn't mean one causes the other:
 
 1. Create file: `M3L02_YourName_Relationships.py`
 2. Import libraries and set theme:
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -5969,7 +6397,7 @@ sns.set_theme(style="whitegrid", context="talk", palette="colorblind")
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 n_customers = 200
 
@@ -6068,7 +6496,7 @@ df_customers['satisfaction_score'] = df_customers['satisfaction_score'].clip(1.0
 
 **Data preparation:**
 
-```python
+```{python}
 # Add revenue data with realistic relationships
 df_customers['annual_revenue'] = (
     df_customers['contract_value'] * 1.2 +  # Base revenue from contract
@@ -6112,7 +6540,7 @@ df_customers['annual_revenue'] = df_customers['annual_revenue'].clip(0, None)
 
 1. **Create customer segments (5 points):**
 
-```python
+```{python}
 # Create size segments
 df_customers['company_size'] = pd.cut(df_customers['contract_value'],
                                        bins=[0, 25000, 60000, 150000],
@@ -6285,7 +6713,7 @@ Count plots are the categorical equivalent of histograms - they show how many ob
 
 **Creating a Count Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6299,7 +6727,7 @@ segments = np.random.choice(['Budget', 'Standard', 'Premium', 'Enterprise'],
 
 df = pd.DataFrame({'segment': segments})
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 sns.countplot(data=df, x='segment', 
               order=['Budget', 'Standard', 'Premium', 'Enterprise'],
@@ -6318,6 +6746,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Count plot: "Customer Distribution by Segment", x: Customer Segment, y: Number of Customers]*
+
 **Key Parameters Explained:**
 
 - **order**: Specify category order (important for logical flow)
@@ -6331,10 +6763,10 @@ plt.show()
 
 **Adding Percentages:**
 
-```python
+```{python}
 # Calculate and display percentages
 total = len(df)
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 sns.countplot(data=df, x='segment', 
               order=['Budget', 'Standard', 'Premium', 'Enterprise'],
@@ -6351,6 +6783,10 @@ ax.set_title('Customer Distribution by Segment (with Percentages)',
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Count plot: "Customer Distribution by Segment (with Percentages)", x: segment]*
 
 **Business Interpretation:**
 
@@ -6377,7 +6813,7 @@ While count plots show frequencies, bar plots show **aggregated metrics** for ea
 
 **Creating a Bar Plot:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6398,7 +6834,7 @@ df_sales = pd.DataFrame({
     'sales': sales
 })
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Bar plot shows MEAN by default
 sns.barplot(data=df_sales, x='region', y='sales',
@@ -6419,6 +6855,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Bar plot: "Average Sales by Region (with Std Dev)", x: Region, y: Average Sales ($)]*
+
 **Understanding Error Bars:**
 
 The black lines on top of bars represent uncertainty or variability:
@@ -6436,7 +6876,7 @@ The black lines on top of bars represent uncertainty or variability:
 
 **Changing the Aggregation Function:**
 
-```python
+```{python}
 # Instead of mean, show median or sum
 sns.barplot(data=df_sales, x='region', y='sales',
             estimator='median',  # Use median instead of mean
@@ -6446,6 +6886,10 @@ sns.barplot(data=df_sales, x='region', y='sales',
 sns.barplot(data=df_sales, x='region', y='sales',
             estimator='sum')
 ```
+
+**Output:**
+
+*[Bar plot: x: region, y: sales]*
 
 **Violin Plots - Distribution Shapes Within Categories**
 
@@ -6469,7 +6913,7 @@ A violin plot is essentially a **rotated, mirrored KDE plot** for each category:
 
 **Creating Violin Plots:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6516,6 +6960,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Violin plot: "Employee Satisfaction Distribution by Department", x: Department, y: Satisfaction Score (1-5)]*
+
 **Violin Plot Parameters:**
 
 - **inner='box'**: Shows box plot inside (median, quartiles)
@@ -6556,7 +7004,7 @@ We introduced box plots in Section 1, but they shine brightest when comparing di
 
 **Enhanced Categorical Box Plots:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6604,6 +7052,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Box plot: "Product Ratings by Category (Q4 2024)", x: Product Category, y: Customer Rating (1-5 stars)]*
+
 **Box Plot vs Violin Plot - When to Use Each:**
 
 **Use Box Plots when:**
@@ -6632,7 +7084,7 @@ Point plots are like line charts for categorical data, excellent for showing:
 
 **Creating Point Plots:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6675,6 +7127,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Chart: "Quarterly Customer Satisfaction Trends by Tier - 2024", x: Quarter, y: Average Satisfaction Score]*
+
 **Point Plot Features:**
 
 - **Points**: Show the mean (or other statistic) for each category
@@ -6699,7 +7155,7 @@ Sometimes aggregations hide important details. Strip and swarm plots show **ever
 
 **Strip Plots (with jitter):**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6754,6 +7210,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Strip plot: "Individual Deal Sizes by Sales Representative - Q4 2024", x: Sales Representative, y: Deal Size ($)]*
+
 **Strip Plot Parameters:**
 
 - **jitter**: Amount of horizontal random spread (0-0.5 typical)
@@ -6767,7 +7227,7 @@ plt.show()
 
 Swarm plots are like strip plots but organize points to avoid overlap:
 
-```python
+```{python}
 fig, ax = plt.subplots(figsize=(12, 6))
 
 sns.swarmplot(data=df_reps, x='sales_rep', y='deal_size',
@@ -6780,6 +7240,10 @@ ax.set_title('Deal Sizes by Sales Rep (Swarm Plot)',
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Strip plot: "Deal Sizes by Sales Rep (Swarm Plot)", x: sales_rep, y: deal_size]*
 
 **Swarm Plot Characteristics:**
 
@@ -6805,7 +7269,7 @@ plt.show()
 
 Seaborn allows combining plot types for comprehensive visualization:
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6845,6 +7309,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Violin plot: "Multi-Layer Visualization: Product Performance Scores", x: Product Line, y: Performance Score]*
+
 **What This Reveals:**
 
 - **Violin**: Overall distribution shape
@@ -6869,7 +7337,7 @@ This comprehensive view helps:
 
 1. Create file: `M3L03_YourName_Categorical.py`
 2. Import and configure:
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6885,7 +7353,7 @@ sns.set_theme(style="whitegrid", context="talk", palette="colorblind")
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # 5 product lines, 60 sales transactions each
@@ -6951,7 +7419,7 @@ df_products = pd.DataFrame({
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 regions = ['Northeast', 'Southeast', 'Midwest', 'Southwest', 
@@ -7017,7 +7485,7 @@ df_regional = pd.DataFrame(data_list)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 departments = ['Engineering', 'Sales', 'Marketing', 'Operations', 
@@ -7096,7 +7564,7 @@ df_employees = pd.DataFrame(data_list)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Generate customer base with realistic distribution
@@ -7333,7 +7801,7 @@ Correlation measures the **strength and direction** of a linear relationship bet
 
 **Calculating Correlations in Pandas:**
 
-```python
+```{python}
 import pandas as pd
 import numpy as np
 
@@ -7357,6 +7825,18 @@ df['revenue'] = (50000 +
 # Calculate correlation matrix
 correlation_matrix = df.corr()
 print(correlation_matrix)
+```
+
+**Output:**
+```
+                        revenue  ...  product_price
+revenue                1.000000  ...       0.026338
+marketing_spend        0.796992  ...      -0.035095
+sales_calls            0.282892  ...       0.027910
+customer_satisfaction  0.065851  ...       0.052959
+product_price          0.026338  ...       1.000000
+
+[5 rows x 5 columns]
 ```
 
 **Understanding the Correlation Matrix:**
@@ -7387,7 +7867,7 @@ price               -0.102345         0.034567    -0.056789      0.123456   1.00
 
 **Visualizing the Correlation Matrix:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -7443,6 +7923,10 @@ ax.set_title('Business Metrics Correlation Heatmap',
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Heatmap: "Business Metrics Correlation Heatmap"]*
 
 **Heatmap Parameters Explained:**
 
@@ -7504,7 +7988,7 @@ plt.show()
 
 Since correlation matrices are symmetric, showing both triangles is redundant:
 
-```python
+```{python}
 import numpy as np
 
 # Generate mask for upper triangle
@@ -7530,6 +8014,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Heatmap: "Correlation Heatmap (Lower Triangle)"]*
+
 **Benefits:**
 
 - Cleaner, more professional
@@ -7538,7 +8026,7 @@ plt.show()
 
 **Highlighting Strong Correlations:**
 
-```python
+```{python}
 # Create custom annotations to highlight strong correlations
 annot_array = corr_matrix.values.copy()
 annotations = []
@@ -7571,6 +8059,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Heatmap: "Correlation Heatmap (* indicates |r| > 0.7)"]*
+
 **Pivot Table Heatmaps - Two-Way Categorical Analysis**
 
 **Beyond Correlation - Categorical Relationships:**
@@ -7583,7 +8075,7 @@ Heatmaps aren't just for correlations. They excel at showing **values across two
 
 **Creating Pivot Table Heatmaps:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -7632,7 +8124,7 @@ pivot_table = df_sales.pivot_table(values='Sales',
                                     aggfunc='mean')
 
 # Create heatmap
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 sns.heatmap(pivot_table,
             annot=True,
@@ -7651,6 +8143,10 @@ ax.set_ylabel('Region', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
+**Output:**
+
+*[Heatmap: "Average Sales by Region and Quarter - 2024", x: Quarter, y: Region]*
 
 **Reading Two-Way Heatmaps:**
 
@@ -7690,7 +8186,7 @@ Sometimes relationships aren't obvious from raw order. Clustermaps **automatical
 
 **Creating a Clustermap:**
 
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -7749,6 +8245,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Output:**
+
+*[Cluster heatmap: "Clustered Correlation Heatmap - Business Metrics"]*
+
 **Reading a Clustermap:**
 
 **Dendrograms (Tree structures on sides):**
@@ -7795,7 +8295,7 @@ In predictive modeling or analysis, highly correlated independent variables caus
 
 **Using Heatmaps to Identify Redundancy:**
 
-```python
+```{python}
 # Identify highly correlated variable pairs (excluding diagonal)
 high_corr_pairs = []
 threshold = 0.85
@@ -7812,6 +8312,15 @@ for i in range(len(corr_matrix.columns)):
 df_high_corr = pd.DataFrame(high_corr_pairs)
 print("\nHighly Correlated Variable Pairs (|r| >= 0.85):")
 print(df_high_corr)
+```
+
+**Output:**
+```
+
+Highly Correlated Variable Pairs (|r| >= 0.85):
+Empty DataFrame
+Columns: []
+Index: []
 ```
 
 **Business Decision Framework:**
@@ -7837,7 +8346,7 @@ Different data types and questions require different color schemes:
 
 **Diverging (Best for Correlations):**
 
-```python
+```{python}
 # Data centered at 0, both positive and negative values
 cmap='coolwarm'  # Blue (negative) → White (zero) → Red (positive)
 cmap='RdBu_r'    # Red → Blue reversed
@@ -7846,7 +8355,7 @@ cmap='PiYG'      # Pink → Yellow → Green
 
 **Sequential (Best for One-directional Values):**
 
-```python
+```{python}
 # All positive values, low to high
 cmap='YlGnBu'    # Yellow → Green → Blue
 cmap='Blues'     # Light blue → Dark blue
@@ -7855,7 +8364,7 @@ cmap='Reds'      # Light red → Dark red
 
 **Qualitative (Best for Categories):**
 
-```python
+```{python}
 # Distinct categories, no order
 cmap='Set1'
 cmap='Set2'
@@ -7869,7 +8378,7 @@ cmap='tab10'
 - Negative (loss) = Red
 - Zero (break-even) = White
 - Positive (profit) = Green
-```python
+```{python}
 cmap='RdYlGn'  # Red-Yellow-Green
 ```
 
@@ -7877,7 +8386,7 @@ cmap='RdYlGn'  # Red-Yellow-Green
 
 - All positive values
 - Low = Light, High = Dark
-```python
+```{python}
 cmap='YlOrRd'  # Yellow-Orange-Red (heat map feel)
 ```
 
@@ -7885,7 +8394,7 @@ cmap='YlOrRd'  # Yellow-Orange-Red (heat map feel)
 
 - All positive (1-5 scale)
 - Low satisfaction = Red, High = Green
-```python
+```{python}
 cmap='RdYlGn'  # But not centered at 0, normalized to data range
 ```
 
@@ -7900,7 +8409,7 @@ cmap='RdYlGn'  # But not centered at 0, normalized to data range
 
 1. Create file: `M3L04_YourName_Heatmaps.py`
 2. Import and configure:
-```python
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -7916,7 +8425,7 @@ sns.set_theme(style="white", context="talk")
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 n = 250  # 250 days of data
 
@@ -8032,7 +8541,7 @@ df_metrics['Customer_Satisfaction'] = df_metrics['Customer_Satisfaction'].clip(1
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 channels = ['Email', 'Social Media', 'PPC', 'Display Ads']
@@ -8098,7 +8607,7 @@ df_marketing = pd.DataFrame(marketing_data)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Customer behavior metrics
@@ -8358,22 +8867,36 @@ Plotly is a graphing library that creates interactive, web-based visualizations:
 
 **1. Plotly Express (px) - High-Level API:**
 
-```python
+```{python}
 import plotly.express as px
+df = pd.DataFrame({
+    'sales': np.random.uniform(10000, 100000, 50),
+    'profit': np.random.uniform(1000, 20000, 50)
+})
 # Simple, concise, opinionated
 fig = px.scatter(df, x='sales', y='profit')
+fig.show()
 ```
+
+**Output:**
+
+*[Interactive scatter plot: x: sales, y: profit]*
 - **Best for**: Quick exploration, standard charts
 - **Advantages**: One-line plots, automatic styling
 - **Used when**: Learning, rapid prototyping
 
 **2. Plotly Graph Objects (go) - Low-Level API:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 # Detailed control, more verbose
-fig = go.Figure(data=[go.Scatter(x=sales, y=profit)])
+fig = go.Figure(data=[go.Scatter(x=df['sales'], y=df['profit'])])
+fig.show()
 ```
+
+**Output:**
+
+*[Interactive Plotly chart]*
 - **Best for**: Custom visualizations, fine control
 - **Advantages**: Complete flexibility
 - **Used when**: Specific requirements, complex layouts
@@ -8382,7 +8905,7 @@ fig = go.Figure(data=[go.Scatter(x=sales, y=profit)])
 
 **Installation Check:**
 
-```python
+```{python}
 import plotly
 print(plotly.__version__)  # Should be 5.x or higher
 ```
@@ -8411,7 +8934,7 @@ pip install plotly
 
 **Creating a Simple Interactive Scatter Plot:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -8438,9 +8961,14 @@ fig = px.scatter(df,
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive scatter plot: "Marketing Spend vs Revenue Analysis", x: marketing_spend, y: revenue]*
+
 **What Just Happened:**
 
 When you run `fig.show()`:
+
 1. Plotly generates an HTML file
 2. Opens it in your default browser
 3. You see an interactive chart with:
@@ -8478,7 +9006,7 @@ Professional hover should show:
 
 **Enhanced Hover with Custom Text:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -8521,6 +9049,10 @@ fig.update_traces(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive scatter plot: "Marketing ROI Analysis by Region", x: marketing_spend, y: revenue]*
+
 **Understanding Hover Customization:**
 
 **hover_data parameter:**
@@ -8531,6 +9063,7 @@ fig.show()
 
 **hovertemplate:**
 
+```
 - Custom HTML-like template
 - **%{x}**: X-axis value
 - **%{y}**: Y-axis value
@@ -8538,6 +9071,7 @@ fig.show()
 - **<b>...</b>**: Bold text
 - **<br>**: Line break
 - **<extra></extra>**: Remove default trace info
+```
 
 **Creating Interactive Line Charts**
 
@@ -8545,7 +9079,7 @@ fig.show()
 
 Line charts are perfect for exploring temporal patterns interactively.
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -8601,6 +9135,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive line chart: "Monthly Revenue Trends by Region (2022-2024)", x: date, y: date]*
+
 **Interactive Features Explained:**
 
 **1. Range Slider (rangeslider):**
@@ -8626,6 +9164,7 @@ fig.show()
 **Business Use Case:**
 
 Executive asks: "Did the South region dip in Q3 2023?"
+
 - Click-drag range slider to Q3 2023
 - Hover over September 2023
 - See all three regions' values
@@ -8635,7 +9174,7 @@ Executive asks: "Did the South region dip in Q3 2023?"
 
 **Bar Charts with Rich Context:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -8697,6 +9236,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive bar chart: "Annual Sales by Product Category - 2024", x: total_sales, y: category]*
+
 **Advanced Hover Formatting:**
 
 In `hover_data`:
@@ -8719,9 +9262,13 @@ In `hover_data`:
 
 **1. HTML (Interactive):**
 
-```python
+```{python}
 fig.write_html('M4L01_Interactive_Sales.html')
 ```
+
+**Output:**
+
+*[Chart]*
 - Fully interactive
 - Opens in any browser
 - Can be shared via email
@@ -8730,7 +9277,7 @@ fig.write_html('M4L01_Interactive_Sales.html')
 
 **2. Static Image (Non-Interactive):**
 
-```python
+```{python}
 fig.write_image('M4L01_Sales_Chart.png', width=1200, height=800)
 ```
 - Requires: `pip install kaleido`
@@ -8740,7 +9287,7 @@ fig.write_image('M4L01_Sales_Chart.png', width=1200, height=800)
 
 **3. For Presentations:**
 
-```python
+```{python}
 # Higher quality for projection
 fig.write_image('M4L01_Presentation.png', width=1920, height=1080, scale=2)
 ```
@@ -8778,16 +9325,25 @@ Interactive HTML charts can be embedded in:
 
 **Plotly Express (Simple):**
 
-```python
+```{python}
 import plotly.express as px
+df = pd.DataFrame({
+    'sales': np.random.uniform(10000, 100000, 60),
+    'profit': np.random.uniform(1000, 20000, 60),
+    'region': np.random.choice(['North', 'South', 'East', 'West'], 60)
+})
 
 fig = px.scatter(df, x='sales', y='profit', color='region')
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive scatter plot: x: sales, y: profit]*
+
 **Graph Objects (More Control):**
 
-```python
+```{python}
 import plotly.graph_objects as go
 
 fig = go.Figure()
@@ -8806,6 +9362,10 @@ fig.update_layout(title='Sales vs Profit by Region')
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart: "Sales vs Profit by Region"]*
+
 **Both produce similar results, but Express is much more concise for standard cases.**
 
 ### Lab Session
@@ -8819,7 +9379,7 @@ fig.show()
 
 1. Create file: `M4L01_YourName_Interactive.py`
 2. Import libraries:
-```python
+```{python}
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
@@ -8834,7 +9394,7 @@ import numpy as np
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Generate 3 years of daily sales data
@@ -8907,7 +9467,7 @@ df_monthly['date'] = df_monthly['date'].dt.to_period('M').dt.to_timestamp()
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 channels = ['Email', 'Social Media', 'PPC', 'Display', 'Influencer']
@@ -8994,7 +9554,7 @@ df_campaigns = pd.DataFrame(campaigns_list)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 categories = ['Electronics', 'Clothing', 'Home & Garden', 'Sports & Outdoors', 
@@ -9064,7 +9624,7 @@ df_products = pd.DataFrame(quarters_list)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 departments = ['Engineering', 'Sales', 'Marketing', 'Operations', 'Finance', 'HR', 'Customer Support']
@@ -9258,7 +9818,7 @@ Real business analysis often requires showing different data types on the same c
 
 **Example: Sales with Target Lines and Average:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9328,6 +9888,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart: "2024 Sales Performance: Actual vs Target with 2025 Forecast"]*
+
 **Understanding Multi-Trace Construction:**
 
 **Why Use Graph Objects Here:**
@@ -9364,7 +9928,7 @@ When comparing many groups, sometimes separate plots work better than overlaying
 
 **Creating Faceted Plots with Plotly Express:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -9433,6 +9997,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive line chart: "Sales Performance by Product and Region - 2024", x: date, y: sales]*
+
 **Faceting Parameters:**
 
 **facet_col**: Creates columns of subplots
@@ -9460,6 +10028,7 @@ fig.show()
 **Beyond Hover and Zoom:**
 
 Sometimes users need to change WHAT data is displayed, not just HOW it's viewed:
+
 - Switch between metrics (Revenue vs Profit vs Units)
 - Change time aggregation (Daily vs Monthly vs Quarterly)
 - Filter by category
@@ -9467,7 +10036,7 @@ Sometimes users need to change WHAT data is displayed, not just HOW it's viewed:
 
 **Creating Dropdown Menus:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9552,11 +10121,15 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart: "Business Performance Dashboard - Select Metric"]*
+
 **Understanding Update Menus:**
 
 **Structure:**
 
-```python
+```{python}
 updatemenus=[
     dict(
         buttons=[...],      # List of button definitions
@@ -9605,7 +10178,7 @@ Animation is powerful when:
 
 **Creating Animated Scatter Plot:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -9670,6 +10243,10 @@ fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 500
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive scatter plot: "Company Growth Animation: Revenue vs Profitability (2020-2024)", x: revenue, y: profit_margin]*
+
 **Animation Parameters:**
 
 **animation_frame**: Variable that defines time steps
@@ -9684,7 +10261,7 @@ fig.show()
 
 **Fixed Ranges (Important!):**
 
-```python
+```{python}
 range_x=[0, 500],
 range_y=[0, 0.35]
 ```
@@ -9692,7 +10269,7 @@ Without fixed ranges, axes rescale each frame (disorienting).
 
 **Animation Speed:**
 
-```python
+```{python}
 fig.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 1000  # 1 second per frame
 fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 500  # 0.5s transition
 ```
@@ -9716,7 +10293,7 @@ Some business problems naturally have three continuous dimensions:
 
 **Creating 3D Scatter Plot:**
 
-```python
+```{python}
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -9796,6 +10373,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive 3D scatter plot: "Customer Segmentation Analysis (3D)", x: age, y: annual_income]*
+
 **3D Interactivity:**
 
 Users can:
@@ -9834,7 +10415,7 @@ Show multiple related views that interact together:
 
 **Creating Synchronized Subplots:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
@@ -9907,6 +10488,10 @@ fig.update_xaxes(title_text='Product', row=3, col=1)
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart]*
+
 **Key Synchronization Features:**
 
 **shared_xaxes=True:**
@@ -9943,7 +10528,7 @@ Professional applications require brand consistency:
 
 **Creating a Custom Theme:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 import plotly.express as px
 
@@ -9991,14 +10576,22 @@ COMPANY_TEMPLATE = go.layout.Template(
 )
 
 # Use the custom template
+df = pd.DataFrame({
+    'category': ['Electronics', 'Accessories', 'Software', 'Services'],
+    'sales': [45000, 28000, 35000, 22000]
+})
 fig = px.bar(df, x='category', y='sales')
 fig.update_layout(template=COMPANY_TEMPLATE)
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive bar chart: x: category, y: Arial, sans-serif]*
+
 **Applying Theme Globally:**
 
-```python
+```{python}
 import plotly.io as pio
 
 # Set as default template
@@ -10006,9 +10599,14 @@ pio.templates['company_theme'] = COMPANY_TEMPLATE
 pio.templates.default = 'company_theme'
 
 # Now all plots use this theme automatically
+df = pd.DataFrame({'x': range(5), 'y': [1, 4, 2, 5, 3]})
 fig = px.scatter(df, x='x', y='y')
 fig.show()  # Automatically uses company theme
 ```
+
+**Output:**
+
+*[Interactive scatter plot: x: x, y: y]*
 
 ### Lab Session
 **Lab 2: Advanced Interactive Visualizations**
@@ -10021,7 +10619,7 @@ fig.show()  # Automatically uses company theme
 
 1. Create file: `M4L02_YourName_Advanced.py`
 2. Import libraries:
-```python
+```{python}
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -10036,7 +10634,7 @@ import numpy as np
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 months = pd.date_range('2024-01-01', '2024-12-31', freq='M')
@@ -10092,7 +10690,7 @@ df_financial['roi'] = (df_financial['profit'] / df_financial['operating_costs'])
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 quarters = ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 
@@ -10164,7 +10762,7 @@ df_market = pd.DataFrame(market_data)
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 n_products = 50
@@ -10243,7 +10841,7 @@ df_portfolio.loc[(df_portfolio['quality_score'] < 70) |
 
 **Data:**
 
-```python
+```{python}
 np.random.seed(42)
 
 regions = ['North', 'South', 'East', 'West', 'Central']
@@ -10442,7 +11040,7 @@ A dashboard is not just multiple charts on one page. An effective business dashb
 
 **Strategic Layout Patterns:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
@@ -10565,6 +11163,10 @@ fig.update_yaxes(title_text='Margin', tickformat='.0%', row=2, col=1)
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart]*
+
 **Layout Strategy Explained:**
 
 **Top Row (Strategic Overview):**
@@ -10585,7 +11187,7 @@ fig.show()
 
 Key Performance Indicators should be immediately visible, large, and comparative.
 
-```python
+```{python}
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -10681,6 +11283,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart: "<b>Key Performance Indicators - December 2024</b>"]*
+
 **KPI Card Best Practices:**
 
 **1. Structure:**
@@ -10706,7 +11312,7 @@ fig.show()
 
 **Integrated Dashboard with All Elements:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
@@ -10818,7 +11424,7 @@ fig.add_trace(go.Table(
         ['Revenue', 'Customers', 'Profit Margin', 'Satisfaction'],
         ['$1.18M', '4,850', '28%', '4.5/5'],
         ['$1.10M', '4,500', '25%', '4.0/5'],
-        ['✓ Exceeds', '✓ Exceeds', '✓ Exceeds', '✓ Exceeds']
+        [' Exceeds', ' Exceeds', ' Exceeds', ' Exceeds']
     ],
     fill_color=[['#F8F9FA', 'white']*4],
     font=dict(size=11),
@@ -10843,6 +11449,10 @@ fig.update_yaxes(showgrid=True, gridcolor='white')
 
 fig.show()
 ```
+
+**Output:**
+
+*[Interactive Plotly chart]*
 
 **Dashboard Features:**
 
@@ -10870,7 +11480,7 @@ fig.show()
 
 Reports tell a story with data, guiding readers through analysis:
 
-```python
+```{python}
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -10950,10 +11560,12 @@ fig.add_trace(go.Scatter(
     line=dict(color='#06A77D', width=3)
 ), row=4, col=1)
 
-# Add target line
-fig.add_hline(y=4.0, line_dash='dash', line_color='red',
-              annotation_text='Minimum Target',
-              row=4, col=1)
+# Add target line (use add_shape for compatibility with mixed subplot types)
+fig.add_shape(type='line', x0=0, x1=1, xref='x4 domain',
+              y0=4.0, y1=4.0, yref='y4',
+              line=dict(dash='dash', color='red'))
+fig.add_annotation(x=0.5, xref='x4 domain', y=4.0, yref='y4',
+                   text='Minimum Target', showarrow=False, yshift=12)
 
 # Recommendations (bottom)
 fig.add_trace(go.Table(
@@ -10985,6 +11597,10 @@ fig.update_layout(
 fig.show()
 ```
 
+**Output:**
+
+*[Interactive Plotly chart: "<b>2024 Annual Performance Analysis</b><br>"]*
+
 **Narrative Report Structure:**
 
 **1. Executive Summary:**
@@ -11011,7 +11627,7 @@ fig.show()
 
 **1. Interactive HTML (Best for Digital Distribution):**
 
-```python
+```{python}
 fig.write_html(
     'Executive_Dashboard_Dec2024.html',
     config={
@@ -11022,9 +11638,13 @@ fig.write_html(
 )
 ```
 
+**Output:**
+
+*[Chart]*
+
 **2. Static Image (For PowerPoint/Documents):**
 
-```python
+```{python}
 fig.write_image(
     'Dashboard_Report.png',
     width=1920,
@@ -11035,7 +11655,7 @@ fig.write_image(
 
 **3. PDF Report (For Print):**
 
-```python
+```{python}
 fig.write_image(
     'Annual_Report_2024.pdf',
     width=1200,
@@ -11067,7 +11687,7 @@ fig.write_image(
 
 **Making Dashboards Mobile-Friendly:**
 
-```python
+```{python}
 import plotly.graph_objects as go
 
 fig = go.Figure()
@@ -11102,6 +11722,10 @@ fig.write_html(
 )
 ```
 
+**Output:**
+
+*[Interactive Plotly chart]*
+
 **Design Considerations:**
 
 **Desktop (>1200px width):**
@@ -11133,7 +11757,7 @@ fig.write_html(
 
 1. Create file: `M4L03_YourName_Dashboards.py`
 2. Import libraries:
-```python
+```{python}
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -11148,7 +11772,7 @@ import numpy as np
 
 **Data Generation:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Generate 2024 monthly data
@@ -11215,7 +11839,7 @@ previous_ytd_customers = int(ytd_customers * 0.92)
 
 **Data Generation:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Store performance data
@@ -11301,7 +11925,7 @@ df_regional = df_operations.groupby('region').agg({
 
 **Data Generation:**
 
-```python
+```{python}
 np.random.seed(42)
 
 # Campaign data
@@ -11600,7 +12224,7 @@ You will complete a comprehensive analysis of a business dataset, applying every
 
 **Example: Retail Sales Analysis Project**
 
-```python
+```{python}
 """
 Final Project: Comprehensive Retail Sales Analysis
 Course: Data Visualization Analysis
@@ -11876,7 +12500,7 @@ regional_channel = df_clean.pivot_table(values='total_amount',
                                          columns='channel', 
                                          aggfunc='sum')
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(8, 5))
 sns.heatmap(regional_channel, annot=True, fmt=',.0f', cmap='YlGnBu', 
             linewidths=1, cbar_kws={'label': 'Revenue ($)'}, ax=ax)
 ax.set_title('Revenue by Region and Channel', fontsize=16, fontweight='bold', pad=20)
@@ -11913,7 +12537,7 @@ plt.tight_layout()
 plt.savefig('FinalProject_Outputs/FP_06_Correlation_Matrix.png', dpi=300, bbox_inches='tight')
 plt.close()
 
-print("\n✓ All static visualizations saved to FinalProject_Outputs/")
+print("\n All static visualizations saved to FinalProject_Outputs/")
 
 # ============================================================================
 # SECTION 6: INTERACTIVE DASHBOARD (Plotly)
@@ -12052,7 +12676,7 @@ fig.update_yaxes(tickformat='$,.0f', row=3, col=1)
 
 # Save dashboard
 fig.write_html('FinalProject_Outputs/FP_Interactive_Dashboard.html')
-print("\n✓ Interactive dashboard saved: FP_Interactive_Dashboard.html")
+print("\n Interactive dashboard saved: FP_Interactive_Dashboard.html")
 
 # ============================================================================
 # SECTION 7: KEY FINDINGS AND RECOMMENDATIONS
@@ -12133,12 +12757,16 @@ print("\n" + "="*70)
 print("PROJECT COMPLETE - All deliverables generated!")
 print("="*70)
 print("\nDeliverables created:")
-print("  ✓ 6 static visualizations (Matplotlib/Seaborn)")
-print("  ✓ 1 interactive dashboard (Plotly)")
-print("  ✓ Comprehensive analysis script")
-print("  ✓ Business insights and recommendations")
+print("   6 static visualizations (Matplotlib/Seaborn)")
+print("   1 interactive dashboard (Plotly)")
+print("   Comprehensive analysis script")
+print("   Business insights and recommendations")
 print("\nAll files saved to: FinalProject_Outputs/")
 ```
+
+**Output:**
+
+*[Heatmap: "Monthly Revenue Trend - 2024", 1Ã—2 subplot grid, x: Month, y: Revenue ($)]*
 
 ### Lab Session
 **Final Project: Comprehensive Business Data Analysis**
@@ -12180,6 +12808,7 @@ print("\nAll files saved to: FinalProject_Outputs/")
 **Part 1: Data Preparation and Cleaning (20 points)**
 
 **Deliverable:** Python script section demonstrating:
+
 1. Data import from CSV/Excel (or generated data)
 2. Initial exploratory analysis:
    - Dataset dimensions and structure
@@ -12211,6 +12840,7 @@ print("\nAll files saved to: FinalProject_Outputs/")
 **Part 2: Exploratory Analysis (20 points)**
 
 **Deliverable:** Python script section with:
+
 1. Descriptive statistics:
    - Summary stats for all numeric variables
    - Frequency tables for categorical variables
@@ -12368,6 +12998,7 @@ print("\nAll files saved to: FinalProject_Outputs/")
 **Final Deliverables Checklist:**
 
 Submit all of the following:
+
 1. **Python Script:** `FinalProject_YourName_Analysis.py`
    - Complete, well-commented code
    - Follows project structure
@@ -12484,12 +13115,12 @@ Submit all of the following:
 
 Upon completing this project, you will have demonstrated:
 
-✓ Proficiency in Python for data analysis
-✓ Mastery of Pandas for data manipulation
-✓ Expertise in Matplotlib and Seaborn for static visualization
-✓ Advanced skills in Plotly for interactive dashboards
-✓ Ability to communicate data insights to business audiences
-✓ End-to-end project execution capability
+- Proficiency in Python for data analysis
+- Mastery of Pandas for data manipulation
+- Expertise in Matplotlib and Seaborn for static visualization
+- Advanced skills in Plotly for interactive dashboards
+- Ability to communicate data insights to business audiences
+ End-to-end project execution capability
 
 **You are now prepared for professional roles in:**
 

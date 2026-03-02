@@ -1,0 +1,49 @@
+Date,Product,Category,Price,Units_Sold,Revenue
+2024-01-01,Laptop,Electronics,1200,122,146400
+2024-01-01,Monitor,Electronics,350,147,51450
+2024-01-01,Keyboard,Accessories,75,255,19125
+2024-01-01,Mouse,Accessories,25,404,10100
+2024-01-01,Headset,Accessories,80,217,17360
+2024-01-01,Webcam,Electronics,120,192,23040
+2024-01-01,USB Hub,Accessories,35,328,11480
+2024-01-01,SSD Drive,Electronics,180,123,22140
+2024-02-01,Laptop,Electronics,1200,101,121200
+2024-02-01,Monitor,Electronics,350,138,48300
+2024-02-01,Keyboard,Accessories,75,280,21000
+2024-02-01,Mouse,Accessories,25,459,11475
+2024-02-01,Headset,Accessories,80,250,20000
+2024-02-01,Webcam,Electronics,120,188,22560
+2024-02-01,USB Hub,Accessories,35,333,11655
+2024-02-01,SSD Drive,Electronics,180,130,23400
+2024-03-01,Laptop,Electronics,1200,101,121200
+2024-03-01,Monitor,Electronics,350,163,57050
+2024-03-01,Keyboard,Accessories,75,309,23175
+2024-03-01,Mouse,Accessories,25,497,12425
+2024-03-01,Headset,Accessories,80,231,18480
+2024-03-01,Webcam,Electronics,120,200,24000
+2024-03-01,USB Hub,Accessories,35,392,13720
+2024-03-01,SSD Drive,Electronics,180,131,23580
+2024-04-01,Laptop,Electronics,1200,130,156000
+2024-04-01,Monitor,Electronics,350,176,61600
+2024-04-01,Keyboard,Accessories,75,328,24600
+2024-04-01,Mouse,Accessories,25,523,13075
+2024-04-01,Headset,Accessories,80,263,21040
+2024-04-01,Webcam,Electronics,120,209,25080
+2024-04-01,USB Hub,Accessories,35,390,13650
+2024-04-01,SSD Drive,Electronics,180,166,29880
+2024-05-01,Laptop,Electronics,1200,121,145200
+2024-05-01,Monitor,Electronics,350,180,63000
+2024-05-01,Keyboard,Accessories,75,326,24450
+2024-05-01,Mouse,Accessories,25,560,14000
+2024-05-01,Headset,Accessories,80,279,22320
+2024-05-01,Webcam,Electronics,120,208,24960
+2024-05-01,USB Hub,Accessories,35,433,15155
+2024-05-01,SSD Drive,Electronics,180,151,27180
+2024-06-01,Laptop,Electronics,1200,126,151200
+2024-06-01,Monitor,Electronics,350,189,66150
+2024-06-01,Keyboard,Accessories,75,326,24450
+2024-06-01,Mouse,Accessories,25,551,13775
+2024-06-01,Headset,Accessories,80,294,23520
+2024-06-01,Webcam,Electronics,120,215,25800
+2024-06-01,USB Hub,Accessories,35,423,14805
+2024-06-01,SSD Drive,Electronics,180,175,31500

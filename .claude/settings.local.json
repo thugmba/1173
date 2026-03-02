@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(python \"e:\\\\Data\\\\Gdrive\\\\Work\\\\Teaching\\\\Courses\\\\1173_Data_Visualization\\\\1173\\\\count_outputs.py\")",
+      "Bash(python \"e:\\\\Data\\\\Gdrive\\\\Work\\\\Teaching\\\\Courses\\\\1173_Data_Visualization\\\\1173\\\\check_missing.py\")",
+      "Bash(python \"e:\\\\Data\\\\Gdrive\\\\Work\\\\Teaching\\\\Courses\\\\1173_Data_Visualization\\\\1173\\\\process_viz.py\")"
+    ]
+  }
+}
