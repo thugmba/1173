@@ -1561,11 +1561,11 @@ df_clean = df.dropna(subset=["Sales"])
 ```{python}
 # Fill missing sales with average
 mean_sales = df["Sales"].mean()
-df["Sales"].fillna(mean_sales, inplace=True)
+df["Sales"] = df["Sales"].fillna(mean_sales)
 
 # Or median (better for skewed data)
 median_sales = df["Sales"].median()
-df["Sales"].fillna(median_sales, inplace=True)
+df["Sales"] = df["Sales"].fillna(median_sales)
 ```
 
 **When to use:** Numeric data, missingness is random, want to preserve dataset size.
@@ -1573,10 +1573,10 @@ df["Sales"].fillna(median_sales, inplace=True)
 **Strategy 3: Fill with Placeholder**
 ```{python}
 # Fill missing region with "Unknown"
-df["Region"].fillna("Unknown", inplace=True)
+df["Region"] = df["Region"].fillna("Unknown")
 
 # Fill missing dates with specific value
-df["Date"].fillna("2024-01-17", inplace=True)
+df["Date"] = df["Date"].fillna("2024-01-17")
 ```
 
 **When to use:** Categorical data, want to flag missing as separate category.
@@ -1584,10 +1584,10 @@ df["Date"].fillna("2024-01-17", inplace=True)
 **Strategy 4: Forward/Backward Fill**
 ```{python}
 # Copy previous value down
-df["Region"].fillna(method="ffill", inplace=True)
+df["Region"] = df["Region"].ffill()
 
 # Copy next value up
-df["Region"].fillna(method="bfill", inplace=True)
+df["Region"] = df["Region"].bfill()
 ```
 
 **When to use:** Time series data where values change slowly.
