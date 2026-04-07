@@ -24,7 +24,7 @@ By the end of this course, you will confidently use Python to analyze business d
 ## Course Materials
 
 - [Lecture Notes](Lectures/VIZ.html)
-- [Jupyter Notebooks](https://github.com/thugmba/Data_Viz_Notebooks)
+- [Jupyter Notebooks](https://thugmba.github.io/Data_Viz_Notebooks/)
 
 ## Term Project
 
